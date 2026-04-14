@@ -67,6 +67,37 @@
     margin-top: 3px;
     font-weight: 500;
   }
+  .quote-refresh-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 1.5px solid #E4E0DB;
+    background: #fff;
+    color: #6B6B6B;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    vertical-align: middle;
+    margin-left: 8px;
+  }
+  .quote-refresh-btn:hover { border-color: #E8692A; color: #E8692A; }
+  .status-card .status-edit-btn,
+  .status-card .contacts-edit-btn {
+    font-size: 0.68rem; color: #E8692A; cursor: pointer; margin-top: 4px;
+    background: none; border: none; font-family: inherit; font-weight: 600;
+    padding: 0;
+  }
+  .status-card .status-edit-btn:hover,
+  .status-card .contacts-edit-btn:hover { color: #D45B1F; }
+  .status-last-updated {
+    font-size: 0.7rem;
+    color: #999;
+    font-style: italic;
+    margin-top: 4px;
+  }
 
   /* ── Header ── */
   .header { text-align: center; margin-bottom: 16px; }
@@ -619,26 +650,201 @@ var clients = [
         "1 CMS training session + guide",
         "Monthly campaign execution + performance reviews"
       ],
+      fullScope: "",
       status: "In Progress"
     },
     recaps: [
-      {
+{
+        title: "Implants & Dentures Scripts Regroup",
+        date: "Apr 13, 2026",
+        attendees: "Anwar, Amanie, Nancy, Deb, Johnnyd",
+        summary: "<ul><li>Internal script review for implants and dentures video content</li><li>Refining scripts based on Dr. E's earlier feedback</li><li>Coordination between copy (Deb), creative direction (Johnnyd), and visuals (Amanie)</li></ul>"
+      },
+{
         title: "Island Dental Weekly Status",
         date: "Apr 3, 2026",
         attendees: "Anwar, Iryna, Dr. E, Caroline, Nancy, John D, Jackie Rose, Johnnyd, Robert Smith, Allison, Deb, Joe",
         summary: "<h3>TV Scripts</h3><ul><li>3 new 30-sec brand scripts presented: \"You Can,\" \"Miss You,\" \"The Last Time You Smiled\"</li><li>Core shift: emotion and confidence, not procedures</li><li>Dr. E positive \u2014 more relatable than previous concepts</li><li>Shoot logistics: Long Island office + coffee shop, possible Chicago second day</li><li>Talent: flat buyout fee, +10% options for years 2-3</li></ul><h3>Landing Pages</h3><ul><li>3 implant pages built in test, going live next week</li><li>Quiz form needs updating from Invisalign to implants</li><li>Dr. E wants location question moved to end of flow</li><li>One header photo swap to younger demographic needed</li></ul><h3>Dentures</h3><ul><li>On-site lab is the key differentiator</li><li>Lower-cost alternative to full-arch implants (~$30K)</li><li>Dr. E provided content notes for landing pages</li></ul><h3>Next Steps</h3><ul><li>Dr. E: feedback on 3 scripts by Mon Apr 6, choose one direction</li><li>Team: implant + denture script variants by Wed Apr 8</li><li>Shoot target: Tue Apr 14 (or push to week of Apr 20)</li><li>KD: update quiz form, review GoHighLevel flow</li><li>Iryna: pull Margarita campaign data for comparison</li></ul>"
       },
       {
-        title: "Implants & Dentures Scripts Regroup",
-        date: "Apr 13, 2026",
-        attendees: "Anwar, Amanie, Nancy, Deb, Johnnyd",
-        summary: "<ul><li>Internal script review for implants and dentures video content</li><li>Refining scripts based on Dr. E's earlier feedback</li><li>Coordination between copy (Deb), creative direction (Johnnyd), and visuals (Amanie)</li></ul>"
+        title: "Island Dental Bid",
+        date: "Apr 2, 2026",
+        attendees: "Anwar, Jeff (Rare Sightings)",
+        summary: "<ul><li>Production bid discussion for Island Dental commercials</li><li>One-day shoot at dental office, minimal lighting package (~$500)</li><li>Three spots: brand + denture + implant (differ only in RTBs/end card)</li><li>Casting locally (~$300/person via Backstage), no real patients</li><li>Two agency people on set (Anwar + one creative)</li><li>Jeff to tighten bid; Anwar to handle casting and share with John for approval</li></ul>"
       },
       {
+        title: "Island Dental Commercials IR #2",
+        date: "Apr 2, 2026",
+        attendees: "Anwar, Amanie, Nancy, Deb, John D, Johnnyd",
+        summary: "<h3>Final 3 Concepts Selected</h3><ul><li><strong>Last Time (Sofa):</strong> 'When was the last time you really smiled?' emotional montage</li><li><strong>You Can:</strong> 'You can hide a smile... or you can live your life again' direct approach</li><li><strong>Miss You:</strong> 'They miss you being you' social settings with withdrawn person</li></ul><h3>Concepts Cut</h3><ul><li>Excuses (budget), Little Things (less impact), Censored (too pharma), Swipe (complexity)</li></ul>"
+      },
+{
         title: "Island Dental Dentures Kickoff",
         date: "Apr 1, 2026",
         attendees: "Anwar, Amanie, Caroline, Nancy, Deb, John D, Johnnyd, Allison, Iryna",
         summary: "<ul><li>Kicked off dentures landing page and video content workstream</li><li>On-site lab positioning as key differentiator</li><li>Dentures as lower-cost alternative to implants</li><li>Content notes from Dr. E being organized for page build</li></ul>"
+      },
+      {
+        title: "Island Dental Implants Video Kickoff",
+        date: "Mar 31, 2026",
+        attendees: "Anwar, Amanie, Caroline, Nancy, Deb, John D, Johnnyd, Katie",
+        summary: "<ul><li>Creating implants video similar to Invisalign campaign</li><li>Mix of custom footage (shot by Marguerite) and stock footage</li><li>Unique hook for social scrollers, then 30-sec structure with offer</li><li>Key messaging: on-site lab, same day teeth, speed, price, finance options</li><li>Caroline leads concepting with Deb support; 3 concepts due Friday</li></ul>"
+      },
+      {
+        title: "Island Dental Spot Concepts Regroup",
+        date: "Mar 30, 2026",
+        attendees: "Anwar, Amanie, Deb, John D, Johnnyd, Nancy",
+        summary: "<ul><li>Dr. E rejected presented concepts, wants literal direct response approach</li><li>Claude AI analysis: Dr. E wants hiding behavior to recognition to freedom arc</li><li>Story structure: Problem (can't do things) to Solution (35 yrs + on-site lab) to Result (live again)</li><li>Deb to rework three concepts: revised sofa, swiping/hiding, straightforward script</li><li>Deliver scripts + 2-3 key frames instead of full boards going forward</li></ul>"
+      },
+      {
+        title: "Island Dental Weekly Status",
+        date: "Mar 27, 2026",
+        attendees: "Anwar, Iryna, Dr. E, Caroline, Nancy, John D, Jackie, Johnnyd, Robert, Katie, Allison, Deb, Doug, Amanie",
+        summary: "<h3>Landing Pages</h3><ul><li>Implant pages 2 (Pain) and 3 (Cost) approved, moving to dev</li><li>Templates for learning only, not building from them</li><li>Invisalign video approved pending asterisk on financing line</li></ul><h3>Commercial Concepts</h3><ul><li>3 concepts presented: Photo Booth, What Makes You Smile (sofa), Dr. E Story</li><li>Dr. E liked Photo Booth (B&W with smile popping in color) and sofa concepts</li></ul><h3>Media</h3><ul><li>First week: $350 spent, ~15K impressions, 228 clicks, 2.79% CTR</li><li>Best performing: simple text with price, $22 CPL</li><li>Franklin Square: 10 leads (5 already won)</li></ul><h3>Website</h3><ul><li>WordPress multisite live with 277 blogs migrated, 18 components, 32 pages</li></ul>"
+      },
+      {
+        title: "Island Dental Spots IR #2",
+        date: "Mar 26, 2026",
+        attendees: "Anwar, Amanie, John D, Johnnyd, Deb",
+        summary: "<ul><li>Presented 3 video concepts: Photo Booth, What Makes You Smile (interview/couch), Dr. E Story</li><li>Photo Booth: group posing, one hiding smile, B&W to color reveal</li><li>Interview concept: people on office couch, documentary style (Deb's favorite)</li><li>Dr. E Story: home movie style, 30+ years helping people</li><li>Minimal RTBs intentionally -- let client ask for more technical content</li><li>Amanie delivering storyboards by 3:30 PM; present to client tomorrow 1 PM</li></ul>"
+      },
+      {
+        title: "Island Dental Spots IR",
+        date: "Mar 25, 2026",
+        attendees: "Anwar, Amanie, Nancy, Deb, John D, Johnnyd, Katie",
+        summary: "<ul><li>Three concepts developed: Photo Booth, What Makes You Smile, Dr. E Focus</li><li>Photo Booth: POV from inside booth, variety of ages, Dr. E in some shots + VO</li><li>Sofa concept: real patients on couch answering 'what makes you smile?'</li><li>Dr. E concept: passion for dentistry, prompted naturally not scripted</li><li>Must include: on-site lab, modern tech, 30+ years credibility</li><li>Scripts due 11:30 AM, Amanie creates 6-frame boards, present Friday</li></ul>"
+      },
+      {
+        title: "Island Dental Landing Pages",
+        date: "Mar 25, 2026",
+        attendees: "Anwar, Iryna, Katie",
+        summary: "<ul><li>Dr. E wants 5 landing pages total (3 implant + AI-generated templates)</li><li>Timeline: 5 extra business days for ads + 2-3 weeks for LP build</li><li>Risk: visual/messaging misalignment between ads, LPs, and website</li><li>A/B testing with 5 LPs will fragment small budget, 2+ months for learnings</li><li>Documented implications for client review</li></ul>"
+      },
+      {
+        title: "Island Dental Weekly Status",
+        date: "Mar 20, 2026",
+        attendees: "Anwar, Iryna, Dr. E, Caroline, Nancy, John D, Jackie, Johnnyd, Robert, Katie, Allison, Deb, Amanie",
+        summary: "<ul><li>Landing page feedback: Dr. E likes cleaner design, feel-good phrases, good headlines</li><li>Free consult, lab on premises, and comparison cost sections to expand</li><li>Media budget: reduce Google PPC, G+ handles Meta (~$5,500 min), Steve handles Google</li><li>Don't include pricing table on landing pages</li><li>Possible Chicago shoot location; modeling agency PMG Model NY.com for talent</li><li>Dr. E to review LP Figma, confirm exact budget, share call center scripts</li></ul>"
+      },
+      {
+        title: "Island Dental Spots Internal Kickoff",
+        date: "Mar 19, 2026",
+        attendees: "Anwar, Amanie, Nancy, Deb, John D, Johnnyd, Katie",
+        summary: "<ul><li>Three 30-sec commercials: general brand, dental implants, dentures</li><li>Originally scoped as one 45-60 sec video with five cutdowns -- scope expanded</li><li>One-day shoot, all content simultaneously</li><li>Timeline: creative approval Apr 1, shoot in April, 3 weeks editing</li><li>Start with 3 brand concepts, then adapt chosen one for implants/dentures</li><li>Internal review Mar 25, client presentation Mar 27</li></ul>"
+      },
+      {
+        title: "Island Dental Videos Client Kickoff",
+        date: "Mar 18, 2026",
+        attendees: "Anwar, Amanie, Nancy, John D, Deb, Johnnyd, Katie, Dr. E, Robert",
+        summary: "<h3>Creative Direction</h3><ul><li>Single most important takeaway: credibility -- 'make them like us'</li><li>'Never talk about dentistry -- get them to like Dr. E first'</li><li>Appeal to fear, pain, cost; position as experts</li><li>Avoid dental office setting: 'scary places' -- shoot in comfort zones</li></ul><h3>Target</h3><ul><li>Middle-class Americans who want to be heard and understood</li><li>Success metric: increase phone calls ('make the phone ring')</li></ul><h3>Next Steps</h3><ul><li>Dr. E to send 3 competitor TV spots, talent agency contact, call center script</li><li>G+ to provide production schedule with shoot date options</li></ul>"
+      },
+      {
+        title: "ID Dental Landing Pages Regroup",
+        date: "Mar 16, 2026",
+        attendees: "Anwar, Amanie, Nancy, Deb, John D, Johnnyd, Katie, Allison, Doug",
+        summary: "<ul><li>Dr. E wants Aspen Dental approach: bigger headlines, less copy, feel-good phrases</li><li>Previously pushed for verbose 'kitchen sink' -- now wants streamlined</li><li>Test different headlines: finance, fear, pain emotional drivers</li><li>Lighter, whiter aesthetic with free-floating content</li><li>JD to audit and recommend removals, Deb to write copy, Allison to design</li></ul>"
+      },
+      {
+        title: "Island Dental Campaign Recovery",
+        date: "Mar 16, 2026",
+        attendees: "Anwar",
+        summary: "<ul><li>Invisalign campaign deleted by contractor Margarita Hernandez</li><li>Recommended: stay in current account (3-4 day rebuild vs new account 1-2 weeks)</li><li>Multiple parties managing same Meta/Google accounts -- coordination risk</li><li>Katie to send solution email to Dr. E; Nancy handles deletion communication</li><li>Need bigger picture discussion on Dr. E client management strategy</li></ul>"
+      },
+      {
+        title: "Island Dental Weekly Status",
+        date: "Mar 13, 2026",
+        attendees: "Anwar, Iryna, Dr. E, Nancy, John D, Jackie, Johnnyd, Robert, Katie, Allison, Deb, Doug, Joe, Amanie",
+        summary: "<ul><li>Invisalign campaign went live, approved storyboard option #2</li><li>Need asterisk for '100% financing' with credit approval disclaimer</li><li>Dental implants LP: Dr. E wants feel-good headlines addressing cost/pain/fear</li><li>'Taglines' meant headlines -- Aspen Dental inspired approach</li><li>TV spots must launch by beginning of May; kickoff next week</li><li>1-week delay for implants LP redesign iteration</li></ul>"
+      },
+      {
+        title: "Dental Implants LP Review with Dr. E",
+        date: "Mar 10, 2026",
+        attendees: "Anwar",
+        summary: "<ul><li>Color options 2 and 5 preferred from approved palette</li><li>Free consultation section ($500 value) needs more prominence</li><li>Image quality improvements needed -- iStock/Adobe Stock for high-res renders</li><li>Technical corrections: 'same day teeth replacement' vs 'same day implants'</li><li>Dr. E to provide taglines, iPick image, and 3D printer images</li></ul>"
+      },
+      {
+        title: "Island Dental Website Redesign Kickoff",
+        date: "Mar 10, 2026",
+        attendees: "Anwar, Amanie, Nancy, Deb, John D, Joe, Johnnyd, Katie, Allison, Doug",
+        summary: "<ul><li>John built comprehensive AI prototype (~30 pages) modeled on Aspen Dental</li><li>Batch content review: Batch 1 = Homepage, Services, Invisalign, Implants</li><li>Parallel workflow: content one chunk ahead of design</li><li>Go Live: May 18, 2026</li><li>Caroline gathering assets; Joe finalizing color palette</li></ul>"
+      },
+      {
+        title: "Island Dental Weekly Status",
+        date: "Mar 6, 2026",
+        attendees: "Anwar, Iryna, Dr. E, Caroline, Nancy, John D, Jackie, Johnnyd, Robert, Katie, Allison, Deb, Doug, Joe, Amanie",
+        summary: "<ul><li>Refined logo: thinner heart/tooth mark, 'Island Dental' caps, tagline lowercase</li><li>Color exploration: current palette may appear too expensive for middle-class target</li><li>Dental implants LP: hero targets aspirational 40s, pricing transparency, quiz for lead qualification</li><li>Invisalign video boards: 3 approaches (branded animation, lifestyle, social-native TikTok style)</li><li>Launch Invisalign Monday after conversion tracking setup</li></ul>"
+      },
+      {
+        title: "Island Dental Implants IR",
+        date: "Mar 5, 2026",
+        attendees: "Anwar, Deb, Johnnyd, Katie, Allison, Doug",
+        summary: "<ul><li>Design layout and staggered boxes approved for implant landing page</li><li>Swiper carousel for treatment options; video hosting via Go High Level or YouTube</li><li>Quiz CTA added with FICO score question for implants</li><li>Copy refinements: anti-Oxford comma standard, pricing confirmation pending</li><li>Photography shoot planned for April</li></ul>"
+      },
+      {
+        title: "Island Dental: Mid-Week Touch Base (Brand ID + Media)",
+        date: "Mar 4, 2026",
+        attendees: "Anwar, Iryna, Dr. E, Nancy, John D, Deb, Jackie, Johnnyd, Katie, Robert, Amanie, Joe",
+        summary: "<h3>Brand ID</h3><ul><li>Dr. E prefers Design System 2, likes gray from System 1</li><li>Logo: heart goes into tooth animation concept, make thinner/more subtle</li><li>Explore typography weights, slogan placement on bottom</li></ul><h3>Media Budget</h3><ul><li>2025: ~$10K/mo Google, only $800/mo Meta -- shifting more to Meta</li><li>2026 proposed: Implants 40%, Dentures 30%, Invisalign 30%</li><li>Platform: implants/dentures 50/50 Google/Meta; Invisalign heavy Meta</li></ul>"
+      },
+      {
+        title: "Island Dental Dev Media Redirect",
+        date: "Mar 4, 2026",
+        attendees: "Anwar, Iryna, Katie, Jons",
+        summary: "<ul><li>Campaign launch pushed from tomorrow to Friday</li><li>7-8 remaining dev tickets, mostly small fixes</li><li>Priority: redirect implementation for Meta ads compliance (healthcare workaround)</li><li>GA4/GTM configured; Conversion API setup needed for Meta</li><li>Hard deadline Friday (Iryna traveling)</li></ul>"
+      },
+      {
+        title: "Island Dental Implants Kickoff",
+        date: "Mar 2, 2026",
+        attendees: "Anwar, Amanie, Nancy, Johnnyd, Katie, Doug, Deb, Allison",
+        summary: "<ul><li>4 static ad sets: Lab Onsite, 0% Financing, Pricing Offers, General</li><li>JD leading content strategy by end of day Tuesday</li><li>Schedule: kickoff today, content Wed, client review Fri Mar 6, launch target Mon Mar 16</li><li>Same deliverables as Invisalign: landing page + static ads + video ad</li></ul>"
+      },
+      {
+        title: "Island Dental Video - Brief Caroline",
+        date: "Mar 2, 2026",
+        attendees: "Anwar, Amanie, Caroline, Deb, Johnnyd",
+        summary: "<ul><li>Two video approaches: stock footage (current, glossy) vs Island Dental-specific footage</li><li>Single copy approach with 3 different visual treatments</li><li>Copy aligns with static ads and homepage language</li><li>Stock footage strategy with product integration cheats</li><li>IR target Wednesday, client review Friday</li></ul>"
+      },
+      {
+        title: "Island Dental IR (Brand Review)",
+        date: "Mar 2, 2026",
+        attendees: "Anwar, Amanie, Nancy, John D, Joe, Johnnyd, Allison",
+        summary: "<ul><li>Color palette explorations: natural tones, coastal luxury, warm golden orange</li><li>Font exploration: Jost, Urbanist (team favorite), rounded serifs</li><li>Logo: ID monogram concepts, tooth/heart in circle gaining traction</li><li>Joe presented safer earth-tone approach using building exterior colors</li><li>John to make final direction choices tomorrow; mood boards for Wednesday presentation</li></ul>"
+      },
+      {
+        title: "Island Dental Accounts Regroup",
+        date: "Mar 2, 2026",
+        attendees: "Anwar, Nancy, Katie",
+        summary: "<ul><li>Invisalign LP completed, needs QA and domain connection</li><li>Next: dental implants (2 weeks), then dentures -- waterfall approach</li><li>Launch ads Thursday; 3 static ads sent as PDF for approval</li><li>Commercial shoot: send Spencer/Jeff to Franklin location, go live May 1</li><li>Schedule: Invisalign video boards kickoff + dental implants kickoff</li></ul>"
+      },
+      {
+        title: "Island Dental Weekly Status",
+        date: "Feb 27, 2026",
+        attendees: "Anwar, Iryna, Dr. E, Caroline, Nancy, John D, Jackie, Johnnyd, Robert, Katie, Allison, Deb, Doug, Joe, Amanie",
+        summary: "<ul><li>Invisalign campaign ready to launch Wed 3/4</li><li>A/B testing: Google PPC vs Meta ads performance comparison</li><li>Go High Level CRM for real conversion tracking</li><li>Dental implants LP and ads ready for review next Friday 3/6</li><li>TV commercial planning for April air date targeting May busy season</li></ul>"
+      },
+      {
+        title: "Island Dental (Scope & Status)",
+        date: "Feb 27, 2026",
+        attendees: "Anwar",
+        summary: "<ul><li>Full scope: brand redesign, website, 5 landing pages, paid media</li><li>Brand: direction chosen, iterating on color study</li><li>Invisalign LP targeting Mon 3/2 go-live</li><li>Paid media: testing with multiple ad variations per service, 2+ weeks before optimization</li><li>Staff conflict with Steve (on-staff) running existing campaigns</li></ul>"
+      },
+      {
+        title: "Island Dental Brand Design IR",
+        date: "Feb 23, 2026",
+        attendees: "Anwar, Caroline, Nancy, John D, Joe, Anders, Amanie, Allison",
+        summary: "<ul><li>Three directions: close-in evolution, care/heart+tooth combination, tooth with gradients</li><li>Kill sparkle elements entirely; eliminate Memphis-style blue swishes</li><li>Softer blues preferred, NY Islanders inspiration (Long Island nod)</li><li>Need photo treatments, print/digital mockups, pattern exploration for Wednesday presentation</li></ul>"
+      },
+      {
+        title: "Island Dental Up to Speed",
+        date: "Feb 17, 2026",
+        attendees: "Anwar, Katie",
+        summary: "<ul><li>6-month retainer through June; 3 landing pages in revisions, full website after</li><li>Paid media: 3 platforms, 2 creative concepts each</li><li>Video: one-day shoot, 45-60 sec main + 5 cutdowns, go live by May</li><li>Dr. E doesn't know what he wants until he sees it</li><li>Anwar taking over account management alongside Katie</li></ul>"
+      },
+      {
+        title: "Island Dental Touchbase",
+        date: "Feb 16, 2026",
+        attendees: "Anwar, Johnnyd, Katie, Allison, Nancy, John D",
+        summary: "<ul><li>Invisalign LP prioritized; JD created new page with Dr. E feedback</li><li>Full layout overhaul needed: spacing, margins, alignment, image optimization</li><li>Targeting Wednesday presentation to Dr. E</li><li>4 Invisalign ads planned: general, 0% financing, lab on site, $2998</li><li>Allison to complete design pass; Deb on video storyboard for Caroline</li></ul>"
       }
     ],
     notes: ""
@@ -680,26 +886,69 @@ var clients = [
         "Up to 5 mock digital ad assets"
       ],
       value: "$10,343",
+      fullScope: "",
       status: "Complete — now in website/trader personal brand phase"
     },
     recaps: [
-      {
+{
         title: "Covoya Regroup",
         date: "Apr 14, 2026",
         attendees: "Anwar, Caroline, Nancy, Deb, Johnnyd, Katie, Allison, Doug, Amanie",
         summary: "<h3>Team Page Redesign</h3><ul><li>Cards need redesign to eliminate hierarchy between traders and non-traders</li><li>Current hover state unclear \u2014 doesn't show traders are clickable</li><li>V1: keep sections but redesign cards with CTAs for traders, extra info for non-traders</li><li>Alternatives discussed: pop-up overlays, alphabetical + role badges, larger cards</li></ul><h3>Dev & QA</h3><ul><li>Continue QA on existing trader pages</li><li>Katie building test page with unimplemented components</li><li>Missing Figma elements need dev pass alignment (watermark illustrations, etc.)</li></ul><h3>Next Steps</h3><ul><li>Design team (Allison, Doug, Amanie) to solve card interaction challenge</li><li>Caroline to flag Figma vs. live misalignments</li><li>Timeline: 2 weeks for design, iterative approach</li><li>Ethan onboards after team page</li></ul>"
       },
       {
+        title: "Covoya Status (Team Page)",
+        date: "Apr 14, 2026",
+        attendees: "Anwar, Katie",
+        summary: "<h3>Team Page Redesign</h3><ul><li>Launch as-is then iterate approach confirmed</li><li>Professional headshot backgrounds needed, matching brand graphics</li><li>Lose on-hover for traders (replace with CTA); keep facts for non-traders</li><li>Hierarchy concern: avoid traders appearing 'on top of everyone'</li><li>Grid gaps: Rob alone at bottom, need filler or centering solution</li></ul><h3>Next Steps</h3><ul><li>Target V1 launch in 1-2 weeks</li><li>Figma designs before development</li><li>Font glyph research for European expansion</li></ul>"
+      },
+{
+        title: "Covoya Hand-offs to Caroline Discussion",
+        date: "Apr 3, 2026",
+        attendees: "Anwar, Johnnyd, Allison",
+        summary: "<ul><li>Planning transition of Covoya work to Caroline</li><li>Discussed scope and handoff logistics</li></ul>"
+      },
+      {
+        title: "Covoya Status",
+        date: "Mar 31, 2026",
+        attendees: "Anwar, Katie",
+        summary: "<ul><li>Rob requires all 11 traders to review/approve pages before go-live</li><li>5 trader pages nearly complete; missing trader photos</li><li>Ethan approach: go fast, don't wait -- 'silence = approval' policy</li><li>Convention deadline (World of Coffee mid-April) may need to push</li><li>Spotify and Instagram integrations are Phase 2 post-World of Coffee</li></ul>"
+      },
+{
         title: "Covoya Dev Handoffs - Components",
         date: "Mar 30, 2026",
         attendees: "Anwar, Nancy, Johnnyd, Katie, Allison, Doug, Deb",
         summary: "<ul><li>Component-level dev handoff session for Covoya website</li><li>Reviewed which components are ready for build vs. need design finalization</li><li>Doug building out pages based on Figma specs</li></ul>"
       },
       {
-        title: "Covoya Hand-offs to Caroline Discussion",
-        date: "Apr 3, 2026",
-        attendees: "Anwar, Johnnyd, Allison",
-        summary: "<ul><li>Planning transition of Covoya work to Caroline</li><li>Discussed scope and handoff logistics</li></ul>"
+        title: "Covoya IR",
+        date: "Mar 23, 2026",
+        attendees: "Anwar, Amanie, Nancy, Deb, John D, Johnnyd, Allison, Doug, Anders, Katie",
+        summary: "<h3>Design Feedback</h3><ul><li>Josh's name/headshot visually disconnected -- follow social media conventions</li><li>Too 'boxy' -- add moments of surprise, pattern, and joy</li><li>Coffee/shop picks should move much higher on page</li><li>'Craft Translator' persona label should replace 'Meet Josh' as headline</li></ul><h3>Presentation Strategy</h3><ul><li>3-step walkthrough: strategy recap, component list (~20 widgets), design walkthrough</li><li>Use Mark as reference -- most public content available</li></ul>"
+      },
+      {
+        title: "Covoya Status",
+        date: "Mar 17, 2026",
+        attendees: "Anwar, Katie",
+        summary: "<ul><li>Need to add Manny to staging access; permission issues with HTML blocks and variables</li><li>Simplecast podcast API access still denied</li><li>Nancy couldn't connect with Ian for trader content</li><li>Designs and copy ready to share Tuesday</li><li>Invite Doug to next week's technical discussion</li></ul>"
+      },
+      {
+        title: "Covoya Content Workshop",
+        date: "Mar 12, 2026",
+        attendees: "Anwar, Amanie, Nancy, Joe, Johnnyd, Katie, Allison, Doug, John D",
+        summary: "<ul><li>Defined text, image, rich media, and external link component types for trader pages</li><li>Magento limitations: HTML block access only, no rich text editor</li><li>Design philosophy: 'old school blog page and dating profile' -- hub, not museum</li><li>Two versions planned: maximum content vs bare minimum content</li><li>Wireframes due next Wed; copy completion Fri Mar 20</li></ul>"
+      },
+      {
+        title: "Covoya Status",
+        date: "Mar 10, 2026",
+        attendees: "Anwar, Katie",
+        summary: "<ul><li>Trader archetype system: Charlie 'System Strategist', Angela 'Community Connector', etc.</li><li>Three-tier visibility approach (high/moderate/lower profile)</li><li>Red Bull athlete profiles as inspiration model</li><li>CMS managed by Ethan and Sam, not traders directly</li><li>Target early April launch; QBR data analysis from Katie</li></ul>"
+      },
+      {
+        title: "Covoya Status",
+        date: "Mar 3, 2026",
+        attendees: "Anwar, Katie",
+        summary: "<ul><li>QBR adjusted and sent; Mexico trip content (daily recaps, documentary footage) available</li><li>Trader interviews: Charlie, Josh, Mark, Brittany done; Anna scheduled, Ian pending</li><li>Josh positioned as 'Craft Translator' -- bridges roaster language and customer needs</li><li>Trader comfort levels vary significantly; perfectionism a barrier</li><li>Target early April launch for landing pages</li></ul>"
       }
     ],
     notes: ""
@@ -740,20 +989,33 @@ var clients = [
         "3 landing pages (HubSpot + WordPress)",
         "Marketing dashboard (Looker)"
       ],
+      fullScope: "",
       status: "Active — solution pages in QA, migration kickoff Apr 15"
     },
     recaps: [
-      {
+{
         title: "Hyer Dev Handoff",
         date: "Mar 30, 2026",
         attendees: "Anwar, Amanie, John D, Johnnyd, Katie, Doug",
         summary: "<h3>Page Details</h3><ul><li><strong>On Demand Labor:</strong> half/half gradient header, icon grid, overlapping images, updated carousel</li><li><strong>Flex Connect:</strong> similar header, 4-5 clickable tab component, client rewrote all copy, sticky scroll section</li><li><strong>Third page:</strong> standard header, custom graph component, shaped graphics, long Hyer story section</li></ul><h3>Approach</h3><ul><li>Many homepage components reusable</li><li>No mobile designs \u2014 responsive during build</li><li>Building in draft pages on live site</li></ul><h3>Next Steps</h3><ul><li>Doug begins immediately</li><li>QA session with Pankaj once built</li><li>Target: end of next week (cautious)</li></ul>"
       },
-      {
+{
         title: "Hyer Client Feedback",
         date: "Mar 16, 2026",
         attendees: "Anwar, Amanie, Johnnyd, Katie, Doug, John D",
         summary: "<ul><li>Reviewed client feedback on Hyer solution page designs</li><li>Aligned on revisions before moving to dev handoff</li></ul>"
+      },
+      {
+        title: "Hyer Website Pages Refinements: REGROUP",
+        date: "Mar 4, 2026",
+        attendees: "Anwar, Pankaj, Katie, Amanie, Johnnyd, Daniel Dempsey, David Dempsey, Jennifer Solmi, Joseph Dempsey",
+        summary: "<ul><li>Overall positive response: 'Design looks much better' -- cleaner, more open</li><li>Copy accuracy issues: 'every task background checked' misleading for HyerConnect</li><li>CTA strategy needs clarification: 'Find work' more worker-focused than business-focused</li><li>'Hyer Ecosystem' should appear consistently across all pages</li><li>Mobile mockups needed after copy finalization; SEO under current retainer</li></ul>"
+      },
+      {
+        title: "Hyer Migration Pros/Cons",
+        date: "Mar 3, 2026",
+        attendees: "Anwar",
+        summary: "<ul><li>WordPress pros: familiar CMS, large community, plugins for everything</li><li>WordPress cons: less secure, plugins slow site and cause security issues</li><li>Headless pros: fast loading, highly secure, stable, enforces brand guidelines</li><li>Headless cons: 60-sec build time, requires dev for new components</li><li>Decision needed: upgrade WordPress vs go headless</li></ul>"
       }
     ],
     notes: ""
@@ -794,9 +1056,29 @@ var clients = [
         "Bazaarvoice implementation + integration"
       ],
       hours: "40 hours/month",
+      fullScope: "",
       status: "Waiting — blocked on payment + contract signature"
     },
-    recaps: [],
+    recaps: [
+      {
+        title: "Carbone Client Review",
+        date: "Feb 27, 2026",
+        attendees: "Anwar, Emily, Nancy, Christina, John D, Joe, Johnnyd, Caitlin",
+        summary: "<ul><li>Reviewed final color correction by Nolo colorist -- food pops without looking unnatural</li><li>New custom music track by John Scarpelli (award-winning composer) well received</li><li>Rewind the Night: 70-sec and 30-sec versions ready</li><li>Social media versions (20-sec cuts) addressed previous feedback</li><li>Media buy mid-March; assets needed first week of March</li><li>Chris needs to review and approve all materials</li></ul>"
+      },
+      {
+        title: "Carbone Music Scarpelli Review",
+        date: "Feb 23, 2026",
+        attendees: "Anwar, Joe, John D, Johnnyd, Jons, Deb",
+        summary: "<ul><li>Scarpelli music track positive reception, sufficiently different from MT Jones benchmark</li><li>Recommended musicologist review for legal protection</li><li>Johnnyd to create vocal demo in GarageBand for lyrics evaluation</li><li>Single track approach for all social cuts (different 15-sec segments)</li><li>Internal approval by Wednesday; client delivery with color pass Friday</li></ul>"
+      },
+      {
+        title: "Carbone Social Edits Review",
+        date: "Feb 20, 2026",
+        attendees: "Anwar, Aiden, Joe, Johnnyd",
+        summary: "<ul><li>Four social edits reviewed: Jars, Jar Pour, Pictures, Bolex -- all need 15-sec versions</li><li>Jars: reverse opening, add robust party atmosphere audio</li><li>Jar Pour: replace empty jar ending with appetizing food footage</li><li>Pictures: remove opening card, improve photo drop physics, make less digital</li><li>Bolex: remove title card, start with film footage, use filmic transitions</li></ul>"
+      }
+    ],
     notes: ""
   },
   {
@@ -838,26 +1120,87 @@ var clients = [
         "Packaging keylines",
         "Monthly reporting + optimization"
       ],
+      fullScope: "",
       status: "Active — Website 3.0 targeting first week of May"
     },
     recaps: [
-      {
+{
         title: "ITS Website 3.0 Design IR",
         date: "Apr 2, 2026",
         attendees: "Anwar, Nancy, John D, Allison, Doug, Jons, Joe",
         summary: "<h3>Pick-a-Mix Design</h3><ul><li>Sticky box anchored to footer, closes on 'add to bag'</li><li>Drag & drop + click for accessibility</li><li>Desktop: dropdown menu on empty slot click. Mobile: plus signs</li><li>X buttons for deletion (on hover or always visible)</li></ul><h3>UX Concerns</h3><ul><li>Disconnect between drag/drop and clinical 'add to cart' button</li><li>Need to account for future products beyond pasta</li><li>Editing vs. adding second pack needs clear differentiation</li></ul><h3>Next Steps</h3><ul><li>Deb: copy by Friday ('Pick a Mix' alternatives, instructional copy)</li><li>Solidify wireframe behaviors before visual design</li></ul>"
       },
       {
+        title: "ITS Shipper IR",
+        date: "Apr 1, 2026",
+        attendees: "Anwar, Nancy, Deb, Joe",
+        summary: "<ul><li>Reviewed rice and pasta shipper designs</li><li>Rice shipper: fist/fork brought down (no die cut), shrunk logo, QR removed</li><li>Pasta: two versions -- one matching packaging colors, one reversed</li><li>'Zero net carb pasta' readability issue -- spell out 'zero' or reposition</li><li>Leaf/glyphite icon duotone doesn't work on red background -- check with Christina</li></ul>"
+      },
+      {
+        title: "ITS Shipper - Brief Joe",
+        date: "Mar 30, 2026",
+        attendees: "Anwar, Joe, Anders",
+        summary: "<ul><li>Two shipper base concepts for pasta (fettuccine + spaghetti only)</li><li>Two general headers + two January-themed headers; rice blends header update only</li><li>Primary message: zero net carbs (pasta) / 50% less carbs (rice)</li><li>Die cuts allowed but within header boundaries, no sharp corners</li><li>Timeline: Round 1 Apr 3, Round 2 Apr 10, Finals Apr 15</li></ul>"
+      },
+      {
+        title: "ITS Warehouse Team Discussion",
+        date: "Mar 27, 2026",
+        attendees: "Anwar, Jons, Christina, Katie, Doug, Allison, Chandler Wilson (Launch Fulfillment), Andrew",
+        summary: "<ul><li>Moving from DtoC to DtoC 'light' with Launch Fulfillment; target May 5</li><li>Pick-your-own variety pack: push individual line items (cleanest approach)</li><li>Two-pack trials: not every SKU, only top products (spaghetti, fettuccine, rice blends)</li><li>Shopify checkout prevents quantity alterations (confirmed)</li><li>E-commerce moving to larger Costco packs Sept/Oct</li></ul>"
+      },
+{
         title: "ITS Shipper Designs Kickoff",
         date: "Mar 26, 2026",
         attendees: "Anwar, Christina, Nancy, Deb, John D, Johnnyd, Anders",
         summary: "<ul><li>Kicked off shipper design project with client</li><li>Anders and team aligned on deliverables and timeline</li></ul>"
       },
       {
+        title: "ITS Website 3.0 Kickoff",
+        date: "Mar 25, 2026",
+        attendees: "Anwar, Jons, Christina, Nancy, John D, Allison, Doug, Katie",
+        summary: "<ul><li>Launch target: first week of May</li><li>Shift from product sales to brand experience; redirect ecomm to Amazon/Walmart</li><li>Quarterly specialty boxes (sushi kit first), pick-a-mix 24 packs, 2-pack trials</li><li>2-pack purpose: TikTok influencer sampling (cheaper than 6-packs)</li><li>Update list/detail views: remove 'Add to Cart', add Amazon/Walmart links</li></ul>"
+      },
+{
         title: "ITS Christina + Anwar",
         date: "Mar 20, 2026",
         attendees: "Anwar, Christina",
         summary: "<ul><li>1:1 with Christina to discuss project priorities and status</li><li>Website 3.0, shipper, and warehouse logistics covered</li></ul>"
+      },
+      {
+        title: "ITS Expo Animation Kickoff",
+        date: "Feb 23, 2026",
+        attendees: "Anwar, Aiden, Caroline, John D, Deb, Joe",
+        summary: "<ul><li>16x9 animation for ITS Expo showcasing rice blends, 5-10 sec duration</li><li>Focus on rice applications: sushi, fried rice, any rice dish</li><li>Stock footage with motion graphics overlay</li><li>Deadline: Tuesday noon</li></ul>"
+      },
+      {
+        title: "ITS Christina + Anwar",
+        date: "Feb 23, 2026",
+        attendees: "Anwar, Christina",
+        summary: "<ul><li>Wrapping up new client challenges (Island Dental, Story Three, St. Lawrence)</li><li>Collab kit design finalized: red fork pattern inside</li><li>Blog table needed for next 6 months of LLM-optimized posts</li><li>Video shoot Wed at John's house: Chicken Alfredo and Shrimp Scampi ($1,500 + $200 props)</li><li>Minimal propping: no cream/parmesan (contradicts 'simple' messaging)</li></ul>"
+      },
+      {
+        title: "ITS Protein Shoot Brief",
+        date: "Feb 20, 2026",
+        attendees: "Anwar, Caroline, Deb, Joe, Dean Berdusis",
+        summary: "<ul><li>Two storyboard concepts for protein pasta commercial</li><li>Content creator aesthetic: between UGC and broadcast quality</li><li>iPhone ProRes 422 in log format; single soft box lighting</li><li>9:16 primary with 1:1 safe framing</li><li>Dean as director/DP; 8-10 hour day at boss's kitchen</li></ul>"
+      },
+      {
+        title: "ITS Rice Blends Shipper Review",
+        date: "Feb 18, 2026",
+        attendees: "Anwar, Jedulan, Deb, Joe",
+        summary: "<ul><li>Black background chosen for all 3 concepts to stand out in retail</li><li>Maintained 12-degree angle from packaging; product-agnostic design</li><li>Client (Jedulan) preferred middle concept; liked 'cooks in 5 minutes' callout</li><li>Die cut concerns: make more integrated, structural issues during transport</li><li>Joe to modify version 1 with integrated die cut</li></ul>"
+      },
+      {
+        title: "ITS Rice Blend Shipper IR",
+        date: "Feb 17, 2026",
+        attendees: "Anwar, Deb, Joe",
+        summary: "<ul><li>Three design options: die-cut fist/fork, simplified no die-cut, fork on top</li><li>Black design will be showstopper in stores</li><li>Key RTBs: 50% less carbs, gluten-free, non-GMO</li><li>Amazon messaging more compelling than dry RTBs: 'tastes just like regular rice', 'cooks in 5 min'</li><li>Client presentation tomorrow 1:30 PM with both RTB styles</li></ul>"
+      },
+      {
+        title: "ITS Christina + Anwar",
+        date: "Feb 13, 2026",
+        attendees: "Anwar, Christina",
+        summary: "<ul><li>Brand personality framework developed: 6 character archetypes, 'world's hype man' vibe</li><li>Social response templates needed from Olivia; Jefferson currently writing (English 3rd language)</li><li>Website nav redesign concepts due from Allison</li><li>New DP Dean for protein shoot ($1,800 budget, food content experience)</li><li>Monthly budget reporting: under budget, quarterly review preferred</li></ul>"
       }
     ],
     notes: ""
@@ -900,20 +1243,51 @@ var clients = [
         "3 website pages + 3 components",
         "1 Viking Ventures communications plan"
       ],
+      fullScope: "",
       status: "Active — VEI in client revision, 1961 Society higher priority"
     },
     recaps: [
-      {
+{
         title: "STL Handoff to Caroline",
         date: "Apr 13, 2026",
         attendees: "Anwar, Caroline, Nancy, Deb, Anders",
         summary: "<h3>VEI (Career Pathways)</h3><ul><li>Home page section linking to VEI with logo placement</li><li>8 industry cards as primary content, individual pages with specs + partnership logos</li><li>Image library available for aviation, business, etc.</li><li>In client revision phase, end of week delivery</li></ul><h3>1961 Society</h3><ul><li>Higher priority \u2014 alumni donation platform</li><li>Large video hero with montage clips from Sal</li><li>6 donation tiers (Charter through Legacy)</li><li>Tier design challenge: colors, iconography, chess pieces considered</li><li>IR Wednesday, client delivery end of week</li></ul><h3>Assets & Next Steps</h3><ul><li>Caroline has full media access, Anders cleaning up files</li><li>Caroline prioritizing 1961 Society due to complexity</li><li>Mobile versions for VEI if time permits</li></ul>"
       },
-      {
+{
         title: "STL VEI Website IR",
         date: "Mar 31, 2026",
         attendees: "Anwar, Nancy, Deb, John D, Johnnyd, Katie, Anders, Doug",
         summary: "<ul><li>Internal review of VEI website designs</li><li>Reviewed page structure and content organization</li><li>Aligned on layout approach before client delivery</li></ul>"
+      },
+      {
+        title: "STL VEI Website IR",
+        date: "Mar 25, 2026",
+        attendees: "Anwar, Amanie, Nancy, Deb, John D, Johnnyd, Doug, Anders",
+        summary: "<ul><li>Homepage: don't bury the lead, make VEI logo more prominent</li><li>Move VEI component higher on page, before carousel</li><li>Detail pages: each industry leads to dedicated page with partner images/logos</li><li>Need access to client image library from Sal</li><li>JD to create intro slide for client presentation</li></ul>"
+      },
+      {
+        title: "SkinTellAgent + STL Catchup with Nancy",
+        date: "Mar 20, 2026",
+        attendees: "Anwar",
+        summary: "<h3>SkinTellAgent</h3><ul><li>Presentation deck finished; swag ordered for event</li><li>Season 2 launches Apr 1 (8 episodes); Aiden 9 hours first week</li><li>Weekly cadence: Mon teaser, Wed full episode, Fri recap</li><li>Caroline taking over Rise & Opine regular episodes</li></ul><h3>STL</h3><ul><li>Viking Venture strategy due Mar 29</li><li>1961 brand design: client approved narratives and logo</li><li>Website kickoff Thu 10am: Manny, Allison, Doug, Deb, Nancy</li></ul>"
+      },
+      {
+        title: "STL VEI: Website KO",
+        date: "Mar 12, 2026",
+        attendees: "Anwar, Nancy, John D, Deb, Johnnyd, Joe, Allison, Anders",
+        summary: "<ul><li>Three VEI logo concepts: infinity symbol (favorite), triangle/path, asymmetrical</li><li>VEI block on homepage below hero + on academics page above STEM</li><li>Three pages to design: homepage section, academics page, program page</li><li>Go Live: week of April 11 (30 days)</li><li>No wireframes -- straight to design mockups</li></ul>"
+      },
+      {
+        title: "STL VEI IR",
+        date: "Feb 27, 2026",
+        attendees: "Anwar, Nancy, John D, Deb, Joe, Anders",
+        summary: "<ul><li>VEI = 'pathway' in Dutch/Norwegian; program delivers immersive career experiences</li><li>Five refined logo concepts including labyrinth, triangle with path, upright infinity</li><li>Team preference: triangle with path concept (clear, readable)</li><li>Client presentation Tuesday morning</li><li>Anders creating 16:9 landscape versions for deck</li></ul>"
+      },
+      {
+        title: "STL VEI Design IR",
+        date: "Feb 23, 2026",
+        attendees: "Anwar, Nancy, John D, Anders, Katie",
+        summary: "<ul><li>Reviewing VEI brand identity building on Austin's initial work</li><li>Concepts: infinity symbol (3D), crate-inspired, shield pathway, Norse guidance</li><li>Anders to focus on 3 concepts: VEI wordmark, triangle-based, simplified infinity</li><li>Standard 5-year presentation format for client</li><li>Client presentation moved to Wednesday</li></ul>"
       }
     ],
     notes: ""
@@ -953,26 +1327,39 @@ var clients = [
         "Optional: 1 rip/animatic for internal testing"
       ],
       timeline: "30-45 days from kickoff",
+      fullScope: "",
       status: "Active — scripts in revision, deliverable due Apr 21"
     },
     recaps: [
-      {
+{
         title: "DRW Client Feedback",
         date: "Apr 14, 2026",
         attendees: "Anwar, Amanie, Nancy, John D, Joe, Johnnyd",
         summary: "<h3>Balance Concept</h3><ul><li>Client likes flexibility \u2014 show employees balancing hobbies then connect to work</li><li>Hobbies: poker (big at DRW), DJ (Houston), rock climbing</li><li>Need tagline: \"We balance markets so they can move\"</li><li>Clarify \"bringing it to data center/trading environment\"</li></ul><h3>Falling in Love</h3><ul><li>Like convergence of problems across roles</li><li>Move away from romantic/rom-com tone</li><li>Nancy's updated script removes romantic refs, keeps hook</li></ul><h3>Assignments</h3><ul><li><strong>JD:</strong> Balance script + concept</li><li><strong>Nancy:</strong> Falling in Love script + concept</li><li><strong>Amanie:</strong> Lead visuals \u2014 keyframes, mood board</li><li><strong>Joe:</strong> Visual support</li><li><strong>Anwar:</strong> Set up client meeting, clarify data center connection</li></ul>"
       },
-      {
+{
         title: "Quick Sync: DRW Video Project",
         date: "Mar 17, 2026",
         attendees: "Anwar, Nancy, Danielle Ghess, Jen Balbach",
         summary: "<ul><li>Initial sync with DRW client contacts on video project scope</li><li>Aligned on goals and direction before concept development</li></ul>"
       },
-      {
+{
         title: "DRW About Video Briefing",
         date: "Mar 17, 2026",
         attendees: "Anwar, Amanie, Nancy, John D, Johnnyd, Katie, Aiden",
         summary: "<ul><li>Internal briefing for DRW about video</li><li>Assigned concept development to team</li><li>Set creative direction and timeline</li></ul>"
+      },
+      {
+        title: "DRW Client Kickoff",
+        date: "Mar 5, 2026",
+        attendees: "Anwar, Nancy, John D, Johnnyd, Joe, Danielle Ghess, Katie",
+        summary: "<h3>Project</h3><ul><li>About video: 3 concepts in ~3 weeks, storyboards, final script + production plan</li><li>Complete delivery by beginning of May; budget $60K-$125K</li></ul><h3>DRW Identity</h3><ul><li>Liquidity providers (not 'market makers' except UK), huge balance sheet</li><li>Key differentiators: bleeding edge (AI, crypto), entrepreneurial, flat org</li><li>Less ego than Citadel; collaboration and problem-solving culture</li></ul><h3>Audience & Tone</h3><ul><li>Target: quant researchers, quant traders, software engineers (Ivy League caliber)</li><li>Smart but accessible, authentic, professional but grounded (CEO in hoodie/jeans)</li><li>Platforms: Instagram, LinkedIn, YouTube; may run LinkedIn paid campaign</li></ul>"
+      },
+      {
+        title: "DRW Pre-Meeting",
+        date: "Mar 5, 2026",
+        attendees: "Anwar, Nancy, John D, Johnnyd, Joe, Katie",
+        summary: "<ul><li>Returning client (John worked with them before); financial services/trading firm</li><li>Assignment: 3 video script concepts for 'about' video, 45-day timeline</li><li>Heavy motion graphics/animation expected based on website aesthetic</li><li>Joe out weeks of 3/16 and 3/23 -- bring in Amanie to cover</li><li>Potential for larger event project this summer if video succeeds</li></ul>"
       }
     ],
     notes: ""
@@ -1014,14 +1401,33 @@ var clients = [
         "1 Story3 website",
         "1 CMS guide + training session"
       ],
+      fullScope: "",
       status: "Wrapping Up — waiting on client approval to go live"
     },
     recaps: [
-      {
+{
         title: "Story3 Morning Check-in",
         date: "Apr 13, 2026",
         attendees: "Anwar, Jons, Aiden, John D, Katie, Allison, Doug, Nancy",
         summary: "<h3>Templates</h3><ul><li>Word doc templates: 5 options by Allison and Joe, ready to send</li><li>PowerPoint: master file + clean template with placeholders</li></ul><h3>Website</h3><ul><li>Staging ready \u2014 no response from Ryan</li><li>Emphasized \"final\" nature to set boundaries</li><li>Maintenance contract re-engagement needed</li></ul><h3>Next Steps</h3><ul><li>Nancy: send templates + staging link to Ryan</li><li>Nancy: review style guide</li><li>Prepare for maintenance contract discussion</li></ul>"
+      },
+      {
+        title: "Story3 Morning Check-in",
+        date: "Mar 4, 2026",
+        attendees: "Anwar, Jons, Aiden, John D, Katie, Allison, Doug, Nancy",
+        summary: "<ul><li>Brief check-in; John provided feedback via Slack during call</li><li>Meeting concluded early -- main communication handled asynchronously</li></ul>"
+      },
+      {
+        title: "Story3 Morning Check-in",
+        date: "Mar 2, 2026",
+        attendees: "Anwar, Jons, Aiden, John D, Katie, Allison, Doug, Nancy, Caroline",
+        summary: "<ul><li>Client needs to decide on intro video, header animation, and color palette</li><li>One or two decisions away from going live</li><li>Bug fixes: profile images switching square to horizontal, modal animations, form connectivity</li><li>Portfolio animation improvements needed; news section doesn't match Allison's design</li><li>New business: SKF Automotive rebranding to 'SKF Ver'</li></ul>"
+      },
+      {
+        title: "Story3 Morning Check-in",
+        date: "Feb 23, 2026",
+        attendees: "Anwar, Jons, Aiden, John D, Katie, Allison, Doug, Nancy, Anders",
+        summary: "<ul><li>Sound effects prototype shared and reviewed</li><li>Figma workspace cleanup needed (performance issues)</li><li>Carbone lyric version with JG in progress</li><li>Brief session -- waiting for John to return</li></ul>"
       }
     ],
     notes: ""
@@ -1068,20 +1474,27 @@ var clients = [
         "4 Monthly media insight reports"
       ],
       value: "$6,000/month",
+      fullScope: "",
       status: "Active — Season 2 + podcast launched, ongoing social"
     },
     recaps: [
-      {
+{
         title: "SkinTellAgent Editing",
         date: "Mar 24, 2026",
         attendees: "Anwar, Aiden, Caroline, Nancy",
         summary: "<h3>Video Production</h3><ul><li>Caroline taking over Rise & Opine videos from Aiden (~30 min/video)</li><li>Compilation video needed for client event Sunday (50-person room)</li><li>Nancy to time-code content, exclude political material</li><li>Delivery: Thursday morning for client review</li></ul><h3>Weekly Schedule</h3><ul><li>Tue: Season 2 trailer (YouTube)</li><li>Thu: Podcast trailer</li><li>Fri: AAG live post</li><li>Mon: Teaser (pending approval)</li></ul><h3>Process</h3><ul><li>4 hrs/week allocated for editing</li><li>All direction changes go through Anwar first</li><li>Nancy provides paper edits to streamline</li></ul>"
       },
-      {
+{
         title: "SkinTellAgent + STL Ways of Working",
         date: "Mar 16, 2026",
         attendees: "Anwar, Nancy",
         summary: "<h3>SkinTellAgent Scope</h3><ul><li>Digital presence: Nancy runs social (LinkedIn, Instagram, Facebook)</li><li>3 streams: docuseries, podcast, Rise & Opine</li><li>Season 2 launch: Apr 1 (8 episodes, 4 months)</li><li>Podcast launch: Apr 8 (alternating weeks)</li><li>Aiden: teasers + animated logo ASAP</li></ul><h3>STL Updates</h3><ul><li>Anwar managing VEI + 1961 Society</li><li>Viking Ventures stays with Nancy (content strategy)</li></ul><h3>Next Steps</h3><ul><li>Update WMJ for SkinTellAgent and STL projects</li></ul>"
+      },
+      {
+        title: "SkinTellAgent: Podcast Logo Design KO",
+        date: "Feb 24, 2026",
+        attendees: "Anwar, Amanie, Caroline, Nancy, Joe, Anders",
+        summary: "<ul><li>Developing logo for 'Dermatology Undressed: A Provocative Podcast'</li><li>Two strategic directions: SkinTellAgent as master brand with sub-brand, or podcast leads with SkinTellAgent as endorser</li><li>8 hours total collective work; present to client mid-next week</li><li>Logo concepts only -- not fancy presentation</li><li>Team checking availability Thursday (Caroline on animations, Amanie on Island Dental)</li></ul>"
       }
     ],
     notes: ""
@@ -1097,9 +1510,23 @@ var clientStorageKey = 'playbook-clients';
 // Quote
 var startOfYear = new Date(now.getFullYear(), 0, 0);
 var dayOfYear = Math.floor((now - startOfYear) / 86400000);
-var q = quotes[dayOfYear % quotes.length];
+var currentQuoteIdx = dayOfYear % quotes.length;
+var q = quotes[currentQuoteIdx];
 document.getElementById('quote-text').textContent = '\u201C' + q.t + '\u201D';
-document.getElementById('quote-author').textContent = '\u2014 ' + q.a;
+document.getElementById('quote-author').innerHTML = '\u2014 ' + q.a + ' <button class="quote-refresh-btn" id="quote-refresh" title="New quote">&#8635;</button>';
+
+function refreshQuote() {
+  var newIdx = currentQuoteIdx;
+  while (newIdx === currentQuoteIdx) {
+    newIdx = Math.floor(Math.random() * quotes.length);
+  }
+  currentQuoteIdx = newIdx;
+  var nq = quotes[currentQuoteIdx];
+  document.getElementById('quote-text').textContent = '\u201C' + nq.t + '\u201D';
+  document.getElementById('quote-author').innerHTML = '\u2014 ' + nq.a + ' <button class="quote-refresh-btn" id="quote-refresh" title="New quote">&#8635;</button>';
+  document.getElementById('quote-refresh').addEventListener('click', refreshQuote);
+}
+document.getElementById('quote-refresh').addEventListener('click', refreshQuote);
 
 // Date display
 var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -1245,15 +1672,45 @@ function renderIntelTab(area) {
   var intelEdits = (cs[c.id] && cs[c.id].intelEdits) || {};
   var html = '';
 
-  // Status
-  html += '<div class="status-card"><h4>Current Status</h4><p>' + c.summary + '</p></div>';
-
-  // Contacts
-  if (c.contacts.length) {
-    html += '<div class="status-card"><h4>Key Contacts</h4><ul>';
-    c.contacts.forEach(function(ct) { html += '<li><strong>' + ct.n + '</strong> \u2014 ' + ct.r + '</li>'; });
-    html += '</ul></div>';
+  // Status (editable)
+  var statusEdit = (cs[c.id] && cs[c.id].statusEdit) || null;
+  var statusText = statusEdit ? statusEdit.text : c.summary;
+  html += '<div class="status-card" id="status-card"><h4>Current Status</h4><p>' + statusText + '</p>';
+  if (statusEdit && statusEdit.lastUpdated) {
+    html += '<div class="status-last-updated">Last updated: ' + formatDateNice(statusEdit.lastUpdated) + '</div>';
   }
+  html += '<button class="status-edit-btn" onclick="editStatus(\'' + c.id + '\')">Edit</button>';
+  if (statusEdit) {
+    html += ' <button class="status-edit-btn" onclick="resetStatus(\'' + c.id + '\')" style="color:#999">Reset</button>';
+  }
+  html += '</div>';
+
+  // Contacts (editable)
+  var contactsEdit = (cs[c.id] && cs[c.id].contactsEdit) || null;
+  html += '<div class="status-card" id="contacts-card"><h4>Key Contacts</h4>';
+  if (contactsEdit) {
+    html += '<ul>';
+    contactsEdit.split('\n').forEach(function(line) {
+      line = line.trim();
+      if (!line) return;
+      var parts = line.split(' \u2014 ');
+      if (parts.length >= 2) {
+        html += '<li><strong>' + parts[0] + '</strong> \u2014 ' + parts.slice(1).join(' \u2014 ') + '</li>';
+      } else {
+        html += '<li>' + line + '</li>';
+      }
+    });
+    html += '</ul>';
+  } else if (c.contacts.length) {
+    html += '<ul>';
+    c.contacts.forEach(function(ct) { html += '<li><strong>' + ct.n + '</strong> \u2014 ' + ct.r + '</li>'; });
+    html += '</ul>';
+  }
+  html += '<button class="contacts-edit-btn" onclick="editContacts(\'' + c.id + '\')">Edit</button>';
+  if (contactsEdit) {
+    html += ' <button class="contacts-edit-btn" onclick="resetContacts(\'' + c.id + '\')" style="color:#999">Reset</button>';
+  }
+  html += '</div>';
 
   // Intel items (baked-in, with edit override support)
   c.intel.forEach(function(item, idx) {
@@ -1354,6 +1811,97 @@ window.resetBakedIntel = function(clientId, idx) {
   }
 };
 
+// ── Format date helper ──
+function formatDateNice(dateStr) {
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var parts = dateStr.split('-');
+  if (parts.length !== 3) return dateStr;
+  var y = parts[0]; var m = parseInt(parts[1], 10) - 1; var d = parseInt(parts[2], 10);
+  return months[m] + ' ' + d + ', ' + y;
+}
+
+// ── Status edit ──
+window.editStatus = function(clientId) {
+  var c = clients.find(function(cl) { return cl.id === clientId; });
+  if (!c) return;
+  var cs = loadClientState();
+  var statusEdit = (cs[clientId] && cs[clientId].statusEdit) || null;
+  var currentText = statusEdit ? statusEdit.text : c.summary;
+  var container = document.getElementById('status-card');
+  if (!container) return;
+  container.innerHTML = '<h4>Current Status</h4>' +
+    '<div class="intel-form" style="display:block;margin-top:0;border:none;padding:0">' +
+    '<textarea id="status-edit-text" style="width:100%;min-height:80px;font-family:inherit;font-size:0.82rem;border:1.5px solid #E4E0DB;border-radius:6px;padding:8px;resize:vertical">' + escHtml(currentText) + '</textarea>' +
+    '<div class="intel-form-actions" style="margin-top:6px">' +
+    '<button class="btn-sm btn-primary" onclick="saveStatus(\'' + clientId + '\')">Save</button>' +
+    '<button class="btn-sm btn-ghost" onclick="renderTab()">Cancel</button>' +
+    '</div></div>';
+};
+
+window.saveStatus = function(clientId) {
+  var text = document.getElementById('status-edit-text').value.trim();
+  if (!text) return;
+  var cs = loadClientState();
+  if (!cs[clientId]) cs[clientId] = {};
+  var now = new Date();
+  var dateStr = now.getFullYear() + '-' + ('0' + (now.getMonth()+1)).slice(-2) + '-' + ('0' + now.getDate()).slice(-2);
+  cs[clientId].statusEdit = {text: text, lastUpdated: dateStr};
+  saveClientState(cs);
+  renderTab();
+};
+
+window.resetStatus = function(clientId) {
+  var cs = loadClientState();
+  if (cs[clientId]) {
+    delete cs[clientId].statusEdit;
+    saveClientState(cs);
+    renderTab();
+  }
+};
+
+// ── Contacts edit ──
+window.editContacts = function(clientId) {
+  var c = clients.find(function(cl) { return cl.id === clientId; });
+  if (!c) return;
+  var cs = loadClientState();
+  var contactsEdit = (cs[clientId] && cs[clientId].contactsEdit) || null;
+  var lines = '';
+  if (contactsEdit) {
+    lines = contactsEdit;
+  } else {
+    c.contacts.forEach(function(ct) { lines += ct.n + ' \u2014 ' + ct.r + '\n'; });
+  }
+  var container = document.getElementById('contacts-card');
+  if (!container) return;
+  container.innerHTML = '<h4>Key Contacts</h4>' +
+    '<div class="intel-form" style="display:block;margin-top:0;border:none;padding:0">' +
+    '<textarea id="contacts-edit-text" style="width:100%;min-height:120px;font-family:inherit;font-size:0.82rem;border:1.5px solid #E4E0DB;border-radius:6px;padding:8px;resize:vertical">' + escHtml(lines.trim()) + '</textarea>' +
+    '<div style="font-size:0.65rem;color:#999;margin-top:2px;margin-bottom:6px">One per line, format: Name \u2014 Role</div>' +
+    '<div class="intel-form-actions">' +
+    '<button class="btn-sm btn-primary" onclick="saveContacts(\'' + clientId + '\')">Save</button>' +
+    '<button class="btn-sm btn-ghost" onclick="renderTab()">Cancel</button>' +
+    '</div></div>';
+};
+
+window.saveContacts = function(clientId) {
+  var text = document.getElementById('contacts-edit-text').value.trim();
+  if (!text) return;
+  var cs = loadClientState();
+  if (!cs[clientId]) cs[clientId] = {};
+  cs[clientId].contactsEdit = text;
+  saveClientState(cs);
+  renderTab();
+};
+
+window.resetContacts = function(clientId) {
+  var cs = loadClientState();
+  if (cs[clientId]) {
+    delete cs[clientId].contactsEdit;
+    saveClientState(cs);
+    renderTab();
+  }
+};
+
 function renderSowTab(area) {
   var c = currentClient;
   if (!c.sow) {
@@ -1393,6 +1941,11 @@ function renderSowTab(area) {
   }
   if (s.timeline) {
     html += '<div class="status-card"><h4>Timeline</h4><p>' + s.timeline + '</p></div>';
+  }
+
+  // Full Scope Details
+  if (s.fullScope && s.fullScope.length > 0) {
+    html += '<div class="status-card"><h4>Full Scope Details</h4><div style="font-size:0.82rem;line-height:1.45">' + s.fullScope + '</div></div>';
   }
 
   area.innerHTML = html;
