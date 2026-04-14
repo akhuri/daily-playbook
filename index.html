@@ -361,6 +361,12 @@
   }
   .intel-item .intel-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: #E8692A; letter-spacing: 0.04em; margin-bottom: 2px; }
   .intel-item p { font-size: 0.8rem; line-height: 1.4; }
+  .intel-edit-btn {
+    font-size: 0.68rem; color: #E8692A; cursor: pointer; margin-top: 4px;
+    background: none; border: none; font-family: inherit; font-weight: 600;
+    padding: 0;
+  }
+  .intel-edit-btn:hover { color: #D45B1F; }
 
   .add-intel-btn {
     display: inline-flex; align-items: center; gap: 4px;
@@ -585,13 +591,36 @@ var clients = [
       {label:"Retention Challenge",text:"Losing patients to insurance changes and relocation, not service quality. Island Advantage Plan exists for uninsured. Dr. E wants loyalty/membership program thinking."},
       {label:"Ad Performance",text:"Meta Invisalign campaign: ~$34 CPL (2-3x lower than Google Ads). $2,998 price-point creative best performer at $26 CPL. Budget is low for the area."},
       {label:"Client Preference",text:"Dr. E prefers relatable, emotional scripts. Likes coffee shop / restaurant / social gathering settings. Wants younger demographic (35-40) in imagery."},
-      {label:"New Assignment",text:"Patient loyalty / retention program. Consider membership, points, referral plans. Build on existing Island Advantage Plan."},
+      {label:"Opportunity",text:"Patient loyalty / retention program. Consider membership, points, referral plans. Build on existing Island Advantage Plan."},
       {label:"Dr. E Profile",text:"Sole decision maker. Believes he's a strong marketer. Doesn't know what he wants until he sees it. Lead with gut, support with proof. Emotion first, always."},
       {label:"Loyalty Program Update",text:"Sent loyalty program doc to Dr. E (Apr 8). NY limits on patient rewards. He's interested in point system. Two managed services hyperlinked in doc. Nancy followed up."},
       {label:"Invisalign Campaign Issue",text:"Dr. E's staff not seeing ads in their feeds. Iryna confirmed ads ARE running (932 reach/day, 1 lead/day). Ads are targeted -- staff may not be in target audience."},
       {label:"Upcoming",text:"Wed Apr 15 status meeting rescheduled from Mon (Dr. E flight canceled). Iryna sending Invisalign media report. Implant landing page revisions due. Dentures + Implants TV scripts to client Apr 17."},
       {label:"GDrive Assets",text:"Full scripts doc (General/Implants/Dentures :30s), commercial concepts redirect doc with Dr. E creative profile, all in Island Dental folder."}
     ],
+    sow: {
+      title: "SOW ISD-0001 — Website Redesign + Paid Media + Video",
+      client: "Dr. Eric Weinstein (nydentist@hotmail.com)",
+      date: "Nov 2025",
+      overview: "Redesign and build multi-location website supporting multiple practices + paid media program (Google + Meta) + broadcast video production.",
+      services: [
+        "Brand Strategy & Positioning Workshop (half-day)",
+        "Paid Media Strategy + Campaign Execution (Google + Meta) — up to 9 search campaigns, landing pages with NoComply dynamic content",
+        "Multi-Location Website Redesign + Build — 15 templates, 70+ pages, 262 blog migration, 5 multisite instances",
+        "Broadcast Video Production",
+        "Program Management"
+      ],
+      deliverables: [
+        "1 Paid Media Strategy document",
+        "Up to 9 paid media landing pages with dynamic content",
+        "1 complete multi-location website (1 master + 5 subsites)",
+        "1 Figma design system",
+        "1 copy document",
+        "1 CMS training session + guide",
+        "Monthly campaign execution + performance reviews"
+      ],
+      status: "In Progress"
+    },
     recaps: [
       {
         title: "Island Dental Weekly Status",
@@ -632,6 +661,27 @@ var clients = [
       {label:"Upcoming",text:"Thu Apr 16: Covoya Team Page Creative Review -- review 4 directions to send to Ethan EOD. Headshots needed from Ethan."},
       {label:"GDrive Assets",text:"Regroup notes, trader bios (Josh, Angela, Todd, Ian + more), content strategy doc, Trader Personal Brand presentation deck."}
     ],
+    sow: {
+      title: "SOW COV-0014 — Podcast Landing Page & Digital Ad Strategy",
+      client: "Rob Stephen (rob.stephen@covoya.com)",
+      date: "Jul 2025",
+      overview: "Create strategy and implement refreshed podcast landing page + digital ad campaign to promote the podcast.",
+      services: [
+        "Podcast landing page strategy + UX",
+        "Landing page design and development",
+        "Digital ad strategy and mock-ups for leadership sell-in"
+      ],
+      deliverables: [
+        "1 landing page wireframe",
+        "2 design options for landing page",
+        "Content strategy + writing direction",
+        "1 developed podcast landing page",
+        "Digital ad concept deck",
+        "Up to 5 mock digital ad assets"
+      ],
+      value: "$10,343",
+      status: "Complete — now in website/trader personal brand phase"
+    },
     recaps: [
       {
         title: "Covoya Regroup",
@@ -670,6 +720,28 @@ var clients = [
       {label:"Migration Kickoff",text:"Hyer Migration Kickoff scheduled Wed Apr 15. Moving to modern WordPress (G+ recommendation over headless CMS). Migration pricing: $21-23K."},
       {label:"CMS Decision",text:"WordPress recommended for: team familiarity, high flexibility, immediate publishing, plugin ecosystem. Headless rejected despite better security/speed."}
     ],
+    sow: {
+      title: "SOW HYR-0003 — 6-Month Marketing Program",
+      client: "Pankaj Kanth (pankaj.kanth@frictionlessenterprises.com)",
+      date: "Mar 2025",
+      overview: "Six-month marketing program to elevate the Hyer brand, build measurable marketing machine, and generate new leads.",
+      services: [
+        "Strategy & Planning — kickoff, competitive review, tech stack review, half-day strategy session",
+        "Creative Design — homepage updates, social ads (3-5/campaign), search ads (5-11/campaign), 3 emails, 3 landing pages",
+        "Media Planning & Buying — daily/weekly monitoring, bi-weekly reporting, monthly insights",
+        "Project Management"
+      ],
+      deliverables: [
+        "6-month GTM strategy (goals, KPIs, audience, messaging, media plan, website recs)",
+        "Homepage design + messaging updates",
+        "Digital property assets (LinkedIn/FB headers)",
+        "Social + search ad campaigns",
+        "3 HubSpot emails",
+        "3 landing pages (HubSpot + WordPress)",
+        "Marketing dashboard (Looker)"
+      ],
+      status: "Active — solution pages in QA, migration kickoff Apr 15"
+    },
     recaps: [
       {
         title: "Hyer Dev Handoff",
@@ -703,6 +775,27 @@ var clients = [
       {label:"Payment Status",text:"Tracy (Zapata/Paradise) sent payment plan breakdown. Invoices: $25K paid Oct 8, $36,250.80 outstanding. Anwar forwarded to John for direction."},
       {label:"Contacts Update",text:"Emily Fleming (emily@carbonefinefood.com), Caitlin (caitlin@carbonefinefood.com), Tracy Tran-Thomas (tracy@paradise.love) -- production EP."}
     ],
+    sow: {
+      title: "SOW 26-CAR-0007 — 2026 Website Maintenance & Muscle",
+      client: "Chris Wendling (chris@carbonefinefood.com)",
+      date: "Feb 2026",
+      overview: "Ongoing monthly website maintenance, content support, and digital strategy. Monthly partnership combining break-fix reliability with strategic and creative muscle.",
+      services: [
+        "Website Maintenance — site health monitoring, UX optimization, break-fix",
+        "Website Content & Experience — recipes, foodstyle, happenings (up to 4 posts/mo)",
+        "Digital Strategy — SEO/AEO optimization, event activation support",
+        "Program Management — monthly planning, request intake, status updates"
+      ],
+      deliverables: [
+        "Bi-weekly meetings + status reports",
+        "1 monthly insights report",
+        "Up to 4 web posts/month (copy, visuals, motion, implementation)",
+        "Ongoing performance monitoring + monthly backups",
+        "Bazaarvoice implementation + integration"
+      ],
+      hours: "40 hours/month",
+      status: "Waiting — blocked on payment + contract signature"
+    },
     recaps: [],
     notes: ""
   },
@@ -724,6 +817,29 @@ var clients = [
       {label:"Media Meeting",text:"Geletka+ ITS Media Meeting with Iryna, Christina, and Amazon rep (garygho@amazon.com) happened Apr 9."},
       {label:"GDrive Assets",text:"Website 3.0 full copy doc, ITS Show Scenes doc (social content shoots), shooting schedule spreadsheet, messaging doc for Rice Blends."}
     ],
+    sow: {
+      title: "2025/2026 Brand & Creative Partnership",
+      client: "Christina Downey, VP Marketing (cdowney@itsskinny.com)",
+      date: "Jul 2025",
+      overview: "Multi-year partnership — strategic and creative services in exchange for equity. Covers media, campaigns, brand, website, packaging, and IMC.",
+      services: [
+        "Interim Media Support — paid search + social (up to 3 channels, 10 creative assets/mo)",
+        "Annual Campaign Development — 2-4 concepts, creative execution (OTT, OOH, video, event)",
+        "Brand Guidelines — visual identity, messaging, tone, usage guidelines",
+        "Website — new Shopify site, break-fix, eCommerce updates",
+        "Packaging Design — 2-3 concepts per product line",
+        "IMC — monthly meetings with agency partners",
+        "Creative & Strategic Thought Leadership"
+      ],
+      deliverables: [
+        "Cross-channel campaign execution",
+        "Brand guidelines document",
+        "Shopify website",
+        "Packaging keylines",
+        "Monthly reporting + optimization"
+      ],
+      status: "Active — Website 3.0 targeting first week of May"
+    },
     recaps: [
       {
         title: "ITS Website 3.0 Design IR",
@@ -765,6 +881,27 @@ var clients = [
       {label:"VEI Website Copy",text:"Full copy written for all 8 industry tracks (Aquatic Science/Shedd, Aviation/AOPA, Business, Engineering, Health Sciences, Hospitality, Law, Media). Tagline: 'Go beyond the classroom.'"},
       {label:"GDrive Assets",text:"VEI website copy doc, 1961 website copy doc, Brand Architecture deck, 1961 Society KO deck, VEI Design Refinements deck. Shared Drive: 1961 Society Website Content folder from smarquez@stlaurence.com."}
     ],
+    sow: {
+      title: "SOW STL-006 — 2026 Branding",
+      client: "Mike Madera (mmadera@stlaurence.com)",
+      date: "Nov 2025",
+      overview: "Design & build two brand extensions (Career Pathways + 1961 Society) plus Viking Ventures communications strategy and website updates.",
+      services: [
+        "Academic Branding — Career Pathways naming, positioning, messaging, visual system",
+        "1961 Society Brand — manifesto, visual design, 10 swag/gear concepts",
+        "Viking Ventures — messaging + communications strategy (email, direct, social, web)",
+        "Website Updates — new pages + components for each initiative"
+      ],
+      deliverables: [
+        "1 Discovery/Strategy summary deck",
+        "Brand positioning + messaging per initiative",
+        "1 brand identity/design system per initiative",
+        "10 swag/gear concepts for 1961",
+        "3 website pages + 3 components",
+        "1 Viking Ventures communications plan"
+      ],
+      status: "Active — VEI in client revision, 1961 Society higher priority"
+    },
     recaps: [
       {
         title: "STL Handoff to Caroline",
@@ -799,6 +936,25 @@ var clients = [
       {label:"IR #2 Scheduled",text:"DRW IR #2 scheduled Fri Apr 17, 3-3:30pm. John, Nancy, Joe, Amanie confirmed."},
       {label:"GDrive Assets",text:"About Us Video Concepts deck (77 slides), Creative Brief V2 and V3 with full strategic foundation, target personas (Eric/Xinyi/James), and tone guidelines."}
     ],
+    sow: {
+      title: "SOW 26-DRW-0001 — About Video Concept & Script",
+      client: "Danielle Ghess (dghess@drwholdings.com) / Jen Balbach (jbalbach@drwholdings.com)",
+      date: "Feb 2026",
+      overview: "Concepting phase for new About Us video. Explore creative approaches, refine one direction, provide production options that scale across recruiting, onboarding, campus, and brand use.",
+      services: [
+        "Concepting & Creative Development — kickoff, creative exploration, 3 distinct concepts, 1 refined direction",
+        "Production Planning — budget evaluation, tradeoffs, production roadmap"
+      ],
+      deliverables: [
+        "3 creative concepts (script/narrative + storytelling angle + visual direction)",
+        "3 high-level storyboards/shooting boards",
+        "1 refined final script + storyboard",
+        "1 production plan with costs and timing",
+        "Optional: 1 rip/animatic for internal testing"
+      ],
+      timeline: "30-45 days from kickoff",
+      status: "Active — scripts in revision, deliverable due Apr 21"
+    },
     recaps: [
       {
         title: "DRW Client Feedback",
@@ -837,6 +993,29 @@ var clients = [
       {label:"CMS Onboarding",text:"Katie reached out to Ryan about CMS onboarding. Ryan directed to Courtney for scheduling. Still pending."},
       {label:"Templates",text:"Letterhead templates being finalized in Google Docs (3 variants). Word doc and PowerPoint templates already sent to client."}
     ],
+    sow: {
+      title: "SOW 1 Story3 — Website",
+      client: "Ryan / Courtney",
+      date: "Dec 2025",
+      overview: "Premium website aligned with the caliber of brands in their portfolio. Modern, flat animations based on client benchmarks. Brand-enhancing, fast, flexible, easy to maintain.",
+      services: [
+        "Intake & Discovery — 2 working sessions (4hrs each) + brand/competitive review",
+        "UX & Architecture — sitemap, Figma prototype (10 templates), mobile variations",
+        "Brand Design — platform, visual brief, refined identity, design system, narrative, brand guide",
+        "Website Design — 2 conceptual directions, design system application, animatic, copywriting (10 pages)",
+        "Website Development — 1 website, Figma file, CMS guide + training"
+      ],
+      deliverables: [
+        "1 Brand Platform (Mission, Vision, Values, Purpose, Personality)",
+        "1 Visual Brief",
+        "1 refined visual identity (logo, typography, color, photography, design system)",
+        "1 Figma prototype (10 templates + mobile)",
+        "2 conceptual design directions",
+        "1 Story3 website",
+        "1 CMS guide + training session"
+      ],
+      status: "Wrapping Up — waiting on client approval to go live"
+    },
     recaps: [
       {
         title: "Story3 Morning Check-in",
@@ -868,6 +1047,29 @@ var clients = [
       {label:"AAD Presentation",text:"Private AAD Breakfast presentation (Mar 29). Positioned SkinTellagent as 501(c)(3) physician-led media platform. Opening with patient case story approach."},
       {label:"Podcast Guests",text:"Confirmed guests: Dr. Peter Lio (integrative derm), Dr. Klint Peebles (LGBTQ+ equity), Amy Perry (Banner Health CEO), Dr. Lindsey Bordone (GLPs), Dr. Sandra Lee (Pimple Popper), Dr. Brian Kim, Dr. Gayle Goldstein."}
     ],
+    sow: {
+      title: "SOW SKI-001 — Digital Presence",
+      client: "Lindsay Ackerman, MD (Founder)",
+      date: "Dec 2025",
+      overview: "$6,000/mo digital presence engagement. Content strategy, paid media, landing page, social edits, and measurement dashboard. $175/hr after 120 days.",
+      services: [
+        "Content Strategy + Editorial Guidance",
+        "Paid Media Boost (Meta + TikTok) — testing and optimization",
+        "Landing Page Design + Light UX",
+        "Social Edits (up to 30 per cycle, :10-:25 each)",
+        "Program Management"
+      ],
+      deliverables: [
+        "1 Content Strategy PDF",
+        "1 Marketing landing page",
+        "1 series trailer (up to :60)",
+        "Up to 30 social media 9:16 edits",
+        "1 Media Dashboard",
+        "4 Monthly media insight reports"
+      ],
+      value: "$6,000/month",
+      status: "Active — Season 2 + podcast launched, ongoing social"
+    },
     recaps: [
       {
         title: "SkinTellAgent Editing",
@@ -1007,8 +1209,8 @@ function renderClientDetail(clientId) {
     '<span class="client-status-badge client-detail-badge ' + currentClient.badgeClass + '">' + currentClient.badge + '</span>';
 
   // Tabs
-  var tabs = ['intel', 'recaps', 'notes'];
-  var tabLabels = {intel: 'Intel & Status', recaps: 'Meeting Recaps', notes: 'Notes'};
+  var tabs = ['intel', 'recaps', 'sow', 'notes'];
+  var tabLabels = {intel: 'Intel & Status', recaps: 'Meeting Recaps', sow: 'SOW', notes: 'Notes'};
   var tabBar = document.getElementById('tab-bar');
   tabBar.innerHTML = '';
   tabs.forEach(function(t) {
@@ -1024,7 +1226,7 @@ function renderClientDetail(clientId) {
 
 function updateTabBar() {
   var btns = document.getElementById('tab-bar').querySelectorAll('.tab-btn');
-  var tabs = ['intel', 'recaps', 'notes'];
+  var tabs = ['intel', 'recaps', 'sow', 'notes'];
   btns.forEach(function(btn, i) { btn.classList.toggle('active', tabs[i] === currentTab); });
 }
 
@@ -1032,6 +1234,7 @@ function renderTab() {
   var area = document.getElementById('tab-content-area');
   if (currentTab === 'intel') renderIntelTab(area);
   else if (currentTab === 'recaps') renderRecapsTab(area);
+  else if (currentTab === 'sow') renderSowTab(area);
   else if (currentTab === 'notes') renderNotesTab(area);
 }
 
@@ -1039,6 +1242,7 @@ function renderIntelTab(area) {
   var c = currentClient;
   var cs = loadClientState();
   var customIntel = (cs[c.id] && cs[c.id].intel) || [];
+  var intelEdits = (cs[c.id] && cs[c.id].intelEdits) || {};
   var html = '';
 
   // Status
@@ -1051,9 +1255,13 @@ function renderIntelTab(area) {
     html += '</ul></div>';
   }
 
-  // Intel items
-  c.intel.forEach(function(item) {
-    html += '<div class="intel-item"><div class="intel-label">' + item.label + '</div><p>' + item.text + '</p></div>';
+  // Intel items (baked-in, with edit override support)
+  c.intel.forEach(function(item, idx) {
+    var display = intelEdits[idx] || item;
+    html += '<div class="intel-item" id="intel-baked-' + idx + '"><div class="intel-label">' + display.label + '</div><p>' + display.text + '</p>' +
+      '<button class="intel-edit-btn" onclick="editBakedIntel(\'' + c.id + '\',' + idx + ')">Edit</button>' +
+      (intelEdits[idx] ? ' <button class="intel-edit-btn" onclick="resetBakedIntel(\'' + c.id + '\',' + idx + ')" style="color:#999">Reset</button>' : '') +
+      '</div>';
   });
   customIntel.forEach(function(item, idx) {
     html += '<div class="intel-item"><div class="intel-label">' + item.label + '</div><p>' + item.text + '</p>' +
@@ -1094,6 +1302,110 @@ window.deleteCustomIntel = function(clientId, idx) {
     renderTab();
   }
 };
+
+window.editBakedIntel = function(clientId, idx) {
+  var c = clients.find(function(cl) { return cl.id === clientId; });
+  if (!c) return;
+  var cs = loadClientState();
+  var intelEdits = (cs[clientId] && cs[clientId].intelEdits) || {};
+  var current = intelEdits[idx] || c.intel[idx];
+  var container = document.getElementById('intel-baked-' + idx);
+  if (!container) return;
+  var categories = ['Key Insight','Client Preference','Business Intel','Risk / Blocker','Opportunity','Key Differentiator','Retention Challenge','Ad Performance','Status','Action Needed','Upcoming','GDrive Assets'];
+  var optionsHtml = '';
+  categories.forEach(function(cat) {
+    optionsHtml += '<option value="' + cat + '"' + (cat === current.label ? ' selected' : '') + '>' + cat + '</option>';
+  });
+  // If current label not in list, add it
+  if (categories.indexOf(current.label) === -1) {
+    optionsHtml = '<option value="' + current.label + '" selected>' + current.label + '</option>' + optionsHtml;
+  }
+  container.innerHTML = '<div class="intel-form" style="display:block;margin-top:0;border:none;padding:0">' +
+    '<select id="intel-edit-cat-' + idx + '">' + optionsHtml + '</select>' +
+    '<textarea id="intel-edit-text-' + idx + '">' + current.text + '</textarea>' +
+    '<div class="intel-form-actions">' +
+    '<button class="btn-sm btn-primary" onclick="saveBakedIntelEdit(\'' + clientId + '\',' + idx + ')">Save</button>' +
+    '<button class="btn-sm btn-ghost" onclick="cancelBakedIntelEdit()">Cancel</button>' +
+    '</div></div>';
+};
+
+window.saveBakedIntelEdit = function(clientId, idx) {
+  var cat = document.getElementById('intel-edit-cat-' + idx).value;
+  var text = document.getElementById('intel-edit-text-' + idx).value.trim();
+  if (!text) return;
+  var cs = loadClientState();
+  if (!cs[clientId]) cs[clientId] = {};
+  if (!cs[clientId].intelEdits) cs[clientId].intelEdits = {};
+  cs[clientId].intelEdits[idx] = {label: cat, text: text};
+  saveClientState(cs);
+  renderTab();
+};
+
+window.cancelBakedIntelEdit = function() {
+  renderTab();
+};
+
+window.resetBakedIntel = function(clientId, idx) {
+  var cs = loadClientState();
+  if (cs[clientId] && cs[clientId].intelEdits) {
+    delete cs[clientId].intelEdits[idx];
+    saveClientState(cs);
+    renderTab();
+  }
+};
+
+function renderSowTab(area) {
+  var c = currentClient;
+  if (!c.sow) {
+    area.innerHTML = '<p style="color:#6B6B6B;font-size:0.85rem;font-style:italic;padding:20px 0">No SOW data available for this client.</p>';
+    return;
+  }
+  var s = c.sow;
+  var html = '';
+
+  // Header card
+  html += '<div class="status-card">';
+  html += '<div class="intel-label">' + s.title + '</div>';
+  html += '<p style="margin-top:6px"><strong>Client:</strong> ' + s.client + '</p>';
+  html += '<p><strong>Date:</strong> ' + s.date + '</p>';
+  html += '<p style="margin-top:6px"><span class="client-status-badge ' + getBadgeClassForSow(s.status) + '">' + s.status + '</span></p>';
+  html += '</div>';
+
+  // Overview
+  html += '<div class="status-card"><h4>Overview</h4><p>' + s.overview + '</p></div>';
+
+  // Services
+  html += '<div class="status-card"><h4>Services</h4><ul>';
+  s.services.forEach(function(svc) { html += '<li>' + svc + '</li>'; });
+  html += '</ul></div>';
+
+  // Deliverables
+  html += '<div class="status-card"><h4>Deliverables</h4><ul>';
+  s.deliverables.forEach(function(d) { html += '<li>' + d + '</li>'; });
+  html += '</ul></div>';
+
+  // Optional fields
+  if (s.value) {
+    html += '<div class="status-card"><h4>Value</h4><p>' + s.value + '</p></div>';
+  }
+  if (s.hours) {
+    html += '<div class="status-card"><h4>Hours</h4><p>' + s.hours + '</p></div>';
+  }
+  if (s.timeline) {
+    html += '<div class="status-card"><h4>Timeline</h4><p>' + s.timeline + '</p></div>';
+  }
+
+  area.innerHTML = html;
+}
+
+function getBadgeClassForSow(status) {
+  if (!status) return 'badge-active';
+  var s = status.toLowerCase();
+  if (s.indexOf('complete') !== -1 || s.indexOf('wrapping') !== -1) return 'badge-complete';
+  if (s.indexOf('waiting') !== -1 || s.indexOf('blocked') !== -1) return 'badge-waiting';
+  if (s.indexOf('qa') !== -1) return 'badge-qa';
+  return 'badge-active';
+}
 
 function renderRecapsTab(area) {
   var c = currentClient;
