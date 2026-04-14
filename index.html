@@ -24,610 +24,1100 @@
     padding: 32px 24px 48px;
   }
 
+  /* ── Nav ── */
+  .top-nav {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .nav-btn {
+    padding: 6px 14px;
+    border: 1.5px solid #E4E0DB;
+    border-radius: 20px;
+    background: #fff;
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #6B6B6B;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .nav-btn:hover { border-color: #E8692A; color: #E8692A; }
+  .nav-btn.active { background: #E8692A; color: #fff; border-color: #E8692A; }
+
   /* ── Quote ── */
   .daily-quote {
     text-align: center;
     margin-bottom: 24px;
-    padding: 16px 24px;
+    padding: 14px 24px;
     background: #fff;
     border-left: 4px solid #E8692A;
     border-radius: 0 10px 10px 0;
   }
   .daily-quote .quote-text {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     font-style: italic;
     color: #1C1C1C;
-    line-height: 1.45;
+    line-height: 1.4;
   }
   .daily-quote .quote-author {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     color: #6B6B6B;
-    margin-top: 4px;
+    margin-top: 3px;
     font-weight: 500;
   }
 
   /* ── Header ── */
-  .header { text-align: center; margin-bottom: 20px; }
+  .header { text-align: center; margin-bottom: 16px; }
   .header h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: 0.08em;
     margin-bottom: 2px;
   }
   .header .subtitle {
     color: #6B6B6B;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 500;
   }
   .date {
     text-align: center;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 600;
     color: #E8692A;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   /* ── Win Today / Must-Dos ── */
-  .win-today { margin-bottom: 16px; }
-  .win-today label {
+  .win-today { margin-bottom: 14px; }
+  .field-label {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #6B6B6B;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
   .win-today input {
     width: 100%;
-    padding: 10px 14px;
-    border: 2px solid #E4E0DB;
+    padding: 9px 12px;
+    border: 1.5px solid #E4E0DB;
     border-radius: 8px;
     font-family: inherit;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     background: #fff;
     color: #1C1C1C;
     transition: border-color 0.2s;
   }
-  .win-today input:focus {
-    outline: none;
-    border-color: #E8692A;
-  }
+  .win-today input:focus { outline: none; border-color: #E8692A; }
 
   .must-dos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 10px;
+    margin-bottom: 16px;
   }
-  @media (max-width: 600px) {
-    .must-dos { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 600px) { .must-dos { grid-template-columns: 1fr; } }
   .must-do-card label {
     display: block;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #E8692A;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
   }
   .must-do-card textarea {
     width: 100%;
-    min-height: 64px;
-    padding: 10px;
-    border: 2px solid #E4E0DB;
+    min-height: 56px;
+    padding: 8px;
+    border: 1.5px solid #E4E0DB;
     border-radius: 8px;
     font-family: inherit;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     background: #fff;
     color: #1C1C1C;
     resize: vertical;
     transition: border-color 0.2s;
   }
-  .must-do-card textarea:focus {
-    outline: none;
-    border-color: #E8692A;
-  }
+  .must-do-card textarea:focus { outline: none; border-color: #E8692A; }
 
   /* ── Weekly Habits (compact) ── */
-  .weekly-header {
-    margin-bottom: 10px;
-    margin-top: 0;
-  }
+  .weekly-header { margin-bottom: 8px; }
   .weekly-header h2 {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #6B6B6B;
-    margin-bottom: 0;
   }
-
   .habits-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 8px;
-    margin-bottom: 24px;
+    gap: 6px;
+    margin-bottom: 20px;
   }
-  @media (max-width: 700px) {
-    .habits-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 420px) {
-    .habits-grid { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 700px) { .habits-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 420px) { .habits-grid { grid-template-columns: 1fr; } }
   .habit-card {
     background: #fff;
     border: 1.5px solid #E4E0DB;
     border-radius: 8px;
-    padding: 10px;
+    padding: 8px;
   }
-  .habit-number {
-    font-size: 0.85rem;
-    font-weight: 800;
-    color: #E8692A;
-    margin-bottom: 2px;
-  }
-  .habit-title {
-    font-weight: 600;
-    font-size: 0.7rem;
-    line-height: 1.3;
-    margin-bottom: 3px;
-  }
-  .habit-desc {
-    font-size: 0.65rem;
-    color: #6B6B6B;
-    line-height: 1.35;
-  }
+  .habit-number { font-size: 0.8rem; font-weight: 800; color: #E8692A; margin-bottom: 1px; }
+  .habit-title { font-weight: 600; font-size: 0.66rem; line-height: 1.25; margin-bottom: 2px; }
+  .habit-desc { font-size: 0.6rem; color: #6B6B6B; line-height: 1.3; }
 
   /* ── Progress ── */
-  .progress-wrap {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  .progress-text {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #6B6B6B;
-    margin-bottom: 5px;
-  }
+  .progress-wrap { margin-bottom: 18px; text-align: center; }
+  .progress-text { font-size: 0.78rem; font-weight: 600; color: #6B6B6B; margin-bottom: 4px; }
   .progress-text span { color: #E8692A; }
-  .progress-bar {
-    width: 100%;
-    height: 6px;
-    background: #E4E0DB;
-    border-radius: 3px;
-    overflow: hidden;
-  }
-  .progress-fill {
-    height: 100%;
-    width: 0%;
-    background: #E8692A;
-    border-radius: 3px;
-    transition: width 0.4s ease;
-  }
+  .progress-bar { width: 100%; height: 6px; background: #E4E0DB; border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; width: 0%; background: #E8692A; border-radius: 3px; transition: width 0.4s ease; }
 
   /* ── Sections ── */
-  .section { margin-bottom: 20px; }
+  .section { margin-bottom: 18px; }
   .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 8px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid #E4E0DB;
+    display: flex; align-items: baseline; gap: 8px;
+    margin-bottom: 6px; padding-bottom: 4px; border-bottom: 2px solid #E4E0DB;
   }
-  .section-title {
-    font-size: 0.9rem;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-  .section-time {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #6B6B6B;
-  }
-  .section-desc {
-    font-size: 0.75rem;
-    color: #6B6B6B;
-    font-style: italic;
-  }
+  .section-title { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+  .section-time { font-size: 0.72rem; font-weight: 600; color: #6B6B6B; }
+  .section-desc { font-size: 0.72rem; color: #6B6B6B; font-style: italic; }
 
   /* ── Checklist items ── */
   .checklist-item {
-    display: flex;
-    gap: 10px;
-    padding: 7px 0;
-    border-bottom: 1px solid #EDEAE6;
-    align-items: flex-start;
+    display: flex; gap: 10px; padding: 6px 0;
+    border-bottom: 1px solid #EDEAE6; align-items: flex-start;
   }
   .checklist-item:last-child { border-bottom: none; }
-
-  .cb-wrapper {
-    flex-shrink: 0;
-    position: relative;
-    width: 20px;
-    height: 20px;
-    margin-top: 1px;
-  }
+  .cb-wrapper { flex-shrink: 0; position: relative; width: 20px; height: 20px; margin-top: 1px; }
   .cb-wrapper input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #CDCAC5;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background: #fff;
+    appearance: none; -webkit-appearance: none;
+    width: 20px; height: 20px; border: 2px solid #CDCAC5; border-radius: 5px;
+    cursor: pointer; transition: all 0.2s ease; background: #fff;
   }
-  .cb-wrapper input[type="checkbox"]:checked {
-    background: #E8692A;
-    border-color: #E8692A;
-    animation: pop 0.3s ease;
-  }
+  .cb-wrapper input[type="checkbox"]:checked { background: #E8692A; border-color: #E8692A; animation: pop 0.3s ease; }
   .cb-wrapper input[type="checkbox"]:checked::after {
-    content: '';
-    position: absolute;
-    top: 3px;
-    left: 6px;
-    width: 5px;
-    height: 9px;
-    border: solid #fff;
-    border-width: 0 2.5px 2.5px 0;
-    transform: rotate(45deg);
-    pointer-events: none;
+    content: ''; position: absolute; top: 3px; left: 6px;
+    width: 5px; height: 9px; border: solid #fff; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); pointer-events: none;
   }
-  @keyframes pop {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-  }
-
+  @keyframes pop { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
   .cb-content { flex: 1; }
-  .cb-label {
-    font-weight: 600;
-    font-size: 0.88rem;
-    transition: all 0.3s ease;
-  }
-  .cb-label.checked {
-    text-decoration: line-through;
-    color: #ACACAC;
-  }
-  .cb-note {
-    font-size: 0.76rem;
-    color: #6B6B6B;
-    font-style: italic;
-    margin-top: 1px;
-    line-height: 1.35;
-  }
+  .cb-label { font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; }
+  .cb-label.checked { text-decoration: line-through; color: #ACACAC; }
+  .cb-note { font-size: 0.73rem; color: #6B6B6B; font-style: italic; margin-top: 1px; line-height: 1.3; }
 
   /* ── Footer ── */
-  .footer {
-    text-align: center;
-    padding: 16px 0;
-    color: #6B6B6B;
+  .footer { text-align: center; padding: 14px 0; color: #6B6B6B; font-size: 0.76rem; font-style: italic; border-top: 1px solid #E4E0DB; }
+
+  /* ── CLIENT LIST VIEW ── */
+  .client-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+  @media (max-width: 600px) { .client-grid { grid-template-columns: 1fr; } }
+  .client-card {
+    background: #fff;
+    border: 1.5px solid #E4E0DB;
+    border-radius: 10px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .client-card:hover { border-color: #E8692A; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .client-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+  .client-card .client-status-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+  }
+  .badge-active { background: #E8692A20; color: #E8692A; }
+  .badge-qa { background: #2A7AE820; color: #2A7AE8; }
+  .badge-waiting { background: #F5A62320; color: #C5851A; }
+  .badge-complete { background: #2AAF5F20; color: #2AAF5F; }
+  .client-card .client-summary { font-size: 0.73rem; color: #6B6B6B; line-height: 1.35; }
+  .client-card .meeting-count { font-size: 0.68rem; color: #ACACAC; margin-top: 6px; font-weight: 600; }
+
+  /* ── CLIENT DETAIL VIEW ── */
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: inherit;
     font-size: 0.78rem;
-    font-style: italic;
-    border-top: 1px solid #E4E0DB;
+    font-weight: 600;
+    color: #6B6B6B;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 0;
+    margin-bottom: 12px;
+  }
+  .back-btn:hover { color: #E8692A; }
+  .client-detail-header { margin-bottom: 16px; }
+  .client-detail-header h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: 2px; }
+  .client-detail-header .client-detail-badge { font-size: 0.72rem; }
+
+  .tab-bar {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #E4E0DB;
+    margin-bottom: 16px;
+  }
+  .tab-btn {
+    padding: 8px 18px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6B6B6B;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tab-btn:hover { color: #1C1C1C; }
+  .tab-btn.active { color: #E8692A; border-bottom-color: #E8692A; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* Status summary */
+  .status-card {
+    background: #fff;
+    border: 1.5px solid #E4E0DB;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+  .status-card h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #E8692A; margin-bottom: 6px; }
+  .status-card p, .status-card li { font-size: 0.82rem; line-height: 1.45; }
+  .status-card ul { margin-left: 16px; margin-top: 4px; }
+  .status-card li { margin-bottom: 3px; }
+
+  /* Recap cards */
+  .recap-card {
+    background: #fff;
+    border: 1.5px solid #E4E0DB;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 10px;
+  }
+  .recap-card .recap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .recap-card .recap-title { font-size: 0.85rem; font-weight: 700; }
+  .recap-card .recap-date { font-size: 0.72rem; color: #6B6B6B; font-weight: 500; }
+  .recap-card .recap-attendees { font-size: 0.68rem; color: #ACACAC; margin-bottom: 6px; }
+  .recap-card .recap-body { font-size: 0.78rem; line-height: 1.45; color: #1C1C1C; }
+  .recap-card .recap-body h3 { font-size: 0.8rem; font-weight: 700; margin: 8px 0 3px; color: #1C1C1C; }
+  .recap-card .recap-body ul { margin-left: 16px; }
+  .recap-card .recap-body li { margin-bottom: 2px; }
+  .recap-toggle {
+    font-family: inherit; font-size: 0.73rem; font-weight: 600;
+    color: #E8692A; background: none; border: none; cursor: pointer; padding: 4px 0;
   }
 
-  /* ── Print ── */
+  /* Notes */
+  .notes-area {
+    width: 100%;
+    min-height: 200px;
+    padding: 12px;
+    border: 1.5px solid #E4E0DB;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    background: #fff;
+    color: #1C1C1C;
+    resize: vertical;
+  }
+  .notes-area:focus { outline: none; border-color: #E8692A; }
+  .notes-saved { font-size: 0.7rem; color: #6B6B6B; font-style: italic; margin-top: 4px; }
+
+  /* Intel items */
+  .intel-item {
+    background: #fff;
+    border: 1.5px solid #E4E0DB;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+  .intel-item .intel-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: #E8692A; letter-spacing: 0.04em; margin-bottom: 2px; }
+  .intel-item p { font-size: 0.8rem; line-height: 1.4; }
+
+  .add-intel-btn {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-family: inherit; font-size: 0.78rem; font-weight: 600;
+    color: #E8692A; background: none; border: 1.5px dashed #E8692A;
+    border-radius: 8px; padding: 8px 14px; cursor: pointer; margin-top: 8px;
+    transition: all 0.2s;
+  }
+  .add-intel-btn:hover { background: #E8692A10; }
+
+  .intel-form { margin-top: 10px; background: #fff; border: 1.5px solid #E4E0DB; border-radius: 10px; padding: 12px; }
+  .intel-form select, .intel-form textarea {
+    width: 100%; font-family: inherit; font-size: 0.82rem;
+    border: 1.5px solid #E4E0DB; border-radius: 6px; padding: 8px;
+    margin-bottom: 8px; background: #fff;
+  }
+  .intel-form textarea { min-height: 60px; resize: vertical; }
+  .intel-form select:focus, .intel-form textarea:focus { outline: none; border-color: #E8692A; }
+  .intel-form-actions { display: flex; gap: 8px; }
+  .btn-sm {
+    font-family: inherit; font-size: 0.75rem; font-weight: 600; padding: 6px 14px;
+    border-radius: 6px; border: none; cursor: pointer; transition: all 0.2s;
+  }
+  .btn-primary { background: #E8692A; color: #fff; }
+  .btn-primary:hover { background: #D45B1F; }
+  .btn-ghost { background: none; color: #6B6B6B; border: 1.5px solid #E4E0DB; }
+  .btn-ghost:hover { border-color: #CDCAC5; }
+
+  /* Hide views */
+  .view { display: none; }
+  .view.active { display: block; }
+
+  /* Print */
   @media print {
     body { background: #fff; }
     .container { padding: 16px 0; }
-    .habit-card { break-inside: avoid; }
-    .progress-wrap { display: none; }
+    .top-nav, .progress-wrap { display: none; }
+    .habit-card, .recap-card, .client-card { break-inside: avoid; }
   }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- Daily Quote -->
-  <div class="daily-quote">
-    <div class="quote-text" id="quote-text"></div>
-    <div class="quote-author" id="quote-author"></div>
+  <!-- Navigation -->
+  <div class="top-nav">
+    <button class="nav-btn active" onclick="showView('playbook')">Daily Playbook</button>
+    <button class="nav-btn" onclick="showView('clients')">Clients</button>
   </div>
 
-  <!-- Header -->
-  <div class="header">
-    <h1>ANWAR'S DAILY PLAYBOOK</h1>
-    <div class="subtitle">Senior Manager, Client Experience &mdash; Geletka+</div>
-  </div>
-  <div class="date" id="today-date"></div>
+  <!-- ====== PLAYBOOK VIEW ====== -->
+  <div class="view active" id="view-playbook">
 
-  <!-- Win Today -->
-  <div class="win-today">
-    <label for="win-input">Win today by:</label>
-    <input type="text" id="win-input" placeholder="What does winning look like today?">
-  </div>
+    <!-- Daily Quote -->
+    <div class="daily-quote">
+      <div class="quote-text" id="quote-text"></div>
+      <div class="quote-author" id="quote-author"></div>
+    </div>
 
-  <!-- Must-Dos -->
-  <div class="must-dos">
-    <div class="must-do-card">
-      <label for="must1">Must-Do #1</label>
-      <textarea id="must1" placeholder="..."></textarea>
+    <!-- Header -->
+    <div class="header">
+      <h1>ANWAR'S DAILY PLAYBOOK</h1>
+      <div class="subtitle">Senior Manager, Client Experience &mdash; Geletka+</div>
     </div>
-    <div class="must-do-card">
-      <label for="must2">Must-Do #2</label>
-      <textarea id="must2" placeholder="..."></textarea>
-    </div>
-    <div class="must-do-card">
-      <label for="must3">Must-Do #3</label>
-      <textarea id="must3" placeholder="..."></textarea>
-    </div>
-  </div>
+    <div class="date" id="today-date"></div>
 
-  <!-- Weekly Habits (compact, right under must-dos) -->
-  <div class="weekly-header">
-    <h2>5 Weekly Habits</h2>
-  </div>
-  <div class="habits-grid">
-    <div class="habit-card">
-      <div class="habit-number">1</div>
-      <div class="habit-title">Friday: 5-Sentence Status Email</div>
-      <div class="habit-desc">Every active client. What shipped, what's coming, what you need. Same format weekly.</div>
+    <!-- Win Today -->
+    <div class="win-today">
+      <label class="field-label" for="win-input">Win today by:</label>
+      <input type="text" id="win-input" placeholder="What does winning look like today?">
     </div>
-    <div class="habit-card">
-      <div class="habit-number">2</div>
-      <div class="habit-title">Before Calls: One Curious Question</div>
-      <div class="habit-desc">About their business, not the project. Write it down. This becomes your intelligence.</div>
-    </div>
-    <div class="habit-card">
-      <div class="habit-number">3</div>
-      <div class="habit-title">Before Meetings: Define the Outcome</div>
-      <div class="habit-desc">"By end of this call, client will&hellip;" State it at the top. Call it at the close.</div>
-    </div>
-    <div class="habit-card">
-      <div class="habit-number">4</div>
-      <div class="habit-title">Within 2 Hrs: Post-Meeting Recap</div>
-      <div class="habit-desc">Decided / doing next (owner + date) / need from you. 5-8 lines. Copy John on big ones.</div>
-    </div>
-    <div class="habit-card">
-      <div class="habit-number">5</div>
-      <div class="habit-title">Monthly: Send Something They Didn't Ask For</div>
-      <div class="habit-desc">Article, competitor move, data point. Two sentences of context. No ask. Builds trust.</div>
-    </div>
-  </div>
 
-  <!-- Progress -->
-  <div class="progress-wrap">
-    <div class="progress-text"><span id="done-count">0</span> / <span id="total-count">0</span> done</div>
-    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-  </div>
-
-  <!-- PLAN -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-title">Plan</span>
-      <span class="section-time">10 min</span>
-      <span class="section-desc">&mdash; what absolutely has to happen today</span>
+    <!-- Must-Dos -->
+    <div class="must-dos">
+      <div class="must-do-card"><label for="must1">Must-Do #1</label><textarea id="must1" placeholder="..."></textarea></div>
+      <div class="must-do-card"><label for="must2">Must-Do #2</label><textarea id="must2" placeholder="..."></textarea></div>
+      <div class="must-do-card"><label for="must3">Must-Do #3</label><textarea id="must3" placeholder="..."></textarea></div>
     </div>
-    <div class="checklist-item">
-      <div class="cb-wrapper"><input type="checkbox" data-id="plan-1"></div>
-      <div class="cb-content">
-        <div class="cb-label">Your 3 must-dos. Just 3.</div>
-        <div class="cb-note">If you knock these out, today is a win. One should almost always be client-facing. 3 min</div>
+
+    <!-- Weekly Habits -->
+    <div class="weekly-header"><h2>5 Weekly Habits</h2></div>
+    <div class="habits-grid">
+      <div class="habit-card"><div class="habit-number">1</div><div class="habit-title">Friday: 5-Sentence Status Email</div><div class="habit-desc">Every active client. What shipped, what's coming, what you need.</div></div>
+      <div class="habit-card"><div class="habit-number">2</div><div class="habit-title">Before Calls: One Curious Question</div><div class="habit-desc">About their business, not the project. Write it down.</div></div>
+      <div class="habit-card"><div class="habit-number">3</div><div class="habit-title">Before Meetings: Define the Outcome</div><div class="habit-desc">"By end of this call, client will..." State it. Call it at close.</div></div>
+      <div class="habit-card"><div class="habit-number">4</div><div class="habit-title">Within 2 Hrs: Post-Meeting Recap</div><div class="habit-desc">Decided / doing next (owner+date) / need from you. 5-8 lines.</div></div>
+      <div class="habit-card"><div class="habit-number">5</div><div class="habit-title">Monthly: Send Something Unexpected</div><div class="habit-desc">Article, competitor move, data point. No ask. Builds trust.</div></div>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-wrap">
+      <div class="progress-text"><span id="done-count">0</span> / <span id="total-count">0</span> done</div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+
+    <!-- PLAN -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Plan</span>
+        <span class="section-time">10 min</span>
+        <span class="section-desc">&mdash; what absolutely has to happen today</span>
       </div>
+      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="plan-1"></div><div class="cb-content"><div class="cb-label">Your 3 must-dos. Just 3.</div><div class="cb-note">If you knock these out, today is a win. One should almost always be client-facing. 3 min</div></div></div>
+      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="plan-2"></div><div class="cb-content"><div class="cb-label">One outcome per client call.</div><div class="cb-note">"By the end of this call, the client will&hellip;" Write it down. One sentence. 5 min</div></div></div>
+      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="plan-3"></div><div class="cb-content"><div class="cb-label">Quick scan of your client status doc.</div><div class="cb-note">30 seconds. Catch anything slipping before someone else does. 2 min</div></div></div>
     </div>
-    <div class="checklist-item">
-      <div class="cb-wrapper"><input type="checkbox" data-id="plan-2"></div>
-      <div class="cb-content">
-        <div class="cb-label">One outcome per client call.</div>
-        <div class="cb-note">"By the end of this call, the client will&hellip;" Write it down. One sentence. 5 min</div>
+
+    <!-- CONNECT -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Connect</span>
+        <span class="section-time">10 min</span>
+        <span class="section-desc">&mdash; the stuff that actually builds relationships</span>
       </div>
+      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="connect-1"></div><div class="cb-content"><div class="cb-label">Client follow-ups from yesterday.</div><div class="cb-note">Recaps, promised deliverables, pending approvals. Out before 10am. They notice. 5 min</div></div></div>
+      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="connect-2"></div><div class="cb-content"><div class="cb-label">One unprompted note &mdash; no agenda.</div><div class="cb-note">One person, two sentences. Just checking in. Rotate across clients through the week. 5 min</div></div></div>
     </div>
-    <div class="checklist-item">
-      <div class="cb-wrapper"><input type="checkbox" data-id="plan-3"></div>
-      <div class="cb-content">
-        <div class="cb-label">Quick scan of your client status doc.</div>
-        <div class="cb-note">30 seconds. Catch anything slipping before someone else does. 2 min</div>
+
+    <!-- UNBLOCK -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Unblock</span>
+        <span class="section-time">10 min</span>
+        <span class="section-desc">&mdash; don't let things die on the vine</span>
       </div>
+      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="unblock-1"></div><div class="cb-content"><div class="cb-label">Workamajig deep check &mdash; every project.</div><div class="cb-note">Open each active project. Check due dates, deliverables, and review status. Flag anything past due or at risk. 7 min</div></div></div>
+      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="unblock-2"></div><div class="cb-content"><div class="cb-label">Unblock stuck tasks &mdash; reassign, nudge, or escalate.</div><div class="cb-note">Anything stuck in review or waiting on someone? Clear the path before standup. 3 min</div></div></div>
+      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="unblock-3"></div><div class="cb-content"><div class="cb-label">Your curious question for a client today.</div><div class="cb-note">One question about their actual business, not the project. Write it now so you don't forget. 2 min</div></div></div>
     </div>
+
+    <div class="footer">Reset. Repeat. You got this.</div>
   </div>
 
-  <!-- CONNECT -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-title">Connect</span>
-      <span class="section-time">10 min</span>
-      <span class="section-desc">&mdash; the stuff that actually builds relationships</span>
+  <!-- ====== CLIENTS LIST VIEW ====== -->
+  <div class="view" id="view-clients">
+    <div class="header" style="margin-bottom:8px">
+      <h1 style="font-size:1.3rem">CLIENTS</h1>
+      <div class="subtitle">Meeting recaps, intel, and notes &mdash; powered by Granola</div>
     </div>
-    <div class="checklist-item">
-      <div class="cb-wrapper"><input type="checkbox" data-id="connect-1"></div>
-      <div class="cb-content">
-        <div class="cb-label">Client follow-ups from yesterday.</div>
-        <div class="cb-note">Recaps, promised deliverables, pending approvals. Out before 10am. They notice. 5 min</div>
-      </div>
-    </div>
-    <div class="checklist-item">
-      <div class="cb-wrapper"><input type="checkbox" data-id="connect-2"></div>
-      <div class="cb-content">
-        <div class="cb-label">One unprompted note &mdash; no agenda.</div>
-        <div class="cb-note">One person, two sentences. Just checking in. Rotate across clients through the week. 5 min</div>
-      </div>
-    </div>
+    <div class="client-grid" id="client-grid"></div>
   </div>
 
-  <!-- UNBLOCK -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-title">Unblock</span>
-      <span class="section-time">10 min</span>
-      <span class="section-desc">&mdash; don't let things die on the vine</span>
-    </div>
-    <div class="checklist-item">
-      <div class="cb-wrapper"><input type="checkbox" data-id="unblock-1"></div>
-      <div class="cb-content">
-        <div class="cb-label">Workamajig deep check &mdash; every project.</div>
-        <div class="cb-note">Open each active project. Check due dates, deliverables, and review status. Flag anything past due or at risk. 7 min</div>
-      </div>
-    </div>
-    <div class="checklist-item">
-      <div class="cb-wrapper"><input type="checkbox" data-id="unblock-2"></div>
-      <div class="cb-content">
-        <div class="cb-label">Unblock stuck tasks &mdash; reassign, nudge, or escalate.</div>
-        <div class="cb-note">Anything stuck in review or waiting on someone? Clear the path before standup. 3 min</div>
-      </div>
-    </div>
-    <div class="checklist-item">
-      <div class="cb-wrapper"><input type="checkbox" data-id="unblock-3"></div>
-      <div class="cb-content">
-        <div class="cb-label">Your curious question for a client today.</div>
-        <div class="cb-note">One question about their actual business, not the project. Write it now so you don't forget. 2 min</div>
-      </div>
-    </div>
+  <!-- ====== CLIENT DETAIL VIEW ====== -->
+  <div class="view" id="view-client-detail">
+    <button class="back-btn" onclick="showView('clients')">&larr; All Clients</button>
+    <div class="client-detail-header" id="client-detail-header"></div>
+    <div class="tab-bar" id="tab-bar"></div>
+    <div id="tab-content-area"></div>
   </div>
-
-  <!-- Footer -->
-  <div class="footer">Reset. Repeat. You got this.</div>
 
 </div>
 
 <script>
 (function() {
-  // ── 50 Quotes ──
-  var quotes = [
-    {t:"The secret of getting ahead is getting started.",a:"Mark Twain"},
-    {t:"It is not the strongest of the species that survives, nor the most intelligent. It is the one most adaptable to change.",a:"Charles Darwin"},
-    {t:"You don't have to be great to start, but you have to start to be great.",a:"Zig Ziglar"},
-    {t:"The only way to do great work is to love what you do.",a:"Steve Jobs"},
-    {t:"Success is not final, failure is not fatal: it is the courage to continue that counts.",a:"Winston Churchill"},
-    {t:"Do what you can, with what you have, where you are.",a:"Theodore Roosevelt"},
-    {t:"The best time to plant a tree was 20 years ago. The second best time is now.",a:"Chinese Proverb"},
-    {t:"Be so good they can't ignore you.",a:"Steve Martin"},
-    {t:"Hard choices, easy life. Easy choices, hard life.",a:"Jerzy Gregorek"},
-    {t:"You are never too old to set another goal or to dream a new dream.",a:"C.S. Lewis"},
-    {t:"The man who moves a mountain begins by carrying away small stones.",a:"Confucius"},
-    {t:"What lies behind us and what lies before us are tiny matters compared to what lies within us.",a:"Ralph Waldo Emerson"},
-    {t:"A year from now you may wish you had started today.",a:"Karen Lamb"},
-    {t:"If you want to go fast, go alone. If you want to go far, go together.",a:"African Proverb"},
-    {t:"Discipline is choosing between what you want now and what you want most.",a:"Abraham Lincoln"},
-    {t:"The world breaks everyone, and afterward, some are strong at the broken places.",a:"Ernest Hemingway"},
-    {t:"Opportunities don't happen. You create them.",a:"Chris Grosser"},
-    {t:"Don't count the days. Make the days count.",a:"Muhammad Ali"},
-    {t:"Everything you've ever wanted is on the other side of fear.",a:"George Addair"},
-    {t:"I have not failed. I've just found 10,000 ways that won't work.",a:"Thomas Edison"},
-    {t:"The only limit to our realization of tomorrow will be our doubts of today.",a:"Franklin D. Roosevelt"},
-    {t:"It always seems impossible until it's done.",a:"Nelson Mandela"},
-    {t:"The best revenge is massive success.",a:"Frank Sinatra"},
-    {t:"If you're going through hell, keep going.",a:"Winston Churchill"},
-    {t:"You miss 100% of the shots you don't take.",a:"Wayne Gretzky"},
-    {t:"Stay hungry, stay foolish.",a:"Steve Jobs"},
-    {t:"The mind is everything. What you think you become.",a:"Buddha"},
-    {t:"People who are crazy enough to think they can change the world are the ones who do.",a:"Apple Inc."},
-    {t:"Life is what happens when you're busy making other plans.",a:"John Lennon"},
-    {t:"Wherever you go, go with all your heart.",a:"Confucius"},
-    {t:"What we fear doing most is usually what we most need to do.",a:"Tim Ferriss"},
-    {t:"The way to get started is to quit talking and begin doing.",a:"Walt Disney"},
-    {t:"If you hear a voice within you say 'you cannot paint,' then by all means paint, and that voice will be silenced.",a:"Vincent van Gogh"},
-    {t:"Your time is limited. Don't waste it living someone else's life.",a:"Steve Jobs"},
-    {t:"Happiness is not something ready made. It comes from your own actions.",a:"Dalai Lama"},
-    {t:"If you look at what you have in life, you'll always have more.",a:"Oprah Winfrey"},
-    {t:"We suffer more often in imagination than in reality.",a:"Seneca"},
-    {t:"He who has a why to live can bear almost any how.",a:"Friedrich Nietzsche"},
-    {t:"Act as if what you do makes a difference. It does.",a:"William James"},
-    {t:"Small daily improvements over time lead to stunning results.",a:"Robin Sharma"},
-    {t:"The only person you are destined to become is the person you decide to be.",a:"Ralph Waldo Emerson"},
-    {t:"Doubt kills more dreams than failure ever will.",a:"Suzy Kassem"},
-    {t:"We are what we repeatedly do. Excellence, then, is not an act, but a habit.",a:"Aristotle"},
-    {t:"In the middle of difficulty lies opportunity.",a:"Albert Einstein"},
-    {t:"The harder I work, the luckier I get.",a:"Gary Player"},
-    {t:"Comparison is the thief of joy.",a:"Theodore Roosevelt"},
-    {t:"One day or day one. You decide.",a:"Paulo Coelho"},
-    {t:"Kind words can be short and easy to speak, but their echoes are truly endless.",a:"Mother Teresa"},
-    {t:"You have power over your mind, not outside events. Realize this, and you will find strength.",a:"Marcus Aurelius"},
-    {t:"Not all who wander are lost.",a:"J.R.R. Tolkien"}
-  ];
 
-  // Date setup
-  var now = new Date();
-  var dateKey = now.toISOString().slice(0, 10);
-  var storageKey = 'playbook-' + dateKey;
+// ── 50 Quotes ──
+var quotes = [
+  {t:"The secret of getting ahead is getting started.",a:"Mark Twain"},
+  {t:"It is not the strongest of the species that survives, nor the most intelligent. It is the one most adaptable to change.",a:"Charles Darwin"},
+  {t:"You don't have to be great to start, but you have to start to be great.",a:"Zig Ziglar"},
+  {t:"The only way to do great work is to love what you do.",a:"Steve Jobs"},
+  {t:"Success is not final, failure is not fatal: it is the courage to continue that counts.",a:"Winston Churchill"},
+  {t:"Do what you can, with what you have, where you are.",a:"Theodore Roosevelt"},
+  {t:"The best time to plant a tree was 20 years ago. The second best time is now.",a:"Chinese Proverb"},
+  {t:"Be so good they can't ignore you.",a:"Steve Martin"},
+  {t:"Hard choices, easy life. Easy choices, hard life.",a:"Jerzy Gregorek"},
+  {t:"You are never too old to set another goal or to dream a new dream.",a:"C.S. Lewis"},
+  {t:"The man who moves a mountain begins by carrying away small stones.",a:"Confucius"},
+  {t:"What lies behind us and what lies before us are tiny matters compared to what lies within us.",a:"Ralph Waldo Emerson"},
+  {t:"A year from now you may wish you had started today.",a:"Karen Lamb"},
+  {t:"If you want to go fast, go alone. If you want to go far, go together.",a:"African Proverb"},
+  {t:"Discipline is choosing between what you want now and what you want most.",a:"Abraham Lincoln"},
+  {t:"The world breaks everyone, and afterward, some are strong at the broken places.",a:"Ernest Hemingway"},
+  {t:"Opportunities don't happen. You create them.",a:"Chris Grosser"},
+  {t:"Don't count the days. Make the days count.",a:"Muhammad Ali"},
+  {t:"Everything you've ever wanted is on the other side of fear.",a:"George Addair"},
+  {t:"I have not failed. I've just found 10,000 ways that won't work.",a:"Thomas Edison"},
+  {t:"The only limit to our realization of tomorrow will be our doubts of today.",a:"Franklin D. Roosevelt"},
+  {t:"It always seems impossible until it's done.",a:"Nelson Mandela"},
+  {t:"The best revenge is massive success.",a:"Frank Sinatra"},
+  {t:"If you're going through hell, keep going.",a:"Winston Churchill"},
+  {t:"You miss 100% of the shots you don't take.",a:"Wayne Gretzky"},
+  {t:"Stay hungry, stay foolish.",a:"Steve Jobs"},
+  {t:"The mind is everything. What you think you become.",a:"Buddha"},
+  {t:"People who are crazy enough to think they can change the world are the ones who do.",a:"Apple Inc."},
+  {t:"Life is what happens when you're busy making other plans.",a:"John Lennon"},
+  {t:"Wherever you go, go with all your heart.",a:"Confucius"},
+  {t:"What we fear doing most is usually what we most need to do.",a:"Tim Ferriss"},
+  {t:"The way to get started is to quit talking and begin doing.",a:"Walt Disney"},
+  {t:"If you hear a voice within you say 'you cannot paint,' then by all means paint, and that voice will be silenced.",a:"Vincent van Gogh"},
+  {t:"Your time is limited. Don't waste it living someone else's life.",a:"Steve Jobs"},
+  {t:"Happiness is not something ready made. It comes from your own actions.",a:"Dalai Lama"},
+  {t:"If you look at what you have in life, you'll always have more.",a:"Oprah Winfrey"},
+  {t:"We suffer more often in imagination than in reality.",a:"Seneca"},
+  {t:"He who has a why to live can bear almost any how.",a:"Friedrich Nietzsche"},
+  {t:"Act as if what you do makes a difference. It does.",a:"William James"},
+  {t:"Small daily improvements over time lead to stunning results.",a:"Robin Sharma"},
+  {t:"The only person you are destined to become is the person you decide to be.",a:"Ralph Waldo Emerson"},
+  {t:"Doubt kills more dreams than failure ever will.",a:"Suzy Kassem"},
+  {t:"We are what we repeatedly do. Excellence, then, is not an act, but a habit.",a:"Aristotle"},
+  {t:"In the middle of difficulty lies opportunity.",a:"Albert Einstein"},
+  {t:"The harder I work, the luckier I get.",a:"Gary Player"},
+  {t:"Comparison is the thief of joy.",a:"Theodore Roosevelt"},
+  {t:"One day or day one. You decide.",a:"Paulo Coelho"},
+  {t:"Kind words can be short and easy to speak, but their echoes are truly endless.",a:"Mother Teresa"},
+  {t:"You have power over your mind, not outside events. Realize this, and you will find strength.",a:"Marcus Aurelius"},
+  {t:"Not all who wander are lost.",a:"J.R.R. Tolkien"}
+];
 
-  // Pick quote deterministically by day-of-year
-  var startOfYear = new Date(now.getFullYear(), 0, 0);
-  var dayOfYear = Math.floor((now - startOfYear) / 86400000);
-  var q = quotes[dayOfYear % quotes.length];
-  document.getElementById('quote-text').textContent = '\u201C' + q.t + '\u201D';
-  document.getElementById('quote-author').textContent = '\u2014 ' + q.a;
-
-  // Display date
-  var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  document.getElementById('today-date').textContent = days[now.getDay()] + ', ' + months[now.getMonth()] + ' ' + now.getDate();
-
-  // Load / save state
-  function loadState() {
-    try { return JSON.parse(localStorage.getItem(storageKey)) || {}; } catch(e) { return {}; }
-  }
-  function saveState(state) {
-    localStorage.setItem(storageKey, JSON.stringify(state));
-  }
-
-  var state = loadState();
-
-  // Text inputs
-  var winInput = document.getElementById('win-input');
-  var must1 = document.getElementById('must1');
-  var must2 = document.getElementById('must2');
-  var must3 = document.getElementById('must3');
-
-  winInput.value = state.win || '';
-  must1.value = state.must1 || '';
-  must2.value = state.must2 || '';
-  must3.value = state.must3 || '';
-
-  function saveText() {
-    var s = loadState();
-    s.win = winInput.value;
-    s.must1 = must1.value;
-    s.must2 = must2.value;
-    s.must3 = must3.value;
-    saveState(s);
-  }
-
-  [winInput, must1, must2, must3].forEach(function(el) {
-    el.addEventListener('input', saveText);
-  });
-
-  // Checkboxes
-  var checkboxes = document.querySelectorAll('input[type="checkbox"][data-id]');
-  var totalCount = checkboxes.length;
-  document.getElementById('total-count').textContent = totalCount;
-
-  function updateProgress() {
-    var done = 0;
-    checkboxes.forEach(function(cb) { if (cb.checked) done++; });
-    document.getElementById('done-count').textContent = done;
-    document.getElementById('progress-fill').style.width = (totalCount ? (done / totalCount * 100) : 0) + '%';
-  }
-
-  checkboxes.forEach(function(cb) {
-    var id = cb.getAttribute('data-id');
-    if (state.checks && state.checks[id]) {
-      cb.checked = true;
-      cb.closest('.checklist-item').querySelector('.cb-label').classList.add('checked');
-    }
-
-    cb.addEventListener('change', function() {
-      var label = cb.closest('.checklist-item').querySelector('.cb-label');
-      if (cb.checked) {
-        label.classList.add('checked');
-      } else {
-        label.classList.remove('checked');
+// ── Client Data (from Granola, Apr 14 2026) ──
+var clients = [
+  {
+    id: "island-dental",
+    name: "Island Dental",
+    status: "active",
+    badge: "Active",
+    badgeClass: "badge-active",
+    summary: "Active and complex. TV spots in script revision, implant/denture landing pages in build, main website (77 pages) in incremental client review.",
+    contacts: [{n:"Dr. E (nydentist@hotmail.com)",r:"Client Lead"},{n:"Robert Smith",r:"Client"},{n:"Jackie Rose",r:"Client"},{n:"Iryna",r:"Media"},{n:"Caroline",r:"PM"},{n:"Nancy",r:"Account"},{n:"Deb",r:"Copy"},{n:"Johnnyd",r:"Creative Dir"},{n:"Amanie",r:"Visuals"},{n:"Allison",r:"Design"},{n:"John DeLuca",r:"ECD"}],
+    intel: [
+      {label:"Key Differentiator",text:"On-site denture technicians. Most offices only manufacture crowns. Aspen Dental uses same model."},
+      {label:"Retention Challenge",text:"Losing patients to insurance changes and relocation, not service quality. Island Advantage Plan exists for uninsured. Dr. E wants loyalty/membership program thinking."},
+      {label:"Ad Performance",text:"Meta Invisalign campaign: ~$34 CPL (2-3x lower than Google Ads). $2,998 price-point creative best performer at $26 CPL. Budget is low for the area."},
+      {label:"Client Preference",text:"Dr. E prefers relatable, emotional scripts. Likes coffee shop / restaurant / social gathering settings. Wants younger demographic (35-40) in imagery."},
+      {label:"New Assignment",text:"Patient loyalty / retention program. Consider membership, points, referral plans. Build on existing Island Advantage Plan."}
+    ],
+    recaps: [
+      {
+        title: "Island Dental Weekly Status",
+        date: "Apr 3, 2026",
+        attendees: "Anwar, Iryna, Dr. E, Caroline, Nancy, John D, Jackie Rose, Johnnyd, Robert Smith, Allison, Deb, Joe",
+        summary: "<h3>TV Scripts</h3><ul><li>3 new 30-sec brand scripts presented: \"You Can,\" \"Miss You,\" \"The Last Time You Smiled\"</li><li>Core shift: emotion and confidence, not procedures</li><li>Dr. E positive \u2014 more relatable than previous concepts</li><li>Shoot logistics: Long Island office + coffee shop, possible Chicago second day</li><li>Talent: flat buyout fee, +10% options for years 2-3</li></ul><h3>Landing Pages</h3><ul><li>3 implant pages built in test, going live next week</li><li>Quiz form needs updating from Invisalign to implants</li><li>Dr. E wants location question moved to end of flow</li><li>One header photo swap to younger demographic needed</li></ul><h3>Dentures</h3><ul><li>On-site lab is the key differentiator</li><li>Lower-cost alternative to full-arch implants (~$30K)</li><li>Dr. E provided content notes for landing pages</li></ul><h3>Next Steps</h3><ul><li>Dr. E: feedback on 3 scripts by Mon Apr 6, choose one direction</li><li>Team: implant + denture script variants by Wed Apr 8</li><li>Shoot target: Tue Apr 14 (or push to week of Apr 20)</li><li>KD: update quiz form, review GoHighLevel flow</li><li>Iryna: pull Margarita campaign data for comparison</li></ul>"
+      },
+      {
+        title: "Implants & Dentures Scripts Regroup",
+        date: "Apr 13, 2026",
+        attendees: "Anwar, Amanie, Nancy, Deb, Johnnyd",
+        summary: "<ul><li>Internal script review for implants and dentures video content</li><li>Refining scripts based on Dr. E's earlier feedback</li><li>Coordination between copy (Deb), creative direction (Johnnyd), and visuals (Amanie)</li></ul>"
+      },
+      {
+        title: "Island Dental Dentures Kickoff",
+        date: "Apr 1, 2026",
+        attendees: "Anwar, Amanie, Caroline, Nancy, Deb, John D, Johnnyd, Allison, Iryna",
+        summary: "<ul><li>Kicked off dentures landing page and video content workstream</li><li>On-site lab positioning as key differentiator</li><li>Dentures as lower-cost alternative to implants</li><li>Content notes from Dr. E being organized for page build</li></ul>"
       }
-      var s = loadState();
-      if (!s.checks) s.checks = {};
-      s.checks[id] = cb.checked;
-      saveState(s);
-      updateProgress();
-    });
+    ],
+    notes: ""
+  },
+  {
+    id: "covoya",
+    name: "Covoya Coffee",
+    status: "active",
+    badge: "Near Launch",
+    badgeClass: "badge-active",
+    summary: "Website near launch. Team page card redesign is the main blocker \u2014 eliminating visual hierarchy. Nancy's playbook 98% complete. Ethan onboards after team page.",
+    contacts: [{n:"Ethan",r:"Client (onboarding post-launch)"},{n:"Rob",r:"Client"},{n:"Katie",r:"PM"},{n:"Caroline",r:"Dev handoff"},{n:"Nancy",r:"Playbook"},{n:"Allison",r:"Design"},{n:"Doug",r:"Dev"},{n:"Amanie",r:"Design"},{n:"Johnnyd",r:"Creative Dir"}],
+    intel: [
+      {label:"Main Blocker",text:"Team page card redesign. Must eliminate hierarchy between traders and non-traders. Rob concerned about visual hierarchy."},
+      {label:"Design Direction",text:"Trader cards: add button/CTA for clickability. Non-trader cards: add space for facts. Both types should look similar despite different functionality."},
+      {label:"Phase 2 Items",text:"Spotify/podcast/social feeds are Phase 2 \u2014 not in current scope."},
+      {label:"Playbook",text:"Nancy's playbook is 98% complete, waiting for website completion before finalizing."}
+    ],
+    recaps: [
+      {
+        title: "Covoya Regroup",
+        date: "Apr 14, 2026",
+        attendees: "Anwar, Caroline, Nancy, Deb, Johnnyd, Katie, Allison, Doug, Amanie",
+        summary: "<h3>Team Page Redesign</h3><ul><li>Cards need redesign to eliminate hierarchy between traders and non-traders</li><li>Current hover state unclear \u2014 doesn't show traders are clickable</li><li>V1: keep sections but redesign cards with CTAs for traders, extra info for non-traders</li><li>Alternatives discussed: pop-up overlays, alphabetical + role badges, larger cards</li></ul><h3>Dev & QA</h3><ul><li>Continue QA on existing trader pages</li><li>Katie building test page with unimplemented components</li><li>Missing Figma elements need dev pass alignment (watermark illustrations, etc.)</li></ul><h3>Next Steps</h3><ul><li>Design team (Allison, Doug, Amanie) to solve card interaction challenge</li><li>Caroline to flag Figma vs. live misalignments</li><li>Timeline: 2 weeks for design, iterative approach</li><li>Ethan onboards after team page</li></ul>"
+      },
+      {
+        title: "Covoya Dev Handoffs - Components",
+        date: "Mar 30, 2026",
+        attendees: "Anwar, Nancy, Johnnyd, Katie, Allison, Doug, Deb",
+        summary: "<ul><li>Component-level dev handoff session for Covoya website</li><li>Reviewed which components are ready for build vs. need design finalization</li><li>Doug building out pages based on Figma specs</li></ul>"
+      },
+      {
+        title: "Covoya Hand-offs to Caroline Discussion",
+        date: "Apr 3, 2026",
+        attendees: "Anwar, Johnnyd, Allison",
+        summary: "<ul><li>Planning transition of Covoya work to Caroline</li><li>Discussed scope and handoff logistics</li></ul>"
+      }
+    ],
+    notes: ""
+  },
+  {
+    id: "hyer",
+    name: "Hyer",
+    status: "qa",
+    badge: "In QA",
+    badgeClass: "badge-qa",
+    summary: "3 solution pages (On Demand Labor, Flex Connect, + 1 more) being rebuilt to match new homepage. Doug building live in draft. No staging environment.",
+    contacts: [{n:"Pankaj",r:"Client"},{n:"Doug",r:"Dev (primary)"},{n:"Katie",r:"PM"},{n:"Amanie",r:"Design"},{n:"Johnnyd",r:"Creative Dir"},{n:"John DeLuca",r:"ECD"}],
+    intel: [
+      {label:"Client Patience",text:"Pankaj has been waiting several weeks. Delivery was targeted for end of week of Mar 30 (cautiously)."},
+      {label:"Technical Approach",text:"No mobile designs provided \u2014 designing responsively during build. Building live in draft pages (no staging). Preview links shared once built."},
+      {label:"Homepage Context",text:"Homepage redesign completed months ago with lighter colors, bento layout, modern tech feel. Solution pages being brought in line."},
+      {label:"Dependencies",text:"Competing priorities: Covoya, Workbox, Island Dental, St. Lawrence. Story Three status was critical dependency."}
+    ],
+    recaps: [
+      {
+        title: "Hyer Dev Handoff",
+        date: "Mar 30, 2026",
+        attendees: "Anwar, Amanie, John D, Johnnyd, Katie, Doug",
+        summary: "<h3>Page Details</h3><ul><li><strong>On Demand Labor:</strong> half/half gradient header, icon grid, overlapping images, updated carousel</li><li><strong>Flex Connect:</strong> similar header, 4-5 clickable tab component, client rewrote all copy, sticky scroll section</li><li><strong>Third page:</strong> standard header, custom graph component, shaped graphics, long Hyer story section</li></ul><h3>Approach</h3><ul><li>Many homepage components reusable</li><li>No mobile designs \u2014 responsive during build</li><li>Building in draft pages on live site</li></ul><h3>Next Steps</h3><ul><li>Doug begins immediately</li><li>QA session with Pankaj once built</li><li>Target: end of next week (cautious)</li></ul>"
+      },
+      {
+        title: "Hyer Client Feedback",
+        date: "Mar 16, 2026",
+        attendees: "Anwar, Amanie, Johnnyd, Katie, Doug, John D",
+        summary: "<ul><li>Reviewed client feedback on Hyer solution page designs</li><li>Aligned on revisions before moving to dev handoff</li></ul>"
+      }
+    ],
+    notes: ""
+  },
+  {
+    id: "carbone",
+    name: "Carbone",
+    status: "waiting",
+    badge: "Waiting",
+    badgeClass: "badge-waiting",
+    summary: "All creative approved. Held pending payment release from Chris. Maintenance contract pending signature.",
+    contacts: [{n:"Chris",r:"Client"}],
+    intel: [
+      {label:"Status",text:"Complete creatively. Blocked on payment and maintenance contract signature."},
+      {label:"Action Needed",text:"Follow up with Chris on payment release and maintenance contract."}
+    ],
+    recaps: [],
+    notes: ""
+  },
+  {
+    id: "its",
+    name: "It's That Simple",
+    status: "active",
+    badge: "Active",
+    badgeClass: "badge-active",
+    summary: "Website 3.0 targeting first week of May. Pick-a-Mix functionality in design. Shipper finals were due Apr 15. Cookie policy needs credit card from Christina.",
+    contacts: [{n:"Christina Downey (cdowney@itsskinny.com)",r:"Client Lead"},{n:"Andrew (andrew@eatsimple.com)",r:"Client"},{n:"Nancy",r:"Account"},{n:"Deb",r:"Copy"},{n:"John DeLuca",r:"ECD"},{n:"Allison",r:"Design"},{n:"Doug",r:"Dev"},{n:"Jons",r:"Dev"},{n:"Joe",r:"Support"},{n:"Anders",r:"Dev"}],
+    intel: [
+      {label:"Pick-a-Mix UX",text:"Make box sticky, anchor to footer. Closes on 'add to bag', reopens if user continues. Drag & drop primary, click for accessibility. 8 slots total."},
+      {label:"E-Commerce Scope",text:"No direct e-commerce except Pick-a-Mix feature. Individual product pages link to Amazon/Walmart."},
+      {label:"Shipper",text:"Shipper designs kicked off Mar 26. Finals due Apr 15. Briefed to Joe and Anders."},
+      {label:"Cookie Policy",text:"Needs a credit card from Christina to set up."},
+      {label:"Warehouse",text:"Team discussion with Launch Fulfillment (Chandler Wilson) happened Mar 27."}
+    ],
+    recaps: [
+      {
+        title: "ITS Website 3.0 Design IR",
+        date: "Apr 2, 2026",
+        attendees: "Anwar, Nancy, John D, Allison, Doug, Jons, Joe",
+        summary: "<h3>Pick-a-Mix Design</h3><ul><li>Sticky box anchored to footer, closes on 'add to bag'</li><li>Drag & drop + click for accessibility</li><li>Desktop: dropdown menu on empty slot click. Mobile: plus signs</li><li>X buttons for deletion (on hover or always visible)</li></ul><h3>UX Concerns</h3><ul><li>Disconnect between drag/drop and clinical 'add to cart' button</li><li>Need to account for future products beyond pasta</li><li>Editing vs. adding second pack needs clear differentiation</li></ul><h3>Next Steps</h3><ul><li>Deb: copy by Friday ('Pick a Mix' alternatives, instructional copy)</li><li>Solidify wireframe behaviors before visual design</li></ul>"
+      },
+      {
+        title: "ITS Shipper Designs Kickoff",
+        date: "Mar 26, 2026",
+        attendees: "Anwar, Christina, Nancy, Deb, John D, Johnnyd, Anders",
+        summary: "<ul><li>Kicked off shipper design project with client</li><li>Anders and team aligned on deliverables and timeline</li></ul>"
+      },
+      {
+        title: "ITS Christina + Anwar",
+        date: "Mar 20, 2026",
+        attendees: "Anwar, Christina",
+        summary: "<ul><li>1:1 with Christina to discuss project priorities and status</li><li>Website 3.0, shipper, and warehouse logistics covered</li></ul>"
+      }
+    ],
+    notes: ""
+  },
+  {
+    id: "st-laurence",
+    name: "St. Laurence",
+    status: "active",
+    badge: "Active",
+    badgeClass: "badge-active",
+    summary: "Two web projects: VEI (Career Pathways) in client revision, 1961 Society higher priority. Caroline took over from Anders.",
+    contacts: [{n:"Sal",r:"Client (media)"},{n:"Caroline",r:"Lead (took over from Anders)"},{n:"Nancy",r:"Account"},{n:"Deb",r:"Copy"},{n:"Anders",r:"Design (handing off)"},{n:"Doug",r:"Dev"},{n:"Johnnyd",r:"Creative Dir"},{n:"John DeLuca",r:"ECD"},{n:"Katie",r:"PM"}],
+    intel: [
+      {label:"VEI (Career Pathways)",text:"More developed. Home page integration, 8 industry cards, individual industry pages with partnership logos. In client revision phase."},
+      {label:"1961 Society",text:"Higher priority, more work needed. Alumni donation platform. Large video hero, donation tier system (6 levels: Charter through Legacy). Debate on showing dollar amounts."},
+      {label:"Design Approach",text:"Both use existing layouts to minimize dev work for Doug. 1961 Society needs creative tier solution \u2014 metal colors, lion iconography, chess pieces discussed."},
+      {label:"Timeline",text:"1961: IR Wednesday, client delivery end of week. VEI: end of week delivery."},
+      {label:"Viking Ventures",text:"Stays with Nancy \u2014 content strategy phase. Related to STL but separate (501(c)(3)). Will become web project after strategy."}
+    ],
+    recaps: [
+      {
+        title: "STL Handoff to Caroline",
+        date: "Apr 13, 2026",
+        attendees: "Anwar, Caroline, Nancy, Deb, Anders",
+        summary: "<h3>VEI (Career Pathways)</h3><ul><li>Home page section linking to VEI with logo placement</li><li>8 industry cards as primary content, individual pages with specs + partnership logos</li><li>Image library available for aviation, business, etc.</li><li>In client revision phase, end of week delivery</li></ul><h3>1961 Society</h3><ul><li>Higher priority \u2014 alumni donation platform</li><li>Large video hero with montage clips from Sal</li><li>6 donation tiers (Charter through Legacy)</li><li>Tier design challenge: colors, iconography, chess pieces considered</li><li>IR Wednesday, client delivery end of week</li></ul><h3>Assets & Next Steps</h3><ul><li>Caroline has full media access, Anders cleaning up files</li><li>Caroline prioritizing 1961 Society due to complexity</li><li>Mobile versions for VEI if time permits</li></ul>"
+      },
+      {
+        title: "STL VEI Website IR",
+        date: "Mar 31, 2026",
+        attendees: "Anwar, Nancy, Deb, John D, Johnnyd, Katie, Anders, Doug",
+        summary: "<ul><li>Internal review of VEI website designs</li><li>Reviewed page structure and content organization</li><li>Aligned on layout approach before client delivery</li></ul>"
+      }
+    ],
+    notes: ""
+  },
+  {
+    id: "drw",
+    name: "DRW",
+    status: "active",
+    badge: "Active",
+    badgeClass: "badge-active",
+    summary: "About video project: two concepts (Balance, Falling in Love with the Problem) in script revision based on client feedback. Deliverable due Apr 21.",
+    contacts: [{n:"Danielle Ghess (dghess@drwholdings.com)",r:"Client"},{n:"Jen Balbach (jbalbach@drwholdings.com)",r:"Client"},{n:"Nancy",r:"Script (Falling in Love)"},{n:"Johnnyd (JD)",r:"Script (Balance)"},{n:"Amanie",r:"Visuals Lead"},{n:"Joe",r:"Visual Support"},{n:"John DeLuca",r:"ECD"}],
+    intel: [
+      {label:"Balance Concept",text:"Client likes it. Wants employees balancing hobbies (poker, DJ, rock climbing) then connecting to trading/data center. Need strong tagline: \"We balance markets so they can move.\""},
+      {label:"Falling in Love Concept",text:"Client likes convergence of problems across roles (SW engineer, quant researcher, trader). Must move away from romantic/rom-com tone."},
+      {label:"Client Culture",text:"Poker is big at DRW. Houston office has a DJ. Looking for local talent connections."},
+      {label:"Presentation",text:"Attempting in-person at Geletka+ office. Deliverable due Tuesday Apr 21."}
+    ],
+    recaps: [
+      {
+        title: "DRW Client Feedback",
+        date: "Apr 14, 2026",
+        attendees: "Anwar, Amanie, Nancy, John D, Joe, Johnnyd",
+        summary: "<h3>Balance Concept</h3><ul><li>Client likes flexibility \u2014 show employees balancing hobbies then connect to work</li><li>Hobbies: poker (big at DRW), DJ (Houston), rock climbing</li><li>Need tagline: \"We balance markets so they can move\"</li><li>Clarify \"bringing it to data center/trading environment\"</li></ul><h3>Falling in Love</h3><ul><li>Like convergence of problems across roles</li><li>Move away from romantic/rom-com tone</li><li>Nancy's updated script removes romantic refs, keeps hook</li></ul><h3>Assignments</h3><ul><li><strong>JD:</strong> Balance script + concept</li><li><strong>Nancy:</strong> Falling in Love script + concept</li><li><strong>Amanie:</strong> Lead visuals \u2014 keyframes, mood board</li><li><strong>Joe:</strong> Visual support</li><li><strong>Anwar:</strong> Set up client meeting, clarify data center connection</li></ul>"
+      },
+      {
+        title: "Quick Sync: DRW Video Project",
+        date: "Mar 17, 2026",
+        attendees: "Anwar, Nancy, Danielle Ghess, Jen Balbach",
+        summary: "<ul><li>Initial sync with DRW client contacts on video project scope</li><li>Aligned on goals and direction before concept development</li></ul>"
+      },
+      {
+        title: "DRW About Video Briefing",
+        date: "Mar 17, 2026",
+        attendees: "Anwar, Amanie, Nancy, John D, Johnnyd, Katie, Aiden",
+        summary: "<ul><li>Internal briefing for DRW about video</li><li>Assigned concept development to team</li><li>Set creative direction and timeline</li></ul>"
+      }
+    ],
+    notes: ""
+  },
+  {
+    id: "story3",
+    name: "Story3",
+    status: "complete",
+    badge: "Wrapping Up",
+    badgeClass: "badge-complete",
+    summary: "Essentially done. Doug completed cleanup. Waiting on client approval to go live. DNS/Google Search Console access needed from Courtney.",
+    contacts: [{n:"Ryan",r:"Client"},{n:"Courtney",r:"Client (DNS access)"},{n:"Doug",r:"Dev"},{n:"Nancy",r:"Account"},{n:"Allison",r:"Design"},{n:"Jons",r:"Dev"},{n:"John DeLuca",r:"ECD"},{n:"Katie",r:"PM"}],
+    intel: [
+      {label:"Blocking",text:"No response from Ryan on staging approval email. DNS and Google Search Console access needed from Courtney."},
+      {label:"Deliverables Sent",text:"Word doc templates (5 options), PowerPoint templates (master file + clean template), staging link."},
+      {label:"Maintenance",text:"Transition to maintenance territory. Contract talks previously started, need to re-engage if additional requests come in."},
+      {label:"Style Guide",text:"Exists but lacks formal rules. Spelling conventions and usage guidelines undefined."}
+    ],
+    recaps: [
+      {
+        title: "Story3 Morning Check-in",
+        date: "Apr 13, 2026",
+        attendees: "Anwar, Jons, Aiden, John D, Katie, Allison, Doug, Nancy",
+        summary: "<h3>Templates</h3><ul><li>Word doc templates: 5 options by Allison and Joe, ready to send</li><li>PowerPoint: master file + clean template with placeholders</li></ul><h3>Website</h3><ul><li>Staging ready \u2014 no response from Ryan</li><li>Emphasized \"final\" nature to set boundaries</li><li>Maintenance contract re-engagement needed</li></ul><h3>Next Steps</h3><ul><li>Nancy: send templates + staging link to Ryan</li><li>Nancy: review style guide</li><li>Prepare for maintenance contract discussion</li></ul>"
+      }
+    ],
+    notes: ""
+  },
+  {
+    id: "skintellagent",
+    name: "SkinTellagent",
+    status: "active",
+    badge: "Active",
+    badgeClass: "badge-active",
+    summary: "501(c)(3) nonprofit. Season 2 docuseries launched, podcast launched. Aiden cutting teasers on twice-monthly cadence. Nancy manages social across 3 content streams.",
+    contacts: [{n:"Lindsay",r:"Client (Dr. / Founder)"},{n:"Scarpelli",r:"Client (web)"},{n:"James Litmore (Soundscape Studio)",r:"Audio"},{n:"Nancy",r:"Social / Account Lead"},{n:"Aiden",r:"Video Editor"},{n:"Caroline",r:"Rise & Opine videos"}],
+    intel: [
+      {label:"Mission",text:"501(c)(3) to educate pro and public audiences about dermatology. Debunk skin health myths. Lindsay is a detective doctor \u2014 patients come when at wit's end."},
+      {label:"Sponsors",text:"AbbVie, Pfizer, L'Oreal."},
+      {label:"3 Content Streams",text:"1) Medical docuseries (Season 2, 8 episodes, weeks 1&3). 2) Podcast (weeks 2&4, 8 episodes). 3) Rise and Opine (daily 30-60s takes by Lindsay)."},
+      {label:"Content Cadence",text:"Mon: teaser. Tue: Rise & Opine. Wed: full episode (YouTube). Thu: sponsor/thank you. Fri: recap."},
+      {label:"Process Rule",text:"All direction changes must go through Anwar first. John gave Aiden instructions without Anwar's knowledge \u2014 new protocol requires account manager approval."},
+      {label:"Aiden Allocation",text:"4 hours/week for all video editing. First episode took 3 hours. Nancy provides paper edits to streamline."}
+    ],
+    recaps: [
+      {
+        title: "SkinTellAgent Editing",
+        date: "Mar 24, 2026",
+        attendees: "Anwar, Aiden, Caroline, Nancy",
+        summary: "<h3>Video Production</h3><ul><li>Caroline taking over Rise & Opine videos from Aiden (~30 min/video)</li><li>Compilation video needed for client event Sunday (50-person room)</li><li>Nancy to time-code content, exclude political material</li><li>Delivery: Thursday morning for client review</li></ul><h3>Weekly Schedule</h3><ul><li>Tue: Season 2 trailer (YouTube)</li><li>Thu: Podcast trailer</li><li>Fri: AAG live post</li><li>Mon: Teaser (pending approval)</li></ul><h3>Process</h3><ul><li>4 hrs/week allocated for editing</li><li>All direction changes go through Anwar first</li><li>Nancy provides paper edits to streamline</li></ul>"
+      },
+      {
+        title: "SkinTellAgent + STL Ways of Working",
+        date: "Mar 16, 2026",
+        attendees: "Anwar, Nancy",
+        summary: "<h3>SkinTellAgent Scope</h3><ul><li>Digital presence: Nancy runs social (LinkedIn, Instagram, Facebook)</li><li>3 streams: docuseries, podcast, Rise & Opine</li><li>Season 2 launch: Apr 1 (8 episodes, 4 months)</li><li>Podcast launch: Apr 8 (alternating weeks)</li><li>Aiden: teasers + animated logo ASAP</li></ul><h3>STL Updates</h3><ul><li>Anwar managing VEI + 1961 Society</li><li>Viking Ventures stays with Nancy (content strategy)</li></ul><h3>Next Steps</h3><ul><li>Update WMJ for SkinTellAgent and STL projects</li></ul>"
+      }
+    ],
+    notes: ""
+  }
+];
+
+// ── Date setup ──
+var now = new Date();
+var dateKey = now.toISOString().slice(0, 10);
+var storageKey = 'playbook-' + dateKey;
+var clientStorageKey = 'playbook-clients';
+
+// Quote
+var startOfYear = new Date(now.getFullYear(), 0, 0);
+var dayOfYear = Math.floor((now - startOfYear) / 86400000);
+var q = quotes[dayOfYear % quotes.length];
+document.getElementById('quote-text').textContent = '\u201C' + q.t + '\u201D';
+document.getElementById('quote-author').textContent = '\u2014 ' + q.a;
+
+// Date display
+var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+var monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+document.getElementById('today-date').textContent = dayNames[now.getDay()] + ', ' + monthNames[now.getMonth()] + ' ' + now.getDate();
+
+// ── State helpers ──
+function loadDayState() { try { return JSON.parse(localStorage.getItem(storageKey)) || {}; } catch(e) { return {}; } }
+function saveDayState(s) { localStorage.setItem(storageKey, JSON.stringify(s)); }
+function loadClientState() { try { return JSON.parse(localStorage.getItem(clientStorageKey)) || {}; } catch(e) { return {}; } }
+function saveClientState(s) { localStorage.setItem(clientStorageKey, JSON.stringify(s)); }
+
+var dayState = loadDayState();
+var clientState = loadClientState();
+
+// ── Playbook: text inputs ──
+var winInput = document.getElementById('win-input');
+var must1 = document.getElementById('must1');
+var must2 = document.getElementById('must2');
+var must3 = document.getElementById('must3');
+winInput.value = dayState.win || '';
+must1.value = dayState.must1 || '';
+must2.value = dayState.must2 || '';
+must3.value = dayState.must3 || '';
+function saveText() {
+  var s = loadDayState();
+  s.win = winInput.value; s.must1 = must1.value; s.must2 = must2.value; s.must3 = must3.value;
+  saveDayState(s);
+}
+[winInput, must1, must2, must3].forEach(function(el) { el.addEventListener('input', saveText); });
+
+// ── Playbook: checkboxes ──
+var checkboxes = document.querySelectorAll('input[type="checkbox"][data-id]');
+var totalCount = checkboxes.length;
+document.getElementById('total-count').textContent = totalCount;
+function updateProgress() {
+  var done = 0;
+  checkboxes.forEach(function(cb) { if (cb.checked) done++; });
+  document.getElementById('done-count').textContent = done;
+  document.getElementById('progress-fill').style.width = (totalCount ? (done / totalCount * 100) : 0) + '%';
+}
+checkboxes.forEach(function(cb) {
+  var id = cb.getAttribute('data-id');
+  if (dayState.checks && dayState.checks[id]) {
+    cb.checked = true;
+    cb.closest('.checklist-item').querySelector('.cb-label').classList.add('checked');
+  }
+  cb.addEventListener('change', function() {
+    var label = cb.closest('.checklist-item').querySelector('.cb-label');
+    label.classList.toggle('checked', cb.checked);
+    var s = loadDayState();
+    if (!s.checks) s.checks = {};
+    s.checks[id] = cb.checked;
+    saveDayState(s);
+    updateProgress();
+  });
+});
+updateProgress();
+
+// ── View management ──
+window.showView = function(view, clientId) {
+  document.querySelectorAll('.view').forEach(function(v) { v.classList.remove('active'); });
+  document.querySelectorAll('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
+
+  if (view === 'playbook') {
+    document.getElementById('view-playbook').classList.add('active');
+    document.querySelectorAll('.nav-btn')[0].classList.add('active');
+  } else if (view === 'clients') {
+    document.getElementById('view-clients').classList.add('active');
+    document.querySelectorAll('.nav-btn')[1].classList.add('active');
+    renderClientGrid();
+  } else if (view === 'client-detail') {
+    document.getElementById('view-client-detail').classList.add('active');
+    document.querySelectorAll('.nav-btn')[1].classList.add('active');
+    renderClientDetail(clientId);
+  }
+};
+
+// ── Client grid ──
+function renderClientGrid() {
+  var grid = document.getElementById('client-grid');
+  grid.innerHTML = '';
+  clients.forEach(function(c) {
+    var card = document.createElement('div');
+    card.className = 'client-card';
+    card.onclick = function() { showView('client-detail', c.id); };
+    card.innerHTML = '<h3>' + c.name + '</h3>' +
+      '<span class="client-status-badge ' + c.badgeClass + '">' + c.badge + '</span>' +
+      '<div class="client-summary">' + c.summary + '</div>' +
+      '<div class="meeting-count">' + c.recaps.length + ' meeting recap' + (c.recaps.length !== 1 ? 's' : '') + '</div>';
+    grid.appendChild(card);
+  });
+}
+
+// ── Client detail ──
+var currentClient = null;
+var currentTab = 'intel';
+
+function renderClientDetail(clientId) {
+  currentClient = clients.find(function(c) { return c.id === clientId; });
+  if (!currentClient) return;
+  currentTab = 'intel';
+
+  // Header
+  document.getElementById('client-detail-header').innerHTML =
+    '<h2>' + currentClient.name + '</h2>' +
+    '<span class="client-status-badge client-detail-badge ' + currentClient.badgeClass + '">' + currentClient.badge + '</span>';
+
+  // Tabs
+  var tabs = ['intel', 'recaps', 'notes'];
+  var tabLabels = {intel: 'Intel & Status', recaps: 'Meeting Recaps', notes: 'Notes'};
+  var tabBar = document.getElementById('tab-bar');
+  tabBar.innerHTML = '';
+  tabs.forEach(function(t) {
+    var btn = document.createElement('button');
+    btn.className = 'tab-btn' + (t === currentTab ? ' active' : '');
+    btn.textContent = tabLabels[t];
+    btn.onclick = function() { currentTab = t; renderTab(); updateTabBar(); };
+    tabBar.appendChild(btn);
   });
 
-  updateProgress();
+  renderTab();
+}
+
+function updateTabBar() {
+  var btns = document.getElementById('tab-bar').querySelectorAll('.tab-btn');
+  var tabs = ['intel', 'recaps', 'notes'];
+  btns.forEach(function(btn, i) { btn.classList.toggle('active', tabs[i] === currentTab); });
+}
+
+function renderTab() {
+  var area = document.getElementById('tab-content-area');
+  if (currentTab === 'intel') renderIntelTab(area);
+  else if (currentTab === 'recaps') renderRecapsTab(area);
+  else if (currentTab === 'notes') renderNotesTab(area);
+}
+
+function renderIntelTab(area) {
+  var c = currentClient;
+  var cs = loadClientState();
+  var customIntel = (cs[c.id] && cs[c.id].intel) || [];
+  var html = '';
+
+  // Status
+  html += '<div class="status-card"><h4>Current Status</h4><p>' + c.summary + '</p></div>';
+
+  // Contacts
+  if (c.contacts.length) {
+    html += '<div class="status-card"><h4>Key Contacts</h4><ul>';
+    c.contacts.forEach(function(ct) { html += '<li><strong>' + ct.n + '</strong> \u2014 ' + ct.r + '</li>'; });
+    html += '</ul></div>';
+  }
+
+  // Intel items
+  c.intel.forEach(function(item) {
+    html += '<div class="intel-item"><div class="intel-label">' + item.label + '</div><p>' + item.text + '</p></div>';
+  });
+  customIntel.forEach(function(item, idx) {
+    html += '<div class="intel-item"><div class="intel-label">' + item.label + '</div><p>' + item.text + '</p>' +
+      '<button class="recap-toggle" onclick="deleteCustomIntel(\'' + c.id + '\',' + idx + ')" style="color:#999;font-size:0.68rem;margin-top:4px">Remove</button></div>';
+  });
+
+  html += '<button class="add-intel-btn" onclick="toggleIntelForm()">+ Add Intel</button>';
+  html += '<div class="intel-form" id="intel-form" style="display:none">' +
+    '<select id="intel-category"><option value="Key Insight">Key Insight</option><option value="Client Preference">Client Preference</option><option value="Business Intel">Business Intel</option><option value="Risk / Blocker">Risk / Blocker</option><option value="Opportunity">Opportunity</option></select>' +
+    '<textarea id="intel-text" placeholder="What did you learn?"></textarea>' +
+    '<div class="intel-form-actions"><button class="btn-sm btn-primary" onclick="saveIntel()">Save</button><button class="btn-sm btn-ghost" onclick="toggleIntelForm()">Cancel</button></div></div>';
+
+  area.innerHTML = html;
+}
+
+window.toggleIntelForm = function() {
+  var form = document.getElementById('intel-form');
+  form.style.display = form.style.display === 'none' ? 'block' : 'none';
+};
+
+window.saveIntel = function() {
+  var cat = document.getElementById('intel-category').value;
+  var text = document.getElementById('intel-text').value.trim();
+  if (!text) return;
+  var cs = loadClientState();
+  if (!cs[currentClient.id]) cs[currentClient.id] = {};
+  if (!cs[currentClient.id].intel) cs[currentClient.id].intel = [];
+  cs[currentClient.id].intel.push({label: cat, text: text});
+  saveClientState(cs);
+  renderTab();
+};
+
+window.deleteCustomIntel = function(clientId, idx) {
+  var cs = loadClientState();
+  if (cs[clientId] && cs[clientId].intel) {
+    cs[clientId].intel.splice(idx, 1);
+    saveClientState(cs);
+    renderTab();
+  }
+};
+
+function renderRecapsTab(area) {
+  var c = currentClient;
+  if (!c.recaps.length) {
+    area.innerHTML = '<p style="color:#6B6B6B;font-size:0.85rem;font-style:italic;padding:20px 0">No meeting recaps yet. Recaps are pulled from Granola.</p>';
+    return;
+  }
+  var html = '';
+  c.recaps.forEach(function(r, i) {
+    var expanded = false;
+    html += '<div class="recap-card">' +
+      '<div class="recap-header"><span class="recap-title">' + r.title + '</span><span class="recap-date">' + r.date + '</span></div>' +
+      '<div class="recap-attendees">' + r.attendees + '</div>' +
+      '<div class="recap-body" id="recap-body-' + i + '" style="display:none">' + r.summary + '</div>' +
+      '<button class="recap-toggle" id="recap-toggle-' + i + '" onclick="toggleRecap(' + i + ')">Show details</button>' +
+      '</div>';
+  });
+  area.innerHTML = html;
+}
+
+window.toggleRecap = function(i) {
+  var body = document.getElementById('recap-body-' + i);
+  var btn = document.getElementById('recap-toggle-' + i);
+  if (body.style.display === 'none') {
+    body.style.display = 'block';
+    btn.textContent = 'Hide details';
+  } else {
+    body.style.display = 'none';
+    btn.textContent = 'Show details';
+  }
+};
+
+function renderNotesTab(area) {
+  var c = currentClient;
+  var cs = loadClientState();
+  var notes = (cs[c.id] && cs[c.id].notes) || '';
+  area.innerHTML = '<label class="field-label">Notes for ' + c.name + '</label>' +
+    '<textarea class="notes-area" id="client-notes" placeholder="Running notes, observations, things to remember...">' + escHtml(notes) + '</textarea>' +
+    '<div class="notes-saved" id="notes-saved"></div>';
+  document.getElementById('client-notes').addEventListener('input', function() {
+    var cs2 = loadClientState();
+    if (!cs2[c.id]) cs2[c.id] = {};
+    cs2[c.id].notes = this.value;
+    saveClientState(cs2);
+    document.getElementById('notes-saved').textContent = 'Saved';
+    clearTimeout(window._noteTimer);
+    window._noteTimer = setTimeout(function() {
+      var el = document.getElementById('notes-saved');
+      if (el) el.textContent = '';
+    }, 2000);
+  });
+}
+
+function escHtml(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+// Init client grid
+renderClientGrid();
+
 })();
 </script>
 </body>
