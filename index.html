@@ -445,6 +445,7 @@
   <!-- Navigation -->
   <div class="top-nav">
     <button class="nav-btn active" onclick="showView('playbook')">Daily Playbook</button>
+    <button class="nav-btn" onclick="showView('brief')">Daily Brief</button>
     <button class="nav-btn" onclick="showView('clients')">Clients</button>
   </div>
 
@@ -531,6 +532,15 @@
     <div class="footer">Reset. Repeat. You got this.</div>
   </div>
 
+  <!-- ====== DAILY BRIEF VIEW ====== -->
+  <div class="view" id="view-brief">
+    <div class="header" style="margin-bottom:4px">
+      <h1>DAILY BRIEF</h1>
+      <div class="subtitle" id="brief-subtitle">Today's meetings &amp; intel</div>
+    </div>
+    <div id="brief-content" style="margin-top:16px"></div>
+  </div>
+
   <!-- ====== CLIENTS LIST VIEW ====== -->
   <div class="view" id="view-clients">
     <div class="header" style="margin-bottom:8px">
@@ -606,6 +616,9 @@ var quotes = [
   {t:"When they go low, we go high.",a:"Michelle Obama"},
   {t:"No person is your friend who demands your silence, or denies your right to grow.",a:"Alice Walker"}
 ];
+
+// ── Daily Brief Data (updated each morning by scheduled task) ──
+var dailyBrief = {"date":"Wednesday, April 15","generated":"Apr 15, 2026","meetings":[{"time":"9:30 AM","title":"Story3 Morning Check-in","duration":"30 min","people":["Jons","Aiden","Katie","Allison","Doug","Nancy"],"client":"Story3","agenda":"","intel":["Site is essentially done — waiting on Ryan's staging approval (Nancy nudged yesterday, no response)","MS Word letterhead export is broken; Joe working on fixes for all 5 templates","DNS + Google Search Console access still needed from Courtney for launch","Aiden flagged bumble/bento box/about videos from client — also no response"]},{"time":"10:00 AM","title":"Hyer Migration Kickoff","duration":"30 min","people":["Amanie","John","Doug","Katie"],"client":"Hyer","agenda":"Migrating site to modern WordPress","intel":["Migration scoped at ~$21–23K under a new SOW — today is the kickoff","WordPress chosen over headless: team familiarity, flexibility, plugin ecosystem","Pankaj has been waiting weeks; solution pages (On Demand Labor, Flex Connect, third page) still in QA on Sifter","No staging environment — Doug builds live in draft pages; Pankaj is primary approver"]},{"time":"2:00 PM","title":"Island Dental Status","duration":"60 min","people":["Dr. E","Jackie Rose","Robert Smith","Iryna","Amanie","Caroline","Nancy","Deb","John","Johnnyd","Katie","Allison","Doug","Joe"],"client":"Island Dental","agenda":"Media report · Implants LP revisions · Dentures + Implants TV scripts · Spring Campaign ads + LP · Dentures LP (targeting Wed)","intel":["Caroline updated ad storyboards with stock video — Figma link in channel","Dr. E flagged Invisalign concern: not many patients coming in, team investigating campaign blocks","Exec summary added to report — Anwar flagged to hold on sending","TV spots: 3 × :30 (brand, implants, dentures) — scripts in IR #2 this Friday (Apr 17)","Shoot logistics being finalized — Long Island office + coffee shop setting"]},{"time":"4:00 PM","title":"PennWest California Graphic Design students — office tour","duration":"60 min","people":["Nancy","Team"],"client":null,"agenda":"","intel":[]}]};
 
 // ── Client Data (from Granola, Apr 14 2026) ──
 var clients = [
@@ -1749,13 +1762,17 @@ window.showView = function(view, clientId) {
   if (view === 'playbook') {
     document.getElementById('view-playbook').classList.add('active');
     document.querySelectorAll('.nav-btn')[0].classList.add('active');
+  } else if (view === 'brief') {
+    document.getElementById('view-brief').classList.add('active');
+    document.querySelectorAll('.nav-btn')[1].classList.add('active');
+    renderBriefView();
   } else if (view === 'clients') {
     document.getElementById('view-clients').classList.add('active');
-    document.querySelectorAll('.nav-btn')[1].classList.add('active');
+    document.querySelectorAll('.nav-btn')[2].classList.add('active');
     renderClientGrid();
   } else if (view === 'client-detail') {
     document.getElementById('view-client-detail').classList.add('active');
-    document.querySelectorAll('.nav-btn')[1].classList.add('active');
+    document.querySelectorAll('.nav-btn')[2].classList.add('active');
     renderClientDetail(clientId);
   }
 };
@@ -2124,6 +2141,43 @@ function renderSowTab(area) {
   }
 
   area.innerHTML = html;
+}
+
+function renderBriefView() {
+  var subtitle = document.getElementById('brief-subtitle');
+  var content = document.getElementById('brief-content');
+  if (!dailyBrief || !dailyBrief.meetings || dailyBrief.meetings.length === 0) {
+    subtitle.textContent = 'No meetings data loaded yet.';
+    content.innerHTML = '<p style="color:#6B6B6B;font-size:0.85rem;font-style:italic;padding:20px 0">Brief will appear after the morning check runs.</p>';
+    return;
+  }
+  subtitle.textContent = dailyBrief.date + (dailyBrief.generated ? ' · Generated ' + dailyBrief.generated : '');
+  var html = '';
+  dailyBrief.meetings.forEach(function(m) {
+    var clientColor = m.client ? '#E8692A' : '#999';
+    html += '<div class="status-card" style="margin-bottom:14px">';
+    html += '<div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px">';
+    html += '<span style="font-size:0.78rem;font-weight:700;color:#1C1C1C;background:#F0EDE9;padding:3px 8px;border-radius:12px">' + m.time + '</span>';
+    if (m.duration) html += '<span style="font-size:0.72rem;color:#999">' + m.duration + '</span>';
+    if (m.client) html += '<span style="font-size:0.72rem;font-weight:600;color:' + clientColor + '">' + m.client + '</span>';
+    html += '</div>';
+    html += '<div class="intel-label" style="margin-bottom:6px">' + m.title + '</div>';
+    if (m.people && m.people.length > 0) {
+      html += '<p style="font-size:0.75rem;color:#6B6B6B;margin-bottom:6px">👥 ' + m.people.join(', ') + '</p>';
+    }
+    if (m.agenda) {
+      html += '<p style="font-size:0.75rem;color:#6B6B6B;margin-bottom:6px;font-style:italic">📋 ' + m.agenda + '</p>';
+    }
+    if (m.intel && m.intel.length > 0) {
+      html += '<ul style="font-size:0.82rem;line-height:1.6;color:#444;margin-top:4px">';
+      m.intel.forEach(function(item) { html += '<li>' + item + '</li>'; });
+      html += '</ul>';
+    } else if (m.client === null) {
+      html += '<p style="font-size:0.78rem;color:#999;font-style:italic">Internal / community event</p>';
+    }
+    html += '</div>';
+  });
+  content.innerHTML = html;
 }
 
 function getBadgeClassForSow(status) {
