@@ -430,6 +430,81 @@
   .view { display: none; }
   .view.active { display: block; }
 
+  /* ── Generate Brief Button ── */
+  .generate-brief-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: inherit; font-size: 0.85rem; font-weight: 700;
+    background: #E8692A; color: #fff; border: none;
+    border-radius: 10px; padding: 11px 22px; cursor: pointer;
+    transition: background 0.2s; letter-spacing: 0.02em;
+  }
+  .generate-brief-btn:hover { background: #D45B1F; }
+  .generate-brief-btn.secondary {
+    background: none; color: #E8692A; border: 1.5px solid #E8692A;
+    font-size: 0.72rem; padding: 7px 14px;
+  }
+  .generate-brief-btn.secondary:hover { background: #E8692A10; }
+
+  /* ── Brief import panel ── */
+  .brief-import-panel {
+    width: 100%; margin-top: 4px; background: #fff;
+    border: 1.5px dashed #E4E0DB; border-radius: 10px; padding: 14px;
+  }
+  .brief-import-panel textarea {
+    width: 100%; font-family: 'Courier New', monospace; font-size: 0.72rem;
+    border: 1.5px solid #E4E0DB; border-radius: 6px; padding: 8px;
+    min-height: 80px; resize: vertical; color: #444;
+  }
+  .brief-import-panel textarea:focus { outline: none; border-color: #E8692A; }
+
+  /* ── Modal overlay ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.4); z-index: 1000;
+    align-items: center; justify-content: center; padding: 16px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: #FAF8F5; border-radius: 14px; padding: 24px;
+    max-width: 480px; width: 100%; max-height: 88vh; overflow-y: auto;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  }
+  .modal-box h3 { font-size: 1rem; font-weight: 700; margin-bottom: 14px; }
+  .modal-box .field-label { margin-top: 12px; }
+  .modal-box input, .modal-box textarea, .modal-box select {
+    width: 100%; font-family: inherit; font-size: 0.82rem;
+    border: 1.5px solid #E4E0DB; border-radius: 6px; padding: 8px;
+    background: #fff; color: #1C1C1C; margin-top: 3px;
+  }
+  .modal-box input:focus, .modal-box textarea:focus, .modal-box select:focus { outline: none; border-color: #E8692A; }
+  .modal-box textarea { min-height: 60px; resize: vertical; }
+  .modal-actions { display: flex; gap: 8px; margin-top: 16px; }
+
+  /* ── Add client button ── */
+  .add-client-btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: inherit; font-size: 0.78rem; font-weight: 600;
+    color: #E8692A; background: none; border: 1.5px dashed #E8692A;
+    border-radius: 8px; padding: 8px 14px; cursor: pointer; margin-bottom: 14px;
+    transition: all 0.2s;
+  }
+  .add-client-btn:hover { background: #E8692A10; }
+
+  /* ── Scope tab ── */
+  .scope-item {
+    background: #fff; border: 1.5px solid #E4E0DB; border-radius: 10px;
+    padding: 12px; margin-bottom: 8px;
+  }
+  .scope-item .scope-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: #6B6B6B; letter-spacing: 0.04em; margin-bottom: 3px; }
+  .scope-flag {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 0.68rem; font-weight: 700; padding: 2px 8px;
+    border-radius: 10px; margin-top: 4px;
+  }
+  .scope-flag.documented { background: #E8F5E9; color: #2E7D32; }
+  .scope-flag.watch { background: #FFF3E0; color: #E65100; }
+  .scope-flag.needs-convo { background: #FCE4EC; color: #AD1457; }
+
   /* Print */
   @media print {
     body { background: #fff; }
@@ -538,6 +613,18 @@
       <h1>DAILY BRIEF</h1>
       <div class="subtitle" id="brief-subtitle">Today's meetings &amp; intel</div>
     </div>
+    <div style="margin-top:16px;display:flex;flex-direction:column;align-items:center;gap:8px" id="brief-btn-area">
+      <button class="generate-brief-btn" id="generate-brief-btn" onclick="handleGenerateBrief()">Generate Today's Brief</button>
+      <button class="generate-brief-btn secondary" onclick="toggleImportPanel()">Paste Brief Data</button>
+      <div class="brief-import-panel" id="brief-import-panel" style="display:none">
+        <label class="field-label">Paste JSON output from Claude</label>
+        <textarea id="brief-import-text" placeholder='{"date":"Thursday, April 16","meetings":[...]}'></textarea>
+        <div class="intel-form-actions" style="margin-top:8px">
+          <button class="btn-sm btn-primary" onclick="importBriefData()">Import</button>
+          <button class="btn-sm btn-ghost" onclick="toggleImportPanel()">Cancel</button>
+        </div>
+      </div>
+    </div>
     <div id="brief-content" style="margin-top:16px"></div>
   </div>
 
@@ -547,6 +634,7 @@
       <h1 style="font-size:1.3rem">CLIENTS</h1>
       <div class="subtitle">Meeting recaps, intel, and notes &mdash; powered by Granola</div>
     </div>
+    <button class="add-client-btn" onclick="openNewClientModal()">+ Add New Client</button>
     <div class="client-grid" id="client-grid"></div>
   </div>
 
@@ -558,6 +646,49 @@
     <div id="tab-content-area"></div>
   </div>
 
+</div>
+
+<!-- ====== NEW CLIENT MODAL ====== -->
+<div class="modal-overlay" id="new-client-modal" onclick="if(event.target===this)closeNewClientModal()">
+  <div class="modal-box">
+    <h3>Add New Client</h3>
+    <label class="field-label">Client Name *</label>
+    <input type="text" id="nc-name" placeholder="e.g. Acme Corp">
+    <label class="field-label">Status</label>
+    <select id="nc-status">
+      <option value="active">Active</option>
+      <option value="complete">Complete</option>
+      <option value="waiting">On Hold</option>
+    </select>
+    <label class="field-label">Ownership Tier</label>
+    <select id="nc-tier">
+      <option value="owns">Anwar Owns</option>
+      <option value="supports">Anwar Supports</option>
+      <option value="observes">Anwar Observes</option>
+    </select>
+    <label class="field-label">Summary / Current Status</label>
+    <textarea id="nc-summary" placeholder="Brief description of current work..."></textarea>
+    <label class="field-label">Contacts (one per line: Name &mdash; Role &mdash; email)</label>
+    <textarea id="nc-contacts" placeholder="Jane Doe — Marketing Lead — jane@example.com" style="min-height:80px"></textarea>
+    <label class="field-label">Primary Slack Channel</label>
+    <input type="text" id="nc-slack" placeholder="#client-channel-name">
+    <div class="modal-actions">
+      <button class="btn-sm btn-primary" onclick="saveNewClient()">Add Client</button>
+      <button class="btn-sm btn-ghost" onclick="closeNewClientModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====== BRIEF PROMPT MODAL ====== -->
+<div class="modal-overlay" id="brief-prompt-modal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal-box" style="text-align:center;max-width:400px">
+    <h3 style="margin-bottom:6px">Generate Today's Brief</h3>
+    <p style="font-size:0.82rem;color:#6B6B6B;margin-bottom:14px;line-height:1.5">In Claude Code, say:</p>
+    <div style="background:#1C1C1C;border-radius:8px;padding:12px 16px;font-family:'Courier New',monospace;font-size:0.88rem;color:#E8692A;margin-bottom:14px;text-align:left">generate today's brief</div>
+    <button class="btn-sm btn-primary" id="copy-brief-prompt-btn" onclick="copyBriefPrompt()" style="margin-bottom:10px;width:100%">Copy Prompt</button>
+    <button class="btn-sm btn-ghost" onclick="document.getElementById('brief-prompt-modal').classList.remove('open')" style="width:100%">Close</button>
+    <p style="font-size:0.7rem;color:#999;margin-top:12px;line-height:1.5">Claude will pull Calendar, Granola, and Slack. When done, use "Paste Brief Data" to import the output.</p>
+  </div>
 </div>
 
 <script>
@@ -618,7 +749,7 @@ var quotes = [
 ];
 
 // ── Daily Brief Data (updated each morning by scheduled task) ──
-var dailyBrief = {"date":"Wednesday, April 15","generated":"Apr 15, 2026","meetings":[{"time":"9:30 AM","title":"Story3 Morning Check-in","duration":"30 min","people":["Jons","Aiden","Katie","Allison","Doug","Nancy"],"client":"Story3","agenda":"","intel":["Site is essentially done — waiting on Ryan's staging approval (Nancy nudged yesterday, no response)","MS Word letterhead export is broken; Joe working on fixes for all 5 templates","DNS + Google Search Console access still needed from Courtney for launch","Aiden flagged bumble/bento box/about videos from client — also no response"]},{"time":"10:00 AM","title":"Hyer Migration Kickoff","duration":"30 min","people":["Amanie","John","Doug","Katie"],"client":"Hyer","agenda":"Migrating site to modern WordPress","intel":["Migration scoped at ~$21–23K under a new SOW — today is the kickoff","WordPress chosen over headless: team familiarity, flexibility, plugin ecosystem","Pankaj has been waiting weeks; solution pages (On Demand Labor, Flex Connect, third page) still in QA on Sifter","No staging environment — Doug builds live in draft pages; Pankaj is primary approver"]},{"time":"2:00 PM","title":"Island Dental Status","duration":"60 min","people":["Dr. E","Jackie Rose","Robert Smith","Iryna","Amanie","Caroline","Nancy","Deb","John","Johnnyd","Katie","Allison","Doug","Joe"],"client":"Island Dental","agenda":"Media report · Implants LP revisions · Dentures + Implants TV scripts · Spring Campaign ads + LP · Dentures LP (targeting Wed)","intel":["Caroline updated ad storyboards with stock video — Figma link in channel","Dr. E flagged Invisalign concern: not many patients coming in, team investigating campaign blocks","Exec summary added to report — Anwar flagged to hold on sending","TV spots: 3 × :30 (brand, implants, dentures) — scripts in IR #2 this Friday (Apr 17)","Shoot logistics being finalized — Long Island office + coffee shop setting"]},{"time":"4:00 PM","title":"PennWest California Graphic Design students — office tour","duration":"60 min","people":["Nancy","Team"],"client":null,"agenda":"","intel":[]}]};
+var dailyBrief = {"date":"","generated":"","meetings":[]};
 
 // ── Client Data (from Granola, Apr 14 2026) ──
 var clients = [
@@ -1007,7 +1138,15 @@ var clients = [
     badge: "In QA",
     badgeClass: "badge-qa",
     summary: "3 solution pages (On Demand Labor, Flex Connect, + 1 more) being rebuilt to match new homepage. Doug building live in draft. No staging environment.",
-    contacts: [{n:"Pankaj",r:"Client"},{n:"Doug",r:"Dev (primary)"},{n:"Katie",r:"PM"},{n:"Amanie",r:"Design"},{n:"Johnnyd",r:"Creative Dir"},{n:"John DeLuca",r:"ECD"}],
+    contacts: [
+      {n:"Pankaj Kanth", r:"Primary day-to-day — pankaj.kanth@frictionlessenterprises.com"},
+      {n:"David Dempsey", r:"dave.dempsey@frictionlessenterprises.com"},
+      {n:"Daniel Dempsey", r:"dan.dempsey@frictionlessenterprises.com"},
+      {n:"Jennifer Solmi", r:"jen.solmi@frictionlessenterprises.com"},
+      {n:"Joseph Dempsey", r:"joseph.dempsey@frictionlessenterprises.com"},
+      {n:"Doug", r:"Dev (internal)"},
+      {n:"Katie", r:"PM (internal)"}
+    ],
     intel: [
       {label:"Client Patience",text:"Pankaj has been waiting several weeks. Delivery was targeted for end of week of Mar 30 (cautiously)."},
       {label:"Technical Approach",text:"No mobile designs provided \u2014 designing responsively during build. Building live in draft pages (no staging). Preview links shared once built."},
@@ -1778,10 +1917,15 @@ window.showView = function(view, clientId) {
 };
 
 // ── Client grid ──
+function getAllClients() {
+  var cs = loadClientState();
+  return clients.concat(cs._customClients || []);
+}
+
 function renderClientGrid() {
   var grid = document.getElementById('client-grid');
   grid.innerHTML = '';
-  clients.forEach(function(c) {
+  getAllClients().forEach(function(c) {
     var card = document.createElement('div');
     card.className = 'client-card';
     card.onclick = function() { showView('client-detail', c.id); };
@@ -1793,12 +1937,70 @@ function renderClientGrid() {
   });
 }
 
+// ── New client modal ──
+window.openNewClientModal = function() {
+  ['nc-name','nc-summary','nc-contacts','nc-slack'].forEach(function(id) { document.getElementById(id).value = ''; });
+  document.getElementById('nc-status').value = 'active';
+  document.getElementById('nc-tier').value = 'owns';
+  document.getElementById('new-client-modal').classList.add('open');
+};
+
+window.closeNewClientModal = function() {
+  document.getElementById('new-client-modal').classList.remove('open');
+};
+
+window.saveNewClient = function() {
+  var name = document.getElementById('nc-name').value.trim();
+  if (!name) { document.getElementById('nc-name').focus(); return; }
+  var status = document.getElementById('nc-status').value;
+  var tier = document.getElementById('nc-tier').value;
+  var summary = document.getElementById('nc-summary').value.trim() || 'New client';
+  var slack = document.getElementById('nc-slack').value.trim();
+  var contactsRaw = document.getElementById('nc-contacts').value.trim();
+
+  var contacts = [];
+  contactsRaw.split('\n').forEach(function(line) {
+    line = line.trim(); if (!line) return;
+    var parts = line.split(' \u2014 ');
+    contacts.push({n: parts[0] || line, r: parts.slice(1).join(' \u2014 ')});
+  });
+
+  var badgeMap = {active:'Active', complete:'Complete', waiting:'On Hold'};
+  var badgeClassMap = {active:'badge-active', complete:'badge-complete', waiting:'badge-waiting'};
+  var tierLabel = {owns:'Anwar Owns', supports:'Anwar Supports', observes:'Anwar Observes'};
+
+  var newClient = {
+    id: 'custom-' + Date.now(),
+    name: name,
+    status: status,
+    badge: badgeMap[status] || 'Active',
+    badgeClass: badgeClassMap[status] || 'badge-active',
+    summary: summary,
+    contacts: contacts,
+    intel: [
+      {label: 'Ownership', text: tierLabel[tier] || 'Anwar Owns'},
+      {label: 'Slack Channel', text: slack || 'Not set'}
+    ],
+    sow: null,
+    recaps: [],
+    notes: '',
+    isCustom: true
+  };
+
+  var cs = loadClientState();
+  if (!cs._customClients) cs._customClients = [];
+  cs._customClients.push(newClient);
+  saveClientState(cs);
+  closeNewClientModal();
+  renderClientGrid();
+};
+
 // ── Client detail ──
 var currentClient = null;
 var currentTab = 'intel';
 
 function renderClientDetail(clientId) {
-  currentClient = clients.find(function(c) { return c.id === clientId; });
+  currentClient = getAllClients().find(function(c) { return c.id === clientId; });
   if (!currentClient) return;
   currentTab = 'intel';
 
@@ -1808,8 +2010,8 @@ function renderClientDetail(clientId) {
     '<span class="client-status-badge client-detail-badge ' + currentClient.badgeClass + '">' + currentClient.badge + '</span>';
 
   // Tabs
-  var tabs = ['intel', 'recaps', 'sow', 'notes'];
-  var tabLabels = {intel: 'Intel & Status', recaps: 'Meeting Recaps', sow: 'SOW', notes: 'Notes'};
+  var tabs = ['intel', 'recaps', 'sow', 'scope', 'notes'];
+  var tabLabels = {intel: 'Intel & Status', recaps: 'Meeting Recaps', sow: 'SOW', scope: 'Scope Tracker', notes: 'Notes'};
   var tabBar = document.getElementById('tab-bar');
   tabBar.innerHTML = '';
   tabs.forEach(function(t) {
@@ -1825,7 +2027,7 @@ function renderClientDetail(clientId) {
 
 function updateTabBar() {
   var btns = document.getElementById('tab-bar').querySelectorAll('.tab-btn');
-  var tabs = ['intel', 'recaps', 'sow', 'notes'];
+  var tabs = ['intel', 'recaps', 'sow', 'scope', 'notes'];
   btns.forEach(function(btn, i) { btn.classList.toggle('active', tabs[i] === currentTab); });
 }
 
@@ -1834,6 +2036,7 @@ function renderTab() {
   if (currentTab === 'intel') renderIntelTab(area);
   else if (currentTab === 'recaps') renderRecapsTab(area);
   else if (currentTab === 'sow') renderSowTab(area);
+  else if (currentTab === 'scope') renderScopeTab(area);
   else if (currentTab === 'notes') renderNotesTab(area);
 }
 
@@ -2146,39 +2349,114 @@ function renderSowTab(area) {
 function renderBriefView() {
   var subtitle = document.getElementById('brief-subtitle');
   var content = document.getElementById('brief-content');
-  if (!dailyBrief || !dailyBrief.meetings || dailyBrief.meetings.length === 0) {
-    subtitle.textContent = 'No meetings data loaded yet.';
-    content.innerHTML = '<p style="color:#6B6B6B;font-size:0.85rem;font-style:italic;padding:20px 0">Brief will appear after the morning check runs.</p>';
+  var btnArea = document.getElementById('brief-btn-area');
+
+  // Check localStorage for today's brief first
+  var localBriefKey = 'brief-' + dateKey;
+  var localBrief = null;
+  try { localBrief = JSON.parse(localStorage.getItem(localBriefKey)); } catch(e) {}
+
+  var briefData = localBrief || (dailyBrief && dailyBrief.meetings && dailyBrief.meetings.length ? dailyBrief : null);
+
+  if (!briefData || !briefData.meetings || briefData.meetings.length === 0) {
+    subtitle.textContent = "Today's meetings & intel";
+    content.innerHTML = '<p style="color:#6B6B6B;font-size:0.85rem;font-style:italic;padding:20px 0;text-align:center">No brief generated yet.<br>Click "Generate Today\'s Brief" above to get started.</p>';
+    if (btnArea) btnArea.style.display = 'flex';
     return;
   }
-  subtitle.textContent = dailyBrief.date + (dailyBrief.generated ? ' · Generated ' + dailyBrief.generated : '');
+
+  subtitle.textContent = (briefData.date || '') + (briefData.generated ? ' \u00b7 Generated ' + briefData.generated : '');
+  var genBtn = document.getElementById('generate-brief-btn');
+  if (genBtn) genBtn.textContent = 'Regenerate Brief';
+
   var html = '';
-  dailyBrief.meetings.forEach(function(m) {
+  briefData.meetings.forEach(function(m) {
     var clientColor = m.client ? '#E8692A' : '#999';
     html += '<div class="status-card" style="margin-bottom:14px">';
-    html += '<div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px">';
+    html += '<div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px;flex-wrap:wrap">';
     html += '<span style="font-size:0.78rem;font-weight:700;color:#1C1C1C;background:#F0EDE9;padding:3px 8px;border-radius:12px">' + m.time + '</span>';
     if (m.duration) html += '<span style="font-size:0.72rem;color:#999">' + m.duration + '</span>';
     if (m.client) html += '<span style="font-size:0.72rem;font-weight:600;color:' + clientColor + '">' + m.client + '</span>';
     html += '</div>';
     html += '<div class="intel-label" style="margin-bottom:6px">' + m.title + '</div>';
     if (m.people && m.people.length > 0) {
-      html += '<p style="font-size:0.75rem;color:#6B6B6B;margin-bottom:6px">👥 ' + m.people.join(', ') + '</p>';
+      html += '<p style="font-size:0.75rem;color:#6B6B6B;margin-bottom:6px">\ud83d\udc65 ' + m.people.join(', ') + '</p>';
     }
     if (m.agenda) {
-      html += '<p style="font-size:0.75rem;color:#6B6B6B;margin-bottom:6px;font-style:italic">📋 ' + m.agenda + '</p>';
+      html += '<p style="font-size:0.75rem;color:#6B6B6B;margin-bottom:6px;font-style:italic">\ud83d\udccb ' + m.agenda + '</p>';
+    }
+    if (m.prep && m.prep.length > 0) {
+      html += '<div style="background:#FFF8F5;border-left:3px solid #E8692A;padding:8px 10px;border-radius:0 6px 6px 0;margin:6px 0">';
+      html += '<div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;color:#E8692A;letter-spacing:0.04em;margin-bottom:4px">Prep Notes</div>';
+      html += '<ul style="font-size:0.82rem;line-height:1.6;color:#444">';
+      m.prep.forEach(function(item) { html += '<li>' + item + '</li>'; });
+      html += '</ul></div>';
     }
     if (m.intel && m.intel.length > 0) {
       html += '<ul style="font-size:0.82rem;line-height:1.6;color:#444;margin-top:4px">';
       m.intel.forEach(function(item) { html += '<li>' + item + '</li>'; });
       html += '</ul>';
-    } else if (m.client === null) {
+    } else if (!m.client) {
       html += '<p style="font-size:0.78rem;color:#999;font-style:italic">Internal / community event</p>';
+    }
+    if (m.openItems && m.openItems.length > 0) {
+      html += '<div style="margin-top:8px"><div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;color:#6B6B6B;letter-spacing:0.04em;margin-bottom:3px">Open Items</div>';
+      html += '<ul style="font-size:0.78rem;color:#6B6B6B;line-height:1.5">';
+      m.openItems.forEach(function(item) { html += '<li>' + item + '</li>'; });
+      html += '</ul></div>';
     }
     html += '</div>';
   });
+
+  // Slack intel section
+  if (briefData.slackIntel && briefData.slackIntel.length > 0) {
+    html += '<div class="status-card" style="margin-bottom:14px"><div class="intel-label" style="margin-bottom:8px">SLACK INTEL</div>';
+    briefData.slackIntel.forEach(function(item) {
+      html += '<div style="margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid #F0EDE9">';
+      html += '<div style="font-size:0.7rem;font-weight:700;color:#E8692A;margin-bottom:2px">' + item.channel + '</div>';
+      html += '<p style="font-size:0.8rem;line-height:1.45;color:#444">' + item.summary + '</p></div>';
+    });
+    html += '</div>';
+  }
+
   content.innerHTML = html;
 }
+
+window.handleGenerateBrief = function() {
+  document.getElementById('brief-prompt-modal').classList.add('open');
+};
+
+window.copyBriefPrompt = function() {
+  var text = "generate today's brief";
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text);
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+  }
+  var btn = document.getElementById('copy-brief-prompt-btn');
+  if (btn) { btn.textContent = 'Copied!'; setTimeout(function() { btn.textContent = 'Copy Prompt'; }, 2000); }
+};
+
+window.toggleImportPanel = function() {
+  var panel = document.getElementById('brief-import-panel');
+  panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+};
+
+window.importBriefData = function() {
+  var raw = document.getElementById('brief-import-text').value.trim();
+  if (!raw) return;
+  try {
+    var data = JSON.parse(raw);
+    if (!data.meetings) throw new Error('missing meetings');
+    localStorage.setItem('brief-' + dateKey, raw);
+    document.getElementById('brief-import-text').value = '';
+    document.getElementById('brief-import-panel').style.display = 'none';
+    renderBriefView();
+  } catch(e) {
+    alert('Invalid format. Paste the full JSON object from Claude (must include a "meetings" array).');
+  }
+};
 
 function getBadgeClassForSow(status) {
   if (!status) return 'badge-active';
@@ -2240,6 +2518,88 @@ function renderNotesTab(area) {
     }, 2000);
   });
 }
+
+function renderScopeTab(area) {
+  var c = currentClient;
+  var cs = loadClientState();
+  var scopeAdditions = (cs[c.id] && cs[c.id].scopeAdditions) || [];
+  var html = '';
+
+  // SOW in-scope summary
+  if (c.sow && c.sow.services && c.sow.services.length) {
+    html += '<div class="status-card"><h4>In Scope (per SOW)</h4><ul style="font-size:0.82rem;line-height:1.6;color:#444;margin-top:6px">';
+    c.sow.services.forEach(function(s) { html += '<li>' + s + '</li>'; });
+    html += '</ul></div>';
+    if (c.sow.outOfScope && c.sow.outOfScope.length) {
+      html += '<div class="status-card"><h4>Explicitly Out of Scope</h4><ul style="font-size:0.82rem;line-height:1.6;color:#999;margin-top:6px">';
+      c.sow.outOfScope.forEach(function(s) { html += '<li>' + s + '</li>'; });
+      html += '</ul></div>';
+    }
+  } else {
+    html += '<div class="status-card"><p style="color:#999;font-size:0.82rem;font-style:italic">No SOW data on file. Log scope additions manually below.</p></div>';
+  }
+
+  // Scope additions
+  html += '<div class="status-card"><h4 style="margin-bottom:10px">Scope Additions <span style="font-size:0.7rem;font-weight:400;color:#999">— items beyond original SOW</span></h4>';
+  if (!scopeAdditions.length) {
+    html += '<p style="font-size:0.82rem;color:#999;font-style:italic;margin-bottom:10px">No additions logged yet.</p>';
+  } else {
+    scopeAdditions.forEach(function(item, idx) {
+      var flagClass = item.status === 'documented' ? 'documented' : (item.status === 'watch' ? 'watch' : 'needs-convo');
+      var flagLabel = item.status === 'documented' ? '\u2713 Documented' : (item.status === 'watch' ? '\u26a0 Watch' : '! Needs Conversation');
+      html += '<div class="scope-item">' +
+        '<div class="scope-label">Addition ' + (idx + 1) + (item.date ? ' \u00b7 ' + formatDateNice(item.date) : '') + '</div>' +
+        '<p style="font-size:0.82rem;line-height:1.45;margin:4px 0">' + escHtml(item.text) + '</p>' +
+        '<span class="scope-flag ' + flagClass + '">' + flagLabel + '</span>' +
+        ' <button class="intel-edit-btn" onclick="deleteScopeAddition(\'' + c.id + '\',' + idx + ')" style="color:#999;margin-left:6px">Remove</button>' +
+        '</div>';
+    });
+  }
+
+  html += '<button class="add-intel-btn" onclick="toggleScopeForm()" style="margin-top:4px">+ Log Scope Addition</button>';
+  html += '<div id="scope-form" style="display:none;margin-top:10px;background:#fff;border:1.5px solid #E4E0DB;border-radius:10px;padding:12px">' +
+    '<label class="field-label">What was added or requested?</label>' +
+    '<textarea id="scope-addition-text" style="width:100%;min-height:64px;font-family:inherit;font-size:0.82rem;border:1.5px solid #E4E0DB;border-radius:6px;padding:8px;resize:vertical;margin-top:3px" placeholder="Describe the out-of-scope item or request..."></textarea>' +
+    '<label class="field-label" style="margin-top:8px">Status</label>' +
+    '<select id="scope-addition-status" style="width:100%;font-family:inherit;font-size:0.82rem;border:1.5px solid #E4E0DB;border-radius:6px;padding:8px;margin-top:3px;background:#fff">' +
+    '<option value="needs-convo">Needs Conversation with Client</option>' +
+    '<option value="watch">Watch \u2014 Not Yet Documented</option>' +
+    '<option value="documented">Documented / Approved</option>' +
+    '</select>' +
+    '<div class="intel-form-actions" style="margin-top:8px">' +
+    '<button class="btn-sm btn-primary" onclick="saveScopeAddition(\'' + c.id + '\')">Save</button>' +
+    '<button class="btn-sm btn-ghost" onclick="toggleScopeForm()">Cancel</button>' +
+    '</div></div>';
+
+  html += '</div>';
+  area.innerHTML = html;
+}
+
+window.toggleScopeForm = function() {
+  var form = document.getElementById('scope-form');
+  if (form) form.style.display = form.style.display === 'none' ? 'block' : 'none';
+};
+
+window.saveScopeAddition = function(clientId) {
+  var text = document.getElementById('scope-addition-text').value.trim();
+  if (!text) return;
+  var status = document.getElementById('scope-addition-status').value;
+  var cs = loadClientState();
+  if (!cs[clientId]) cs[clientId] = {};
+  if (!cs[clientId].scopeAdditions) cs[clientId].scopeAdditions = [];
+  cs[clientId].scopeAdditions.push({text: text, status: status, date: dateKey});
+  saveClientState(cs);
+  renderTab();
+};
+
+window.deleteScopeAddition = function(clientId, idx) {
+  var cs = loadClientState();
+  if (cs[clientId] && cs[clientId].scopeAdditions) {
+    cs[clientId].scopeAdditions.splice(idx, 1);
+    saveClientState(cs);
+    renderTab();
+  }
+};
 
 function escHtml(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
 
