@@ -144,106 +144,6 @@
   }
   .win-today input:focus { outline: none; border-color: #E8692A; }
 
-  .must-dos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-  @media (max-width: 600px) { .must-dos { grid-template-columns: 1fr; } }
-  .must-do-card label {
-    display: block;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #E8692A;
-    margin-bottom: 2px;
-  }
-  .must-do-card textarea {
-    width: 100%;
-    min-height: 56px;
-    padding: 8px;
-    border: 1.5px solid #E4E0DB;
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 0.82rem;
-    background: #fff;
-    color: #1C1C1C;
-    resize: vertical;
-    transition: border-color 0.2s;
-  }
-  .must-do-card textarea:focus { outline: none; border-color: #E8692A; }
-
-  /* ── Weekly Habits (compact) ── */
-  .weekly-header { margin-bottom: 8px; }
-  .weekly-header h2 {
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #6B6B6B;
-  }
-  .habits-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 6px;
-    margin-bottom: 20px;
-  }
-  @media (max-width: 700px) { .habits-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 420px) { .habits-grid { grid-template-columns: 1fr; } }
-  .habit-card {
-    background: #fff;
-    border: 1.5px solid #E4E0DB;
-    border-radius: 8px;
-    padding: 8px;
-  }
-  .habit-number { font-size: 0.8rem; font-weight: 800; color: #E8692A; margin-bottom: 1px; }
-  .habit-title { font-weight: 600; font-size: 0.66rem; line-height: 1.25; margin-bottom: 2px; }
-  .habit-desc { font-size: 0.6rem; color: #6B6B6B; line-height: 1.3; }
-
-  /* ── Progress ── */
-  .progress-wrap { margin-bottom: 18px; text-align: center; }
-  .progress-text { font-size: 0.78rem; font-weight: 600; color: #6B6B6B; margin-bottom: 4px; }
-  .progress-text span { color: #E8692A; }
-  .progress-bar { width: 100%; height: 6px; background: #E4E0DB; border-radius: 3px; overflow: hidden; }
-  .progress-fill { height: 100%; width: 0%; background: #E8692A; border-radius: 3px; transition: width 0.4s ease; }
-
-  /* ── Sections ── */
-  .section { margin-bottom: 18px; }
-  .section-header {
-    display: flex; align-items: baseline; gap: 8px;
-    margin-bottom: 6px; padding-bottom: 4px; border-bottom: 2px solid #E4E0DB;
-  }
-  .section-title { font-size: 0.85rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
-  .section-time { font-size: 0.72rem; font-weight: 600; color: #6B6B6B; }
-  .section-desc { font-size: 0.72rem; color: #6B6B6B; font-style: italic; }
-
-  /* ── Checklist items ── */
-  .checklist-item {
-    display: flex; gap: 10px; padding: 6px 0;
-    border-bottom: 1px solid #EDEAE6; align-items: flex-start;
-  }
-  .checklist-item:last-child { border-bottom: none; }
-  .cb-wrapper { flex-shrink: 0; position: relative; width: 20px; height: 20px; margin-top: 1px; }
-  .cb-wrapper input[type="checkbox"] {
-    appearance: none; -webkit-appearance: none;
-    width: 20px; height: 20px; border: 2px solid #CDCAC5; border-radius: 5px;
-    cursor: pointer; transition: all 0.2s ease; background: #fff;
-  }
-  .cb-wrapper input[type="checkbox"]:checked { background: #E8692A; border-color: #E8692A; animation: pop 0.3s ease; }
-  .cb-wrapper input[type="checkbox"]:checked::after {
-    content: ''; position: absolute; top: 3px; left: 6px;
-    width: 5px; height: 9px; border: solid #fff; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); pointer-events: none;
-  }
-  @keyframes pop { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
-  .cb-content { flex: 1; }
-  .cb-label { font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; }
-  .cb-label.checked { text-decoration: line-through; color: #ACACAC; }
-  .cb-note { font-size: 0.73rem; color: #6B6B6B; font-style: italic; margin-top: 1px; line-height: 1.3; }
-
-  /* ── Footer ── */
-  .footer { text-align: center; padding: 14px 0; color: #6B6B6B; font-size: 0.76rem; font-style: italic; border-top: 1px solid #E4E0DB; }
 
   /* ── CLIENT LIST VIEW ── */
   .client-grid {
@@ -355,7 +255,8 @@
   }
   .recap-card .recap-title { font-size: 0.85rem; font-weight: 700; }
   .recap-card .recap-date { font-size: 0.72rem; color: #6B6B6B; font-weight: 500; }
-  .recap-card .recap-attendees { font-size: 0.68rem; color: #ACACAC; margin-bottom: 6px; }
+  .recap-card .recap-attendees { font-size: 0.68rem; color: #ACACAC; margin-bottom: 4px; }
+  .recap-card .recap-brief { font-size: 0.78rem; color: #6B6B6B; line-height: 1.4; margin-bottom: 6px; font-style: italic; }
   .recap-card .recap-body { font-size: 0.78rem; line-height: 1.45; color: #1C1C1C; }
   .recap-card .recap-body h3 { font-size: 0.8rem; font-weight: 700; margin: 8px 0 3px; color: #1C1C1C; }
   .recap-card .recap-body ul { margin-left: 16px; }
@@ -519,105 +420,36 @@
 
   <!-- Navigation -->
   <div class="top-nav">
-    <button class="nav-btn active" onclick="showView('playbook')">Daily Playbook</button>
-    <button class="nav-btn" onclick="showView('brief')">Daily Brief</button>
+    <button class="nav-btn active" onclick="showView('brief')">Daily Brief</button>
     <button class="nav-btn" onclick="showView('clients')">Clients</button>
   </div>
 
-  <!-- ====== PLAYBOOK VIEW ====== -->
-  <div class="view active" id="view-playbook">
+  <!-- ====== DAILY BRIEF VIEW ====== -->
+  <div class="view active" id="view-brief">
 
-    <!-- Daily Quote -->
+    <!-- Quote -->
     <div class="daily-quote">
       <div class="quote-text" id="quote-text"></div>
       <div class="quote-author" id="quote-author"></div>
     </div>
 
-    <!-- Header -->
-    <div class="header">
-      <h1>ANWAR'S DAILY PLAYBOOK</h1>
-      <div class="subtitle">Senior Manager, Client Experience &mdash; Geletka+</div>
-    </div>
+    <!-- Date + Win Today -->
     <div class="date" id="today-date"></div>
-
-    <!-- Win Today -->
     <div class="win-today">
-      <label class="field-label" for="win-input">Win today by:</label>
-      <input type="text" id="win-input" placeholder="What does winning look like today?">
+      <label class="field-label" for="win-input">win today by:</label>
+      <input type="text" id="win-input" placeholder="what does winning look like today?">
     </div>
 
-    <!-- Must-Dos -->
-    <div class="must-dos">
-      <div class="must-do-card"><label for="must1">Must-Do #1</label><textarea id="must1" placeholder="..."></textarea></div>
-      <div class="must-do-card"><label for="must2">Must-Do #2</label><textarea id="must2" placeholder="..."></textarea></div>
-      <div class="must-do-card"><label for="must3">Must-Do #3</label><textarea id="must3" placeholder="..."></textarea></div>
+    <!-- Brief section -->
+    <div class="header" style="margin-bottom:4px;margin-top:20px">
+      <h1 style="font-size:1.2rem">TODAY'S BRIEF</h1>
+      <div class="subtitle" id="brief-subtitle">what's on today</div>
     </div>
-
-    <!-- Weekly Habits -->
-    <div class="weekly-header"><h2>5 Weekly Habits</h2></div>
-    <div class="habits-grid">
-      <div class="habit-card"><div class="habit-number">1</div><div class="habit-title">Friday: 5-Sentence Status Email</div><div class="habit-desc">Every active client. What shipped, what's coming, what you need.</div></div>
-      <div class="habit-card"><div class="habit-number">2</div><div class="habit-title">Before Calls: One Curious Question</div><div class="habit-desc">About their business, not the project. Write it down.</div></div>
-      <div class="habit-card"><div class="habit-number">3</div><div class="habit-title">Before Meetings: Define the Outcome</div><div class="habit-desc">"By end of this call, client will..." State it. Call it at close.</div></div>
-      <div class="habit-card"><div class="habit-number">4</div><div class="habit-title">Within 2 Hrs: Post-Meeting Recap</div><div class="habit-desc">Decided / doing next (owner+date) / need from you. 5-8 lines.</div></div>
-      <div class="habit-card"><div class="habit-number">5</div><div class="habit-title">Monthly: Send Something Unexpected</div><div class="habit-desc">Article, competitor move, data point. No ask. Builds trust.</div></div>
-    </div>
-
-    <!-- Progress -->
-    <div class="progress-wrap">
-      <div class="progress-text"><span id="done-count">0</span> / <span id="total-count">0</span> done</div>
-      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-    </div>
-
-    <!-- PLAN -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-title">Plan</span>
-        <span class="section-time">10 min</span>
-        <span class="section-desc">&mdash; what absolutely has to happen today</span>
-      </div>
-      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="plan-1"></div><div class="cb-content"><div class="cb-label">Your 3 must-dos. Just 3.</div><div class="cb-note">If you knock these out, today is a win. One should almost always be client-facing. 3 min</div></div></div>
-      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="plan-2"></div><div class="cb-content"><div class="cb-label">One outcome per client call.</div><div class="cb-note">"By the end of this call, the client will&hellip;" Write it down. One sentence. 5 min</div></div></div>
-      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="plan-3"></div><div class="cb-content"><div class="cb-label">Quick scan of your client status doc.</div><div class="cb-note">30 seconds. Catch anything slipping before someone else does. 2 min</div></div></div>
-    </div>
-
-    <!-- CONNECT -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-title">Connect</span>
-        <span class="section-time">10 min</span>
-        <span class="section-desc">&mdash; the stuff that actually builds relationships</span>
-      </div>
-      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="connect-1"></div><div class="cb-content"><div class="cb-label">Client follow-ups from yesterday.</div><div class="cb-note">Recaps, promised deliverables, pending approvals. Out before 10am. They notice. 5 min</div></div></div>
-      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="connect-2"></div><div class="cb-content"><div class="cb-label">One unprompted note &mdash; no agenda.</div><div class="cb-note">One person, two sentences. Just checking in. Rotate across clients through the week. 5 min</div></div></div>
-    </div>
-
-    <!-- UNBLOCK -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-title">Unblock</span>
-        <span class="section-time">10 min</span>
-        <span class="section-desc">&mdash; don't let things die on the vine</span>
-      </div>
-      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="unblock-1"></div><div class="cb-content"><div class="cb-label">Workamajig deep check &mdash; every project.</div><div class="cb-note">Open each active project. Check due dates, deliverables, and review status. Flag anything past due or at risk. 7 min</div></div></div>
-      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="unblock-2"></div><div class="cb-content"><div class="cb-label">Unblock stuck tasks &mdash; reassign, nudge, or escalate.</div><div class="cb-note">Anything stuck in review or waiting on someone? Clear the path before standup. 3 min</div></div></div>
-      <div class="checklist-item"><div class="cb-wrapper"><input type="checkbox" data-id="unblock-3"></div><div class="cb-content"><div class="cb-label">Your curious question for a client today.</div><div class="cb-note">One question about their actual business, not the project. Write it now so you don't forget. 2 min</div></div></div>
-    </div>
-
-    <div class="footer">Reset. Repeat. You got this.</div>
-  </div>
-
-  <!-- ====== DAILY BRIEF VIEW ====== -->
-  <div class="view" id="view-brief">
-    <div class="header" style="margin-bottom:4px">
-      <h1>DAILY BRIEF</h1>
-      <div class="subtitle" id="brief-subtitle">Today's meetings &amp; intel</div>
-    </div>
-    <div style="margin-top:16px;display:flex;flex-direction:column;align-items:center;gap:8px" id="brief-btn-area">
+    <div style="margin-top:14px;display:flex;flex-direction:column;align-items:center;gap:8px" id="brief-btn-area">
       <button class="generate-brief-btn" id="generate-brief-btn" onclick="handleGenerateBrief()">Generate Today's Brief</button>
       <button class="generate-brief-btn secondary" onclick="toggleImportPanel()">Paste Brief Data</button>
       <div class="brief-import-panel" id="brief-import-panel" style="display:none">
-        <label class="field-label">Paste JSON output from Claude</label>
+        <label class="field-label">paste Claude's output here</label>
         <textarea id="brief-import-text" placeholder='{"date":"Thursday, April 16","meetings":[...]}'></textarea>
         <div class="intel-form-actions" style="margin-top:8px">
           <button class="btn-sm btn-primary" onclick="importBriefData()">Import</button>
@@ -632,9 +464,9 @@
   <div class="view" id="view-clients">
     <div class="header" style="margin-bottom:8px">
       <h1 style="font-size:1.3rem">CLIENTS</h1>
-      <div class="subtitle">Meeting recaps, intel, and notes &mdash; powered by Granola</div>
+      <div class="subtitle">everyone you're working with &mdash; recaps, intel, scope</div>
     </div>
-    <button class="add-client-btn" onclick="openNewClientModal()">+ Add New Client</button>
+    <button class="add-client-btn" onclick="openNewClientModal()">+ new client</button>
     <div class="client-grid" id="client-grid"></div>
   </div>
 
@@ -651,7 +483,7 @@
 <!-- ====== NEW CLIENT MODAL ====== -->
 <div class="modal-overlay" id="new-client-modal" onclick="if(event.target===this)closeNewClientModal()">
   <div class="modal-box">
-    <h3>Add New Client</h3>
+    <h3>new client</h3>
     <label class="field-label">Client Name *</label>
     <input type="text" id="nc-name" placeholder="e.g. Acme Corp">
     <label class="field-label">Status</label>
@@ -683,11 +515,11 @@
 <div class="modal-overlay" id="brief-prompt-modal" onclick="if(event.target===this)this.classList.remove('open')">
   <div class="modal-box" style="text-align:center;max-width:400px">
     <h3 style="margin-bottom:6px">Generate Today's Brief</h3>
-    <p style="font-size:0.82rem;color:#6B6B6B;margin-bottom:14px;line-height:1.5">In Claude Code, say:</p>
+    <p style="font-size:0.82rem;color:#6B6B6B;margin-bottom:14px;line-height:1.5">drop this in Claude Code:</p>
     <div style="background:#1C1C1C;border-radius:8px;padding:12px 16px;font-family:'Courier New',monospace;font-size:0.88rem;color:#E8692A;margin-bottom:14px;text-align:left">generate today's brief</div>
-    <button class="btn-sm btn-primary" id="copy-brief-prompt-btn" onclick="copyBriefPrompt()" style="margin-bottom:10px;width:100%">Copy Prompt</button>
-    <button class="btn-sm btn-ghost" onclick="document.getElementById('brief-prompt-modal').classList.remove('open')" style="width:100%">Close</button>
-    <p style="font-size:0.7rem;color:#999;margin-top:12px;line-height:1.5">Claude will pull Calendar, Granola, and Slack. When done, use "Paste Brief Data" to import the output.</p>
+    <button class="btn-sm btn-primary" id="copy-brief-prompt-btn" onclick="copyBriefPrompt()" style="margin-bottom:10px;width:100%">copy that</button>
+    <button class="btn-sm btn-ghost" onclick="document.getElementById('brief-prompt-modal').classList.remove('open')" style="width:100%">close</button>
+    <p style="font-size:0.7rem;color:#999;margin-top:12px;line-height:1.5">I'll pull your calendar, Granola, and Slack. Paste the output back in with "Paste Brief Data."</p>
   </div>
 </div>
 
@@ -1849,69 +1681,31 @@ function saveClientState(s) { localStorage.setItem(clientStorageKey, JSON.string
 var dayState = loadDayState();
 var clientState = loadClientState();
 
-// ── Playbook: text inputs ──
+// ── Win today (Brief view) ──
 var winInput = document.getElementById('win-input');
-var must1 = document.getElementById('must1');
-var must2 = document.getElementById('must2');
-var must3 = document.getElementById('must3');
 winInput.value = dayState.win || '';
-must1.value = dayState.must1 || '';
-must2.value = dayState.must2 || '';
-must3.value = dayState.must3 || '';
-function saveText() {
+winInput.addEventListener('input', function() {
   var s = loadDayState();
-  s.win = winInput.value; s.must1 = must1.value; s.must2 = must2.value; s.must3 = must3.value;
+  s.win = winInput.value;
   saveDayState(s);
-}
-[winInput, must1, must2, must3].forEach(function(el) { el.addEventListener('input', saveText); });
-
-// ── Playbook: checkboxes ──
-var checkboxes = document.querySelectorAll('input[type="checkbox"][data-id]');
-var totalCount = checkboxes.length;
-document.getElementById('total-count').textContent = totalCount;
-function updateProgress() {
-  var done = 0;
-  checkboxes.forEach(function(cb) { if (cb.checked) done++; });
-  document.getElementById('done-count').textContent = done;
-  document.getElementById('progress-fill').style.width = (totalCount ? (done / totalCount * 100) : 0) + '%';
-}
-checkboxes.forEach(function(cb) {
-  var id = cb.getAttribute('data-id');
-  if (dayState.checks && dayState.checks[id]) {
-    cb.checked = true;
-    cb.closest('.checklist-item').querySelector('.cb-label').classList.add('checked');
-  }
-  cb.addEventListener('change', function() {
-    var label = cb.closest('.checklist-item').querySelector('.cb-label');
-    label.classList.toggle('checked', cb.checked);
-    var s = loadDayState();
-    if (!s.checks) s.checks = {};
-    s.checks[id] = cb.checked;
-    saveDayState(s);
-    updateProgress();
-  });
 });
-updateProgress();
 
 // ── View management ──
 window.showView = function(view, clientId) {
   document.querySelectorAll('.view').forEach(function(v) { v.classList.remove('active'); });
   document.querySelectorAll('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
 
-  if (view === 'playbook') {
-    document.getElementById('view-playbook').classList.add('active');
-    document.querySelectorAll('.nav-btn')[0].classList.add('active');
-  } else if (view === 'brief') {
+  if (view === 'brief') {
     document.getElementById('view-brief').classList.add('active');
-    document.querySelectorAll('.nav-btn')[1].classList.add('active');
+    document.querySelectorAll('.nav-btn')[0].classList.add('active');
     renderBriefView();
   } else if (view === 'clients') {
     document.getElementById('view-clients').classList.add('active');
-    document.querySelectorAll('.nav-btn')[2].classList.add('active');
+    document.querySelectorAll('.nav-btn')[1].classList.add('active');
     renderClientGrid();
   } else if (view === 'client-detail') {
     document.getElementById('view-client-detail').classList.add('active');
-    document.querySelectorAll('.nav-btn')[2].classList.add('active');
+    document.querySelectorAll('.nav-btn')[1].classList.add('active');
     renderClientDetail(clientId);
   }
 };
@@ -2011,7 +1805,7 @@ function renderClientDetail(clientId) {
 
   // Tabs
   var tabs = ['intel', 'recaps', 'sow', 'scope', 'notes'];
-  var tabLabels = {intel: 'Intel & Status', recaps: 'Meeting Recaps', sow: 'SOW', scope: 'Scope Tracker', notes: 'Notes'};
+  var tabLabels = {intel: 'Intel', recaps: 'Recaps', sow: 'SOW', scope: 'Scope', notes: 'Notes'};
   var tabBar = document.getElementById('tab-bar');
   tabBar.innerHTML = '';
   tabs.forEach(function(t) {
@@ -2100,10 +1894,10 @@ function renderIntelTab(area) {
       '<button class="recap-toggle" onclick="deleteCustomIntel(\'' + c.id + '\',' + idx + ')" style="color:#999;font-size:0.68rem;margin-top:4px">Remove</button></div>';
   });
 
-  html += '<button class="add-intel-btn" onclick="toggleIntelForm()">+ Add Intel</button>';
+  html += '<button class="add-intel-btn" onclick="toggleIntelForm()">+ add intel</button>';
   html += '<div class="intel-form" id="intel-form" style="display:none">' +
     '<select id="intel-category"><option value="Key Insight">Key Insight</option><option value="Client Preference">Client Preference</option><option value="Business Intel">Business Intel</option><option value="Risk / Blocker">Risk / Blocker</option><option value="Opportunity">Opportunity</option></select>' +
-    '<textarea id="intel-text" placeholder="What did you learn?"></textarea>' +
+    '<textarea id="intel-text" placeholder="what\'d you pick up?"></textarea>' +
     '<div class="intel-form-actions"><button class="btn-sm btn-primary" onclick="saveIntel()">Save</button><button class="btn-sm btn-ghost" onclick="toggleIntelForm()">Cancel</button></div></div>';
 
   area.innerHTML = html;
@@ -2280,7 +2074,7 @@ window.resetContacts = function(clientId) {
 function renderSowTab(area) {
   var c = currentClient;
   if (!c.sow) {
-    area.innerHTML = '<p style="color:#6B6B6B;font-size:0.85rem;font-style:italic;padding:20px 0">No SOW data available for this client.</p>';
+    area.innerHTML = '<p style="color:#6B6B6B;font-size:0.85rem;font-style:italic;padding:20px 0">no SOW on file for this one.</p>';
     return;
   }
   var s = c.sow;
@@ -2291,8 +2085,9 @@ function renderSowTab(area) {
   html += '<div class="intel-label">' + s.title + '</div>';
   html += '<p style="margin-top:6px"><strong>Client:</strong> ' + s.client + '</p>';
   html += '<p><strong>Date:</strong> ' + s.date + '</p>';
-  if (s.fees) html += '<p style="margin-top:6px"><strong>Fees:</strong> ' + s.fees + '</p>';
-  html += '<p style="margin-top:6px"><span class="client-status-badge ' + getBadgeClassForSow(s.status) + '">' + s.status + '</span></p>';
+  var feeDisplay = s.fees || s.value || null;
+  if (feeDisplay) html += '<p style="margin-top:8px;padding-top:8px;border-top:1px solid #F0EDE9"><strong style="color:#E8692A">Fee:</strong> ' + feeDisplay + '</p>';
+  html += '<p style="margin-top:8px"><span class="client-status-badge ' + getBadgeClassForSow(s.status) + '">' + s.status + '</span></p>';
   html += '</div>';
 
   // Overview
@@ -2360,7 +2155,7 @@ function renderBriefView() {
 
   if (!briefData || !briefData.meetings || briefData.meetings.length === 0) {
     subtitle.textContent = "Today's meetings & intel";
-    content.innerHTML = '<p style="color:#6B6B6B;font-size:0.85rem;font-style:italic;padding:20px 0;text-align:center">No brief generated yet.<br>Click "Generate Today\'s Brief" above to get started.</p>';
+    content.innerHTML = '<p style="color:#6B6B6B;font-size:0.85rem;font-style:italic;padding:20px 0;text-align:center">nothing here yet &mdash; hit Generate Today\'s Brief to kick it off.</p>';
     if (btnArea) btnArea.style.display = 'flex';
     return;
   }
@@ -2454,7 +2249,7 @@ window.importBriefData = function() {
     document.getElementById('brief-import-panel').style.display = 'none';
     renderBriefView();
   } catch(e) {
-    alert('Invalid format. Paste the full JSON object from Claude (must include a "meetings" array).');
+    alert('hmm, that doesn\'t look right. paste the full JSON from Claude — it needs a "meetings" array.');
   }
 };
 
@@ -2467,20 +2262,28 @@ function getBadgeClassForSow(status) {
   return 'badge-active';
 }
 
+function stripAndSummarize(html) {
+  var text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  if (text.length <= 130) return text;
+  var cut = text.substring(0, 130);
+  var lastSpace = cut.lastIndexOf(' ');
+  return (lastSpace > 70 ? cut.substring(0, lastSpace) : cut) + '\u2026';
+}
+
 function renderRecapsTab(area) {
   var c = currentClient;
   if (!c.recaps.length) {
-    area.innerHTML = '<p style="color:#6B6B6B;font-size:0.85rem;font-style:italic;padding:20px 0">No meeting recaps yet. Recaps are pulled from Granola.</p>';
+    area.innerHTML = '<p style="color:#6B6B6B;font-size:0.85rem;font-style:italic;padding:20px 0">no recaps yet &mdash; they\'ll pull from Granola once you start logging meetings.</p>';
     return;
   }
   var html = '';
   c.recaps.forEach(function(r, i) {
-    var expanded = false;
     html += '<div class="recap-card">' +
       '<div class="recap-header"><span class="recap-title">' + r.title + '</span><span class="recap-date">' + r.date + '</span></div>' +
       '<div class="recap-attendees">' + r.attendees + '</div>' +
+      '<div class="recap-brief">' + stripAndSummarize(r.summary) + '</div>' +
       '<div class="recap-body" id="recap-body-' + i + '" style="display:none">' + r.summary + '</div>' +
-      '<button class="recap-toggle" id="recap-toggle-' + i + '" onclick="toggleRecap(' + i + ')">Show details</button>' +
+      '<button class="recap-toggle" id="recap-toggle-' + i + '" onclick="toggleRecap(' + i + ')">show more</button>' +
       '</div>';
   });
   area.innerHTML = html;
@@ -2502,8 +2305,8 @@ function renderNotesTab(area) {
   var c = currentClient;
   var cs = loadClientState();
   var notes = (cs[c.id] && cs[c.id].notes) || '';
-  area.innerHTML = '<label class="field-label">Notes for ' + c.name + '</label>' +
-    '<textarea class="notes-area" id="client-notes" placeholder="Running notes, observations, things to remember...">' + escHtml(notes) + '</textarea>' +
+  area.innerHTML = '<label class="field-label">notes for ' + c.name + '</label>' +
+    '<textarea class="notes-area" id="client-notes" placeholder="whatever you want to remember...">' + escHtml(notes) + '</textarea>' +
     '<div class="notes-saved" id="notes-saved"></div>';
   document.getElementById('client-notes').addEventListener('input', function() {
     var cs2 = loadClientState();
@@ -2536,13 +2339,13 @@ function renderScopeTab(area) {
       html += '</ul></div>';
     }
   } else {
-    html += '<div class="status-card"><p style="color:#999;font-size:0.82rem;font-style:italic">No SOW data on file. Log scope additions manually below.</p></div>';
+    html += '<div class="status-card"><p style="color:#999;font-size:0.82rem;font-style:italic">no SOW on file &mdash; log additions manually below.</p></div>';
   }
 
   // Scope additions
   html += '<div class="status-card"><h4 style="margin-bottom:10px">Scope Additions <span style="font-size:0.7rem;font-weight:400;color:#999">— items beyond original SOW</span></h4>';
   if (!scopeAdditions.length) {
-    html += '<p style="font-size:0.82rem;color:#999;font-style:italic;margin-bottom:10px">No additions logged yet.</p>';
+    html += '<p style="font-size:0.82rem;color:#999;font-style:italic;margin-bottom:10px">nothing added yet.</p>';
   } else {
     scopeAdditions.forEach(function(item, idx) {
       var flagClass = item.status === 'documented' ? 'documented' : (item.status === 'watch' ? 'watch' : 'needs-convo');
@@ -2558,13 +2361,13 @@ function renderScopeTab(area) {
 
   html += '<button class="add-intel-btn" onclick="toggleScopeForm()" style="margin-top:4px">+ Log Scope Addition</button>';
   html += '<div id="scope-form" style="display:none;margin-top:10px;background:#fff;border:1.5px solid #E4E0DB;border-radius:10px;padding:12px">' +
-    '<label class="field-label">What was added or requested?</label>' +
-    '<textarea id="scope-addition-text" style="width:100%;min-height:64px;font-family:inherit;font-size:0.82rem;border:1.5px solid #E4E0DB;border-radius:6px;padding:8px;resize:vertical;margin-top:3px" placeholder="Describe the out-of-scope item or request..."></textarea>' +
-    '<label class="field-label" style="margin-top:8px">Status</label>' +
+    '<label class="field-label">what got added?</label>' +
+    '<textarea id="scope-addition-text" style="width:100%;min-height:64px;font-family:inherit;font-size:0.82rem;border:1.5px solid #E4E0DB;border-radius:6px;padding:8px;resize:vertical;margin-top:3px" placeholder="what\'s the out-of-scope item..."></textarea>' +
+    '<label class="field-label" style="margin-top:8px">where does it stand?</label>' +
     '<select id="scope-addition-status" style="width:100%;font-family:inherit;font-size:0.82rem;border:1.5px solid #E4E0DB;border-radius:6px;padding:8px;margin-top:3px;background:#fff">' +
-    '<option value="needs-convo">Needs Conversation with Client</option>' +
-    '<option value="watch">Watch \u2014 Not Yet Documented</option>' +
-    '<option value="documented">Documented / Approved</option>' +
+    '<option value="needs-convo">needs a conversation</option>' +
+    '<option value="watch">keep an eye on it</option>' +
+    '<option value="documented">good to go \u2014 documented</option>' +
     '</select>' +
     '<div class="intel-form-actions" style="margin-top:8px">' +
     '<button class="btn-sm btn-primary" onclick="saveScopeAddition(\'' + c.id + '\')">Save</button>' +
