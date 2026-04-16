@@ -447,15 +447,7 @@
     </div>
     <div style="margin-top:14px;display:flex;flex-direction:column;align-items:center;gap:8px" id="brief-btn-area">
       <button class="generate-brief-btn" id="generate-brief-btn" onclick="handleGenerateBrief()">Generate Today's Brief</button>
-      <button class="generate-brief-btn secondary" onclick="toggleImportPanel()">Paste Brief Data</button>
-      <div class="brief-import-panel" id="brief-import-panel" style="display:none">
-        <label class="field-label">paste Claude's output here</label>
-        <textarea id="brief-import-text" placeholder='{"date":"Thursday, April 16","meetings":[...]}'></textarea>
-        <div class="intel-form-actions" style="margin-top:8px">
-          <button class="btn-sm btn-primary" onclick="importBriefData()">Import</button>
-          <button class="btn-sm btn-ghost" onclick="toggleImportPanel()">Cancel</button>
-        </div>
-      </div>
+      <div id="brief-copy-toast" style="display:none;font-size:0.78rem;color:#6B6B6B;text-align:center;line-height:1.5">prompt copied &mdash; paste in Claude Code, then hit <strong>&#8984;R</strong> to reload</div>
     </div>
     <div id="brief-content" style="margin-top:16px"></div>
   </div>
@@ -511,17 +503,6 @@
   </div>
 </div>
 
-<!-- ====== BRIEF PROMPT MODAL ====== -->
-<div class="modal-overlay" id="brief-prompt-modal" onclick="if(event.target===this)this.classList.remove('open')">
-  <div class="modal-box" style="text-align:center;max-width:400px">
-    <h3 style="margin-bottom:6px">Generate Today's Brief</h3>
-    <p style="font-size:0.82rem;color:#6B6B6B;margin-bottom:14px;line-height:1.5">drop this in Claude Code:</p>
-    <div style="background:#1C1C1C;border-radius:8px;padding:12px 16px;font-family:'Courier New',monospace;font-size:0.88rem;color:#E8692A;margin-bottom:14px;text-align:left">generate today's brief</div>
-    <button class="btn-sm btn-primary" id="copy-brief-prompt-btn" onclick="copyBriefPrompt()" style="margin-bottom:10px;width:100%">copy that</button>
-    <button class="btn-sm btn-ghost" onclick="document.getElementById('brief-prompt-modal').classList.remove('open')" style="width:100%">close</button>
-    <p style="font-size:0.7rem;color:#999;margin-top:12px;line-height:1.5">I'll pull your calendar, Granola, and Slack. Paste the output back in with "Paste Brief Data."</p>
-  </div>
-</div>
 
 <script>
 (function() {
@@ -2146,12 +2127,7 @@ function renderBriefView() {
   var content = document.getElementById('brief-content');
   var btnArea = document.getElementById('brief-btn-area');
 
-  // Check localStorage for today's brief first
-  var localBriefKey = 'brief-' + dateKey;
-  var localBrief = null;
-  try { localBrief = JSON.parse(localStorage.getItem(localBriefKey)); } catch(e) {}
-
-  var briefData = localBrief || (dailyBrief && dailyBrief.meetings && dailyBrief.meetings.length ? dailyBrief : null);
+  var briefData = (dailyBrief && dailyBrief.meetings && dailyBrief.meetings.length) ? dailyBrief : null;
 
   if (!briefData || !briefData.meetings || briefData.meetings.length === 0) {
     subtitle.textContent = "Today's meetings & intel";
@@ -2218,39 +2194,17 @@ function renderBriefView() {
 }
 
 window.handleGenerateBrief = function() {
-  document.getElementById('brief-prompt-modal').classList.add('open');
-};
-
-window.copyBriefPrompt = function() {
   var text = "generate today's brief";
+  var btn = document.getElementById('generate-brief-btn');
+  var toast = document.getElementById('brief-copy-toast');
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text);
   } else {
     var ta = document.createElement('textarea');
     ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
   }
-  var btn = document.getElementById('copy-brief-prompt-btn');
-  if (btn) { btn.textContent = 'Copied!'; setTimeout(function() { btn.textContent = 'Copy Prompt'; }, 2000); }
-};
-
-window.toggleImportPanel = function() {
-  var panel = document.getElementById('brief-import-panel');
-  panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
-};
-
-window.importBriefData = function() {
-  var raw = document.getElementById('brief-import-text').value.trim();
-  if (!raw) return;
-  try {
-    var data = JSON.parse(raw);
-    if (!data.meetings) throw new Error('missing meetings');
-    localStorage.setItem('brief-' + dateKey, raw);
-    document.getElementById('brief-import-text').value = '';
-    document.getElementById('brief-import-panel').style.display = 'none';
-    renderBriefView();
-  } catch(e) {
-    alert('hmm, that doesn\'t look right. paste the full JSON from Claude — it needs a "meetings" array.');
-  }
+  if (btn) { btn.textContent = 'Copied!'; setTimeout(function() { btn.textContent = 'Generate Today\'s Brief'; }, 3000); }
+  if (toast) { toast.style.display = 'block'; setTimeout(function() { toast.style.display = 'none'; }, 6000); }
 };
 
 function getBadgeClassForSow(status) {
